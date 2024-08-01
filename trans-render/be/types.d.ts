@@ -11,9 +11,8 @@ export type stringArrayOrTree = Array<string> | [string, Array<string>];
 //     leaf: string,
 // } 
 
-type CSSQuery = string;
 
-type delimiter = '-' | ':' | '--';
+type prefixDelimiter = '-' | ':' | '--';
 
 /**
  * Abbrev. for EnhancementMountConfig
@@ -31,14 +30,14 @@ export interface EnhancementMountConfig<TBranches = any, TProps = any>{
     enhancedElementMatches?: string,
     enhPropKey: string,
     hasRootIn?: Array<RootCnfg>,
-    preBaseDelimiter?: delimiter,
+    preBaseDelimiter?: prefixDelimiter,
     base?: string,
-    preBranchDelimiter?: delimiter,
+    preBranchDelimiter?: prefixDelimiter,
     branches?: Array<string>,
     //TODO
     watchedBranches?: Array<string>,
     //TODO
-    preLeafDelimiter?: delimiter,
+    preLeafDelimiter?: prefixDelimiter,
     //TODO
     leaves?: Partial<{[key in keyof TBranches & string]: stringArray}>,
     //TODO

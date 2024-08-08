@@ -1,4 +1,5 @@
 import { Scope } from '../lib/types'
+import { CSSQuery } from '../types';
 
 export type DirectionalScopeSigils = 
     /**
@@ -18,6 +19,10 @@ export type DirectionalScopeSigils =
      * self
      */
     |'.'
+    /**
+     * modulo
+     */
+    |'%'
     ;
 
 export type AttrSigils =
@@ -37,6 +42,9 @@ export type Sigils = AttrSigils | ElementSigils;
 export interface Specifier {
     /** Directional Scope Sigil */
     dss?: DirectionalScopeSigils,
+    /**
+     * recursive
+     */
     rec?: boolean,
     /**
      * root node fallback
@@ -86,7 +94,11 @@ export interface Specifier {
         | 'RegExp'
         | 'regexp' 
         | 'URLPattern'
-        | 'urlpattern' 
+        | 'urlpattern'
+    ;
+    
+    isModulo?: boolean;
+    modulo: 'aria-rowindex' | 'aria-colindex' | 'aria-rowindextext';
 }
 
 export type InferredPropName = string;

@@ -98,8 +98,10 @@ export interface Specifier {
     ;
     
     isModulo?: boolean;
-    modulo?: 'aria-rowindex' | 'aria-colindex' | 'aria-rowindextext';
+    modulo?: Modulo;
 }
+
+export type Modulo = 'aria-rowindex' | 'aria-colindex' | 'aria-rowindextext'
 
 export type InferredPropName = string;
 

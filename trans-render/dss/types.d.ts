@@ -120,6 +120,12 @@ export type CSSSelector = string;
  */
 export type MarkerString = string;
 
+export interface GetPHOptions{
+    evtName?: string,
+    isRoundAboutReady?: boolean;
+    prop?: string,
+}
+
 /**
  * Prop Host Interface
  */
@@ -131,4 +137,5 @@ export interface PHI<TProp = any> extends EventListenerObject{
     syncVal(el: Element);
     disconnect();
     toString(nv: TProp): string;
+    readonly outEvtName: string;
 }

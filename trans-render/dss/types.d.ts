@@ -119,3 +119,16 @@ export type CSSSelector = string;
  * inferrered prop name will be camel cased based on this.
  */
 export type MarkerString = string;
+
+/**
+ * Prop Host Interface
+ */
+export interface PHI<TProp = any> extends EventListenerObject{
+    readonly propagator: EventTarget;
+    async getValue(el: Element): Promise<TProp | undefined>;
+    async setValue(el: Element, val: TProp);
+    async hydrate(el: Element);
+    syncVal(el: Element);
+    disconnect();
+    toString(nv: TProp): string;
+}

@@ -129,12 +129,12 @@ export interface GetPHOptions{
 /**
  * Prop Host Interface
  */
-export interface PHI<TProp = any> extends EventListenerObject{
+export interface PHI<TProp = any, TElement = Element> extends EventListenerObject{
     readonly propagator: EventTarget;
-    async getValue(el: Element): Promise<TProp | undefined>;
-    async setValue(el: Element, val: TProp);
-    async hydrate(el: Element);
-    syncVal(el: Element);
+    async getValue(el: TElement): Promise<TProp | undefined>;
+    async setValue(el: TElement, val: TProp);
+    async hydrate(el: TElement);
+    syncVal(el: TElement);
     disconnect();
     toString(nv: TProp): string;
     readonly outEvtName: string;

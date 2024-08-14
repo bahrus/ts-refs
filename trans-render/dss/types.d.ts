@@ -121,9 +121,11 @@ export type CSSSelector = string;
 export type MarkerString = string;
 
 export interface GetPHOptions{
+    //name of event to listen for for when the prop being monitored for changes
     evtName?: string,
     isRoundAboutReady?: boolean;
     prop?: string,
+    sota?: string,
 }
 
 /**

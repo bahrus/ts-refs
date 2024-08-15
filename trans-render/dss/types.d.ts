@@ -129,9 +129,9 @@ export interface GetPHOptions{
 }
 
 /**
- * Prop Host Interface
+ * Partner In Prop
  */
-export interface PHI<TProp = any, TElement = Element> extends EventListenerObject{
+export interface PIP<TProp = any, TElement = Element> extends EventListenerObject{
     readonly propagator: EventTarget;
     async getValue(el: TElement): Promise<TProp | undefined>;
     async setValue(el: TElement, val: TProp);

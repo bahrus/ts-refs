@@ -42,7 +42,7 @@ export type FalseStringValue = StringWithAutocompleteOptions<
 export interface SetOptions<TProp = any>{
     valueProp?: ValueProp;
     valueType?: ValueType
-    displayProps: ZeroOrMore<DisplayProp>;
+    displayProps?: DisplayProp;
     valToDisplay?: (v: TProp) => string;
     trueText?: TrueText;
     falseText?: FalseText;

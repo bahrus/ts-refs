@@ -501,3 +501,10 @@ export interface IObject$tring{
 }
 
 export type ZeroOrMore<T> = T | Array<T> | undefined;
+
+/**
+ * https://x.com/mattpocockuk/status/1821926395380986219
+ */
+export type StringWithAutocompleteOptions<TOptions> = 
+    | (string & {})
+    | TOptions;

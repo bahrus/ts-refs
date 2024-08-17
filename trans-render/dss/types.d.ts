@@ -119,3 +119,31 @@ export type CSSSelector = string;
  * inferrered prop name will be camel cased based on this.
  */
 export type MarkerString = string;
+
+/**
+ * PIP stands for Partner in Prop (for now) -- supports bi-directional data flow to property
+ * IP stands for In Prop (for now) -- Data only Flow only goes in
+ * OP s
+ */
+
+export interface GetPIPOptions{
+    //name of event to listen for for when the prop being monitored for changes
+    evtName?: string,
+    isRoundAboutReady?: boolean;
+    prop?: string,
+    sota?: string,
+}
+
+/**
+ * Partner In Prop
+ */
+export interface PIP<TProp = any, TElement = Element> extends EventListenerObject{
+    readonly propagator: EventTarget;
+    async getValue(el: TElement): Promise<TProp | undefined>;
+    async setValue(el: TElement, val: TProp);
+    async hydrate(el: TElement);
+    syncVal(el: TElement);
+    disconnect();
+    toString(nv: TProp): string;
+    readonly outEvtName: string;
+}

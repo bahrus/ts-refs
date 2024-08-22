@@ -58,7 +58,10 @@ export interface SetOptions<TProp = any> extends ASMROptions<TProp>{
 }
 
 export interface AbsOptions<TProp = any> extends ASMROptions<TProp> {
-
+    /**
+     * is source of truth attribute
+     */
+    isSOTA: boolean;
 }
 
 // export interface Setter<TProp = any> {

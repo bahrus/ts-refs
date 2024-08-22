@@ -59,9 +59,9 @@ export interface SetOptions<TProp = any> extends ASMROptions<TProp>{
 
 export interface AbsOptions<TProp = any> extends ASMROptions<TProp> {
     /**
-     * is source of truth attribute
+     * source of truth attribute
      */
-    isSOTA: boolean;
+    sota?: string;
 }
 
 // export interface Setter<TProp = any> {
@@ -70,6 +70,7 @@ export interface AbsOptions<TProp = any> extends ASMROptions<TProp> {
 
 export interface SharingObject<TProp = any>{
     setValue(el: Element, val: TProp);
+    pureValue: TProp;
 }
 
 export interface AbsorbingObject<TProp = any> extends EventTarget{

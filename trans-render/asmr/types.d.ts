@@ -50,10 +50,15 @@ export interface SetOptions<TProp = any>{
     falseValue?: FalseStringValue;
 }
 
-export interface Setter<TProp = any> {
-    setValue(nv: TProp);
-}
+// export interface Setter<TProp = any> {
+//     setValue(nv: TProp);
+// }
 
 export interface SharingObject<TProp = any>{
     setValue(el: Element, val: TProp);
+}
+
+export interface AbsorbingObject<TProp = any> extends EventTarget{
+    getValue(el: Element): Promise<TProp>;
+
 }

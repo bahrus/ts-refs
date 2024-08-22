@@ -39,15 +39,22 @@ export type FalseStringValue = StringWithAutocompleteOptions<
     | 'https://schema.org/False'
 >;
 
-export interface SetOptions<TProp = any>{
+export interface ASMROptions<TProp = any>{
     valueProp?: ValueProp;
     valueType?: ValueType
     displayProp?: DisplayProp;
-    valToDisplay?: (v: TProp) => string;
     trueText?: TrueText;
     falseText?: FalseText;
     trueValue?: TrueStringValue;
     falseValue?: FalseStringValue;
+}
+
+export interface SetOptions<TProp = any> extends ASMROptions<TProp>{
+    valToDisplay?: (v: TProp) => string;
+}
+
+export interface AbsOptions<TProp = any> extends ASMROptions<TProp> {
+
 }
 
 // export interface Setter<TProp = any> {

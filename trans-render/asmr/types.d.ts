@@ -47,10 +47,7 @@ export interface ASMROptions<TProp = any>{
     falseText?: FalseText;
     trueValue?: TrueStringValue;
     falseValue?: FalseStringValue;
-    /**
-     * Mind Reading ID
-     */
-    mrID?: string;
+
 }
 
 export interface SetOptions<TProp = any> extends ASMROptions<TProp>{

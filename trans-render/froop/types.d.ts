@@ -412,6 +412,12 @@ export interface RoundaboutReady{
     readonly propagator : EventTarget | undefined;
 
     /**
+     * 
+     * https://github.com/whatwg/dom/issues/1296
+     */
+    readonly disconnectedSignal: AbortSignal
+
+    /**
      * During this time, queues/buses continue to perform "bookkeeping"
      * but doesn't process the queue until sleep property becomes falsy.
      * If truthy, can call await awake() before processing should resume

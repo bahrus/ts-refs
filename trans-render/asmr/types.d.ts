@@ -59,6 +59,15 @@ export interface AbsOptions<TProp = any> extends ASMROptions<TProp> {
      * source of truth attribute
      */
     sota?: string;
+
+    /**
+     * Is Roundabout ready
+     */
+    isRA?: boolean;
+
+    propToAbsorb?: ValueProp;
+
+    propToAbsorbValueType?: ValueType;
 }
 
 // export interface Setter<TProp = any> {

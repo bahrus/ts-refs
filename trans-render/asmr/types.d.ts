@@ -41,7 +41,7 @@ export type FalseStringValue = StringWithAutocompleteOptions<
 
 export interface ASMROptions<TProp = any>{
     valueProp?: ValueProp;
-    valueType?: ValueType
+    valueType?: ValueType;
     displayProp?: DisplayProp;
     trueText?: TrueText;
     falseText?: FalseText;
@@ -54,7 +54,7 @@ export interface SetOptions<TProp = any> extends ASMROptions<TProp>{
     valToDisplay?: (v: TProp) => string;
 }
 
-export interface AbsOptions<TProp = any> extends ASMROptions<TProp> {
+export interface AbsOptions<TProp = any> {
     /**
      * source of truth attribute
      */

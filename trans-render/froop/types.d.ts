@@ -427,7 +427,7 @@ export interface RoundaboutReady{
 
     async awake(): void;
 
-    nudge();
+    nudge(): void;
 }
 
 

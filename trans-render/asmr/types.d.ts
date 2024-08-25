@@ -81,8 +81,12 @@ export interface AbsOptions<TProp = any> {
     /**
      * Is Roundabout ready
      */
-    isRA?: boolean;
+    isRAR?: boolean;
 
+    /**
+     * Is Roundabout Emulating
+     */
+    isRAE?: boolean;
 
     /**
      * Is User Editable

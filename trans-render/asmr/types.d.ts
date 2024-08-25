@@ -6,6 +6,10 @@ export type ValueProp = StringWithAutocompleteOptions<
     | 'href'
     | 'ariaValueNow'
     | 'ariaChecked'
+    | 'valueAsNumber'
+    | 'valueAsDate'
+    | 'textContent'
+    | 'innerHTML'
 >
 
 export type DisplayProp = StringWithAutocompleteOptions<
@@ -39,6 +43,20 @@ export type FalseStringValue = StringWithAutocompleteOptions<
     | 'https://schema.org/False'
 >;
 
+export type StdEventNames = StringWithAutocompleteOptions<
+    | 'input'
+    | 'change'
+    | 'click'
+    | 'slotchange'
+>;
+
+export type BuiltInEditables = StringWithAutocompleteOptions<
+    | 'input'
+    | 'select'
+    | 'textarea'
+    
+>;
+
 export interface ASMROptions<TProp = any>{
     valueProp?: ValueProp;
     valueType?: ValueType;
@@ -64,6 +82,17 @@ export interface AbsOptions<TProp = any> {
      * Is Roundabout ready
      */
     isRA?: boolean;
+
+
+    /**
+     * Is User Editable
+     */
+    isUE?: boolean;
+
+    /**
+     * User Edit Event Name
+     */
+    UEEN?: StdEventNames;
 
     propToAbsorb?: ValueProp;
 

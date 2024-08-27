@@ -79,6 +79,12 @@ export interface AbsOptions<TProp = any> {
     sota?: string;
 
     /**
+     * name of property corresponding to source of truth attribute
+     * if different from source of truth attribute
+     */
+    sotaProp?: string;
+
+    /**
      * Is Roundabout ready
      */
     isRAR?: boolean;

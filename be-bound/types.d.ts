@@ -1,10 +1,8 @@
-import { ActionOnEventConfigs } from "trans-render/froop/types";
-import {IBE} from 'be-enhanced/types';
-import {ElTypes, SignalRefType, SignalContainer} from 'be-linked/types';
+import {IEnhancement, BEAllProps} from '../trans-render/be/types';
 import { Specifier } from "../trans-render/dss/types";
 import {AbsorbingObject, SharingObject} from '../trans-render/asmr/types';
 
-export interface EndUserProps extends IBE{
+export interface EndUserProps extends IEnhancement{
     With?: Array<WithStatement>,
     Between?: Array<BetweenStatement>,
     with?: Array<WithStatement>,
@@ -48,12 +46,11 @@ export type PAP = Partial<AP>;
 
 export type ProPAP = Promise<PAP>;
 
-export type POA = [PAP | undefined, ActionOnEventConfigs<PAP, Actions>];
 
 export interface Actions{
     noAttrs(self: this): ProPAP;
     getBindings(self: this): ProPAP;
-    hydrate(self: this): ProPAP;
+    hydrate(self: AP & BEAllProps): ProPAP;
     onRawStatements(self: this): void;
 }
 

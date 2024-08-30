@@ -16,9 +16,9 @@ export interface AllProps extends EndUserProps{
     // value: any;
     // isParsed: boolean;
     // attrExpr?: string | null;
-    // scriptEl?: HTMLScriptElement;
-    // defaultEventType?: 'input' | 'change',
-    // forArgs?: string[],
+    scriptEl?: HTMLScriptElement;
+    defaultEventType?: 'input' | 'change',
+    forArgs?: string[],
     remoteSpecifiers?: Array<Specifier>,
 }
 

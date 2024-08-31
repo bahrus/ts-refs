@@ -102,7 +102,7 @@ export interface AbsOptions<TProp = any> {
     /**
      * User Edit Event Name
      */
-    UEEN?: StdEventNames;
+    evt?: StdEventNames;
 
     propToAbsorb?: ValueProp;
 

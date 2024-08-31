@@ -10,8 +10,8 @@ export interface EndUserProps extends IEnhancement{
 }
 
 export interface AllProps extends EndUserProps{
-    bindingRules?: Array<BindingRule>,
-    bindings?: Array<Binding>,
+    bindingRules: Array<BindingRule>,
+    bindings: Array<Binding>,
     //partialBindingRules?: Array<BindingRule>,
     isParsed?: boolean,
     //parsedWith?: boolean,
@@ -37,7 +37,7 @@ export interface Binding {
     localShareObj: SharingObject;
     remoteAbsObj: AbsorbingObject;
     remoteShareObj: SharingObject;
-    remoteRef: WeakRef<Element>;
+    //remoteRef: WeakRef<Element>;
 }
 
 export type AP = AllProps;
@@ -46,12 +46,14 @@ export type PAP = Partial<AP>;
 
 export type ProPAP = Promise<PAP>;
 
+export type BAP = AP & BEAllProps;
+
 
 export interface Actions{
-    noAttrs(self: this): ProPAP;
-    getBindings(self: this): ProPAP;
-    hydrate(self: AP & BEAllProps): ProPAP;
-    onRawStatements(self: this): void;
+    noAttrs(self: BAP): ProPAP;
+    getBindings(self: BAP): ProPAP;
+    hydrate(self: BAP): ProPAP;
+    onRawStatements(self: BAP): void;
 }
 
 export type WithStatement = string;

@@ -1,14 +1,16 @@
 import {BEAllProps, IEnhancement} from '../trans-render/be/types';
 import {Target, Scope, ProxyPropChangeInfo} from '../trans-render/lib/types';
 import { Specifier } from '../trans-render/dss/types';
+import {AbsorbingObject} from '../trans-render/asmr/types';
 
-export interface EndUserProps extends IEnhancement<HTMLOutputElement | HTMLMetaElement>{
+export interface EndUserProps extends IEnhancement<HTMLElement>{
     forAttr?: string,
     //onInput?: string,
     //onChange?: string,
     //onLoad?: string,
     //assignTo?: Array<Specifier>,
     nameOfCalculator?: string,
+    
 }
 
 export interface AllProps extends EndUserProps{
@@ -19,10 +21,14 @@ export interface AllProps extends EndUserProps{
     scriptEl?: HTMLScriptElement;
     defaultEventType?: 'input' | 'change' | 'load',
     forArgs: string[],
-    remoteSpecifiers?: Array<Specifier>,
+    remoteSpecifiers: Array<Specifier>,
     isAttached?: boolean,
     isOutputEl?: boolean,
-}
+    enhElLocalName: string,
+    categorized?: boolean,
+    remSpecifierLen?: number,
+    propToAO: {[key: string] : AbsorbingObject},
+} 
 
 export type AP = AllProps;
 
@@ -44,9 +50,13 @@ export type ProPAP = Promise<PAP>
 //     //onValue(self: this): void;
 // }
 
+export type BAP = AP & BEAllProps;
+
 export interface Actions{
-    parseForAttr(self: AP & BEAllProps): PAP;
-    getDefltEvtType(self: AP & BEAllProps): PAP;
-    genRemoteSpecifiers(self: AP & BEAllProps): PAP;
-    hydrate(self: AP & BEAllProps): ProPAP;
+    categorizeEl(self: BAP): PAP;
+    parseForAttr(self: BAP): PAP;
+    getDefltEvtType(self: BAP): PAP;
+    genRemoteSpecifiers(self: BAP): PAP;
+    seek(self: BAP): ProPAP;
+    hydrate(self: BAP): ProPAP;
 }

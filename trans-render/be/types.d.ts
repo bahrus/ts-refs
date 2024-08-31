@@ -106,6 +106,7 @@ export interface IEnhancement<TElement = Element> extends BEAllProps<TElement>{
     whenResolved(): Promise<boolean>;
     de(src: EventTarget, name: string) : Event,
     attrChgCB(attrChangeInfos: Array<AttrChangeInfo>) : void,
+    channelEvent(e: Event): void;
     //parsedFrom: string;
     //autoImport?: boolean | string;
 }

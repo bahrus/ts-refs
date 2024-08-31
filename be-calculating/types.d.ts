@@ -1,6 +1,7 @@
 import {BEAllProps, IEnhancement} from '../trans-render/be/types';
 import {Target, Scope, ProxyPropChangeInfo} from '../trans-render/lib/types';
 import { Specifier } from '../trans-render/dss/types';
+import {AbsorbingObject} from '../trans-render/asmr/types';
 
 export interface EndUserProps extends IEnhancement<HTMLElement>{
     forAttr?: string,
@@ -26,7 +27,8 @@ export interface AllProps extends EndUserProps{
     enhElLocalName: string,
     categorized?: boolean,
     remSpecifierLen?: number,
-}
+    propToAO: {[key: string] : AbsorbingObject},
+} 
 
 export type AP = AllProps;
 
@@ -55,5 +57,6 @@ export interface Actions{
     parseForAttr(self: BAP): PAP;
     getDefltEvtType(self: BAP): PAP;
     genRemoteSpecifiers(self: BAP): PAP;
+    seek(self: BAP): ProPAP;
     hydrate(self: BAP): ProPAP;
 }

@@ -17,6 +17,5 @@ export type ProPAP = Promise<PAP>;
 
 
 export interface Actions {
-    //intro(proxy: Proxy, target: HTMLInputElement, beDecorProps: BeDecoratedProps): void;
-    //finale(proxy: Proxy, target: HTMLInputElement, beDecorProps: BeDecoratedProps): void;
+    hydrate(self: AP & BEAllProps): ProPAP
 }

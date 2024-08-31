@@ -1,6 +1,6 @@
 import { AttrChangeInfo, MountInit, RootCnfg,  ObservedSourceOfTruthAttribute} from '../../mount-observer/types';
 import { RegExpExt } from '../lib/prs/types';
-import {IObject$tring} from '../types';
+import {IObject$tring, CSSQuery} from '../types';
 export type stringArray = string | Array<string>;
 
 export type stringArrayOrTree = Array<string> | [string, Array<string>];
@@ -58,7 +58,7 @@ export interface EnhancementMountConfig<TBranches = any, TProps = any>{
 
     cacheConfig?: AttrCacheConfig,
 
-    mapLocalNameTo: keyof TProps,
+    mapLocalNameTo?: keyof TProps,
 }
 
 export type AttrMapPoint<TProps = any> = keyof TProps & string | AttrMapConfig<TProps>

@@ -2,7 +2,7 @@ import {BEAllProps, IEnhancement} from '../trans-render/be/types';
 import {Target, Scope, ProxyPropChangeInfo} from '../trans-render/lib/types';
 import { Specifier } from '../trans-render/dss/types';
 
-export interface EndUserProps extends IEnhancement<HTMLOutputElement | HTMLMetaElement>{
+export interface EndUserProps extends IEnhancement<HTMLElement>{
     forAttr?: string,
     //onInput?: string,
     //onChange?: string,
@@ -46,9 +46,12 @@ export type ProPAP = Promise<PAP>
 //     //onValue(self: this): void;
 // }
 
+export type BAP = AP & BEAllProps;
+
 export interface Actions{
-    parseForAttr(self: AP & BEAllProps): PAP;
-    getDefltEvtType(self: AP & BEAllProps): PAP;
-    genRemoteSpecifiers(self: AP & BEAllProps): PAP;
-    hydrate(self: AP & BEAllProps): ProPAP;
+    categorizeEl(self: BAP): PAP;
+    parseForAttr(self: BAP): PAP;
+    getDefltEvtType(self: BAP): PAP;
+    genRemoteSpecifiers(self: BAP): PAP;
+    hydrate(self: BAP): ProPAP;
 }

@@ -9,6 +9,7 @@ export interface EndUserProps extends IEnhancement<HTMLOutputElement | HTMLMetaE
     //onLoad?: string,
     //assignTo?: Array<Specifier>,
     nameOfCalculator?: string,
+    
 }
 
 export interface AllProps extends EndUserProps{
@@ -22,6 +23,7 @@ export interface AllProps extends EndUserProps{
     remoteSpecifiers?: Array<Specifier>,
     isAttached?: boolean,
     isOutputEl?: boolean,
+    enhElLocalName: string,
 }
 
 export type AP = AllProps;

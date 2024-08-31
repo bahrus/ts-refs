@@ -18,7 +18,7 @@ export interface AllProps extends EndUserProps{
     // attrExpr?: string | null;
     scriptEl?: HTMLScriptElement;
     defaultEventType?: 'input' | 'change' | 'load',
-    forArgs?: string[],
+    forArgs: string[],
     remoteSpecifiers?: Array<Specifier>,
     isAttached?: boolean,
     isOutputEl?: boolean,
@@ -47,4 +47,6 @@ export type ProPAP = Promise<PAP>
 export interface Actions{
     parseForAttr(self: AP & BEAllProps): PAP;
     getDefltEvtType(self: AP & BEAllProps): PAP;
+    genRemoteSpecifiers(self: AP & BEAllProps): PAP;
+    hydrate(self: AP & BEAllProps): ProPAP;
 }

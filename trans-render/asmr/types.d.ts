@@ -114,11 +114,11 @@ export interface AbsOptions<TProp = any> {
 // }
 
 export interface SharingObject<TProp = any>{
-    setValue(el: Element, val: TProp);
+    setValue(val: TProp);
     pureValue: TProp;
 }
 
 export interface AbsorbingObject<TProp = any> extends EventTarget{
-    getValue(el: Element): Promise<TProp>;
+    getValue(): Promise<TProp>;
 
 }

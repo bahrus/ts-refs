@@ -37,7 +37,7 @@ export interface Binding {
     localShareObj: SharingObject;
     remoteAbsObj: AbsorbingObject;
     remoteShareObj: SharingObject;
-    remoteRef: WeakRef<Element>;
+    //remoteRef: WeakRef<Element>;
 }
 
 export type AP = AllProps;

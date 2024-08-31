@@ -1,4 +1,4 @@
-import {IEnhancement} from '../trans-render/be/types';
+import {BEAllProps, IEnhancement} from '../trans-render/be/types';
 import {Target, Scope, ProxyPropChangeInfo} from '../trans-render/lib/types';
 import { Specifier } from '../trans-render/dss/types';
 
@@ -17,9 +17,11 @@ export interface AllProps extends EndUserProps{
     // isParsed: boolean;
     // attrExpr?: string | null;
     scriptEl?: HTMLScriptElement;
-    defaultEventType?: 'input' | 'change',
+    defaultEventType?: 'input' | 'change' | 'load',
     forArgs?: string[],
     remoteSpecifiers?: Array<Specifier>,
+    isAttached?: boolean,
+    isOutputEl?: boolean,
 }
 
 export type AP = AllProps;
@@ -43,5 +45,6 @@ export type ProPAP = Promise<PAP>
 // }
 
 export interface Actions{
-
+    parseForAttr(self: AP & BEAllProps): PAP;
+    getDefltEvtType(self: AP & BEAllProps): PAP;
 }

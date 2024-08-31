@@ -57,6 +57,8 @@ export interface EnhancementMountConfig<TBranches = any, TProps = any>{
     osotas? : Array<ObservedSourceOfTruthAttribute<TProps>>,
 
     cacheConfig?: AttrCacheConfig,
+
+    mapLocalNameTo: keyof TProps,
 }
 
 export type AttrMapPoint<TProps = any> = keyof TProps & string | AttrMapConfig<TProps>

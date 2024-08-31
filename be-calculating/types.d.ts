@@ -20,10 +20,12 @@ export interface AllProps extends EndUserProps{
     scriptEl?: HTMLScriptElement;
     defaultEventType?: 'input' | 'change' | 'load',
     forArgs: string[],
-    remoteSpecifiers?: Array<Specifier>,
+    remoteSpecifiers: Array<Specifier>,
     isAttached?: boolean,
     isOutputEl?: boolean,
     enhElLocalName: string,
+    categorized?: boolean,
+    remSpecifierLen?: number,
 }
 
 export type AP = AllProps;

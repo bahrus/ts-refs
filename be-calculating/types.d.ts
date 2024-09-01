@@ -1,5 +1,5 @@
 import {BEAllProps, IEnhancement} from '../trans-render/be/types';
-import {Target, Scope, ProxyPropChangeInfo} from '../trans-render/lib/types';
+import {StringWithAutocompleteOptions} from '../trans-render/types';
 import { Specifier } from '../trans-render/dss/types';
 import {AbsorbingObject} from '../trans-render/asmr/types';
 
@@ -19,7 +19,11 @@ export interface AllProps extends EndUserProps{
     // isParsed: boolean;
     // attrExpr?: string | null;
     scriptEl?: HTMLScriptElement;
-    defaultEventType: 'input' | 'change' | 'load',
+    publishEventType: 'input' | 'change' | 'load',
+    defaultEventType: StringWithAutocompleteOptions<
+        | 'input'
+        | 'change'
+    >,
     forArgs: string[],
     remoteSpecifiers: Array<Specifier>,
     isAttached?: boolean,
@@ -28,6 +32,7 @@ export interface AllProps extends EndUserProps{
     categorized?: boolean,
     remSpecifierLen?: number,
     propToAO: {[key: string] : AbsorbingObject},
+    hasInlineEvent: boolean,
 } 
 
 export type AP = AllProps;

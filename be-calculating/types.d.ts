@@ -14,7 +14,7 @@ export interface EndUserProps extends IEnhancement<HTMLElement>{
 }
 
 export interface AllProps extends EndUserProps{
-    // calculator?: (vm: any) => any, //(et: EventTarget, ppci?: ProxyPropChangeInfo) => any,
+    calculator: {new: () => EventListenerObject},
     // value: any;
     // isParsed: boolean;
     // attrExpr?: string | null;
@@ -61,6 +61,8 @@ export interface Actions{
     categorizeEl(self: BAP): PAP;
     parseForAttr(self: BAP): PAP;
     getDefltEvtType(self: BAP): PAP;
+    findScriptEl(self: BAP): PAP;
+    importSymbols(self: BAP): ProPAP;
     genRemoteSpecifiers(self: BAP): PAP;
     seek(self: BAP): ProPAP;
     hydrate(self: BAP): ProPAP;

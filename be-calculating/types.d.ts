@@ -9,8 +9,8 @@ export interface EndUserProps extends IEnhancement<HTMLElement>{
     //onChange?: string,
     //onLoad?: string,
     //assignTo?: Array<Specifier>,
-    nameOfCalculator?: string,
-    
+    nameOfCalculator: string,
+    eventArg: string,
 }
 
 export interface AllProps extends EndUserProps{

@@ -1,4 +1,4 @@
-import { AttrChangeInfo, MountInit, RootCnfg,  ObservedSourceOfTruthAttribute} from '../../mount-observer/types';
+import { AttrChangeInfo, MountInit, RootCnfg,  ObservedSourceOfTruthAttribute, MOSE} from '../../mount-observer/types';
 import { RegExpExt } from '../lib/prs/types';
 import {IObject$tring, CSSQuery} from '../types';
 export type stringArray = string | Array<string>;
@@ -59,6 +59,9 @@ export interface EnhancementMountConfig<TBranches = any, TProps = any>{
     cacheConfig?: AttrCacheConfig,
 
     mapLocalNameTo?: keyof TProps,
+
+    allowedMutations?: {[key: CSSQuery]: []}
+
 }
 
 export type AttrMapPoint<TProps = any> = keyof TProps & string | AttrMapConfig<TProps>

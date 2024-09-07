@@ -34,11 +34,19 @@ export type SafeProps = StringWithAutocompleteOptions<
 
 export type EventListenerOrFn = EventListener | ((e: Event) => void);
 
+export type HandlerKey = string;
+
 export interface EnhancementMountConfig<TBranches = any, TProps = any>{
     id?: string;
     enhancedElementInstanceOf?: Array<{new(): Element}>,
     enhancedElementMatches?: string,
-    enhPropKey: string,
+    enhPropKey: HandlerKey,
+    /**
+     * If not specified, will be defaulted to the enhPropKey
+     * This allows for registered event handlers that are tied to a particular 
+     * enhancement to be scoped within a Shadow DOM realm
+     */
+    handlerKey?: string,
     hasRootIn?: Array<RootCnfg>,
     preBaseDelimiter?: prefixDelimiter,
     base?: string,

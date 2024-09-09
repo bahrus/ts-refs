@@ -1,6 +1,6 @@
-import { AttrChangeInfo, MountInit, RootCnfg,  ObservedSourceOfTruthAttribute} from '../../mount-observer/types';
+import { AttrChangeInfo, MountInit, RootCnfg,  ObservedSourceOfTruthAttribute, MOSE} from '../../mount-observer/types';
 import { RegExpExt } from '../lib/prs/types';
-import {IObject$tring, CSSQuery} from '../types';
+import {IObject$tring, CSSQuery, StringWithAutocompleteOptions} from '../types';
 export type stringArray = string | Array<string>;
 
 export type stringArrayOrTree = Array<string> | [string, Array<string>];
@@ -24,11 +24,29 @@ export interface AttrCacheConfig {
     clone?: boolean
 }
 
+export type SafeProps = StringWithAutocompleteOptions<
+    'textContent',
+    'value',
+    'object',
+    'checked',
+    '^aria'
+>;
+
+export type EventListenerOrFn = EventListener | ((e: Event) => void);
+
+export type HandlerKey = string;
+
 export interface EnhancementMountConfig<TBranches = any, TProps = any>{
     id?: string;
     enhancedElementInstanceOf?: Array<{new(): Element}>,
     enhancedElementMatches?: string,
-    enhPropKey: string,
+    enhPropKey: HandlerKey,
+    /**
+     * If not specified, will be defaulted to the enhPropKey
+     * This allows for registered event handlers that are tied to a particular 
+     * enhancement to be scoped within a Shadow DOM realm
+     */
+    handlerKey?: string,
     hasRootIn?: Array<RootCnfg>,
     preBaseDelimiter?: prefixDelimiter,
     base?: string,
@@ -59,6 +77,9 @@ export interface EnhancementMountConfig<TBranches = any, TProps = any>{
     cacheConfig?: AttrCacheConfig,
 
     mapLocalNameTo?: keyof TProps,
+
+    allowedMutations?: {[key: CSSQuery]: []}
+
 }
 
 export type AttrMapPoint<TProps = any> = keyof TProps & string | AttrMapConfig<TProps>

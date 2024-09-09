@@ -5,11 +5,7 @@ import {AbsorbingObject} from '../trans-render/asmr/types';
 
 export interface EndUserProps extends IEnhancement<HTMLElement>{
     forAttr?: string,
-    //onInput?: string,
-    //onChange?: string,
-    //onLoad?: string,
-    //assignTo?: Array<Specifier>,
-    nameOfCalculator: string,
+    handler?: string
     eventArg: string,
 }
 
@@ -18,7 +14,6 @@ export interface AllProps extends EndUserProps{
     // value: any;
     // isParsed: boolean;
     // attrExpr?: string | null;
-    scriptEl?: HTMLScriptElement;
     publishEventType: 'input' | 'change' | 'load',
     defaultEventType: StringWithAutocompleteOptions<
         | 'input'
@@ -32,7 +27,6 @@ export interface AllProps extends EndUserProps{
     categorized?: boolean,
     remSpecifierLen?: number,
     propToAO: {[key: string] : AbsorbingObject},
-    hasInlineEvent: boolean,
 } 
 
 export type AP = AllProps;
@@ -59,11 +53,12 @@ export type BAP = AP & BEAllProps;
 
 export interface Actions{
     categorizeEl(self: BAP): PAP;
-    parseForAttr(self: BAP): PAP;
-    getDefltEvtType(self: BAP): PAP;
-    findScriptEl(self: BAP): PAP;
-    importSymbols(self: BAP): ProPAP;
-    genRemoteSpecifiers(self: BAP): PAP;
-    seek(self: BAP): ProPAP;
-    hydrate(self: BAP): ProPAP;
+    getEvtHandler(self: BAP): PAP;
+    // parseForAttr(self: BAP): PAP;
+    // getDefltEvtType(self: BAP): PAP;
+    // findScriptEl(self: BAP): PAP;
+    // importSymbols(self: BAP): ProPAP;
+    // genRemoteSpecifiers(self: BAP): PAP;
+    // seek(self: BAP): ProPAP;
+    // hydrate(self: BAP): ProPAP;
 }

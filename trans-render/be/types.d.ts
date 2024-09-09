@@ -112,7 +112,7 @@ export type MountBeHive<TBranches = any> = Partial<EMC<TBranches>>;
 export interface EnhancementInfo {
     initialPropValues?: any,
     initialAttrInfo?: Array<AttrChangeInfo>,
-    mountCnfg?: EMC,
+    mountCnfg: EMC,
 }
 
 export interface BEAllProps<TElement = Element> {

@@ -5,7 +5,7 @@ import {AbsorbingObject} from '../trans-render/asmr/types';
 
 export interface EndUserProps extends IEnhancement<HTMLElement>{
     forAttr?: string,
-    handler?: string
+    handler: string
     eventArg: string,
 }
 

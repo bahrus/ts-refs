@@ -36,6 +36,9 @@ export type EventListenerOrFn = EventListener | ((e: Event) => void);
 
 export type HandlerKey = string;
 
+type CustomHandlers = Map<string, EventListenerOrFn>;
+type CustomHandlerCluster = Map<HandlerKey, CustomHandlers>;
+
 export interface EnhancementMountConfig<TBranches = any, TProps = any>{
     id?: string;
     enhancedElementInstanceOf?: Array<{new(): Element}>,

@@ -53,6 +53,7 @@ export type BAP = AP & BEAllProps;
 
 export interface Actions{
     categorizeEl(self: BAP): PAP;
+    getEvtHandler(self: BAP): PAP;
     // parseForAttr(self: BAP): PAP;
     // getDefltEvtType(self: BAP): PAP;
     // findScriptEl(self: BAP): PAP;

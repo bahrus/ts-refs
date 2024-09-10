@@ -61,5 +61,5 @@ export interface Actions{
     // importSymbols(self: BAP): ProPAP;
     genRemoteSpecifiers(self: BAP): PAP;
     seek(self: BAP): ProPAP;
-    // hydrate(self: BAP): ProPAP;
+    hydrate(self: BAP): ProPAP;
 }

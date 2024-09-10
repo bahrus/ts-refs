@@ -1,4 +1,4 @@
-import {BEAllProps, IEnhancement} from '../trans-render/be/types';
+import {BEAllProps, EventListenerOrFn, IEnhancement} from '../trans-render/be/types';
 import {StringWithAutocompleteOptions} from '../trans-render/types';
 import { Specifier } from '../trans-render/dss/types';
 import {AbsorbingObject} from '../trans-render/asmr/types';
@@ -10,11 +10,12 @@ export interface EndUserProps extends IEnhancement<HTMLElement>{
 }
 
 export interface AllProps extends EndUserProps{
-    calculator: {new: () => EventListenerObject},
+    //calculator: {new: () => EventListenerObject},
     // value: any;
     // isParsed: boolean;
     // attrExpr?: string | null;
-    publishEventType: 'input' | 'change' | 'load',
+    //publishEventType: 'input' | 'change' | 'load',
+    handlerObj: EventListenerOrFn,
     defaultEventType: StringWithAutocompleteOptions<
         | 'input'
         | 'change'
@@ -55,7 +56,7 @@ export interface Actions{
     categorizeEl(self: BAP): PAP;
     getEvtHandler(self: BAP): PAP;
     parseForAttr(self: BAP): PAP;
-    // getDefltEvtType(self: BAP): PAP;
+    getDefltEvtType(self: BAP): PAP;
     // findScriptEl(self: BAP): PAP;
     // importSymbols(self: BAP): ProPAP;
     genRemoteSpecifiers(self: BAP): PAP;

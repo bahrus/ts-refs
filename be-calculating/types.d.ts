@@ -15,7 +15,7 @@ export interface AllProps extends EndUserProps{
     // isParsed: boolean;
     // attrExpr?: string | null;
     //publishEventType: 'input' | 'change' | 'load',
-    handlerObj: EventListenerOrFn,
+    handlerObj?: EventListenerOrFn,
     defaultEventType: StringWithAutocompleteOptions<
         | 'input'
         | 'change'

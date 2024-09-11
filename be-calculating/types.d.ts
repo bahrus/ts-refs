@@ -28,6 +28,7 @@ export interface AllProps extends EndUserProps{
     categorized?: boolean,
     remSpecifierLen?: number,
     propToAO: {[key: string] : AbsorbingObject},
+    checkedRegistry: boolean,
 } 
 
 export type AP = AllProps;

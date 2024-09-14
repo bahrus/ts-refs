@@ -39,7 +39,7 @@ export type HandlerKey = string;
 export type HandlerName = string;
 
 type CustomHandlers = Map<HandlerName, EventListenerOrFn>;
-type ScopedCustomHandlers = Map<HandlerName, [CSSQuery, EventListenerOrFn]>;
+type ScopedCustomHandlers = Map<HandlerName, Array<[CSSQuery, EventListenerOrFn]>>;
 type CustomHandlerCluster = Map<HandlerKey, CustomHandlers>;
 type ScopedCustomHandlerCluster = Map<HandlerKey, ScopedCustomHandlers>;
 

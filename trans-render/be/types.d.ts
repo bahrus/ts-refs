@@ -36,8 +36,12 @@ export type EventListenerOrFn = EventListener | ((e: Event) => void);
 
 export type HandlerKey = string;
 
-type CustomHandlers = Map<string, EventListenerOrFn>;
+export type HandlerName = string;
+
+type CustomHandlers = Map<HandlerName, EventListenerOrFn>;
+type ScopedCustomHandlers = Map<HandlerName, [CSSQuery, EventListenerOrFn]>;
 type CustomHandlerCluster = Map<HandlerKey, CustomHandlers>;
+type ScopedCustomHandlerCluster = Map<HandlerKey, ScopedCustomHandlers>;
 
 export interface EnhancementMountConfig<TBranches = any, TProps = any>{
     id?: string;

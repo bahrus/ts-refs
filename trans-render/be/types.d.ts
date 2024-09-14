@@ -87,6 +87,8 @@ export interface EnhancementMountConfig<TBranches = any, TProps = any>{
 
     allowedMutations?: {[key: CSSQuery]: []}
 
+    top: EnhancementMountConfig<TBranches, TProps>
+    
 }
 
 export type AttrMapPoint<TProps = any> = keyof TProps & string | AttrMapConfig<TProps>

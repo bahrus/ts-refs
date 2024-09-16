@@ -40,7 +40,7 @@ export interface AllProps extends EndUserProps{
     switchesSatisfied?: boolean,
     echoVal: boolean,
     singleValSwitches: Array<OneValueSwitch>,
-    twoValueSwitches?: Array<TwoValueSwitch>,
+    twoValueSwitches: Array<TwoValueSwitch>,
     offBinarySwitches?: Array<OneValueSwitch>,
     nValueSwitches?: Array<NValueScriptSwitch>
     rawStatements?: Array<string>
@@ -66,8 +66,8 @@ export interface TwoPartOpStatement{
 }
 
 export interface TwoValueSwitch{
-    lhsSpecifier?: Specifier,
-    rhsSpecifier?: Specifier,
+    lhsSpecifier: Specifier,
+    rhsSpecifier: Specifier,
     withinSpecifier?: Specifier,
     req?: boolean,
     op?: Op,

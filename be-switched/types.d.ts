@@ -71,14 +71,9 @@ export interface TwoValueSwitch{
     withinSpecifier?: Specifier,
     req?: boolean,
     op?: Op,
-    //lhsSignal?: WeakRef<SignalRefType>,
-    //rhsSignal?: WeakRef<SignalRefType>,
     negate?: boolean,
-    //eventNames?: string,
     lhs?: ISide,
     rhs?: ISide,
-    //lhsType?: 'number' | 'boolean',
-    //rhsType?: 'number' | 'boolean' | 'string',
 }
 
 export interface Dependency extends Specifier{}

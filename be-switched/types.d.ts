@@ -1,10 +1,10 @@
 //import { ActionOnEventConfigs } from "trans-render/froop/types";
-import {IEnhancement} from './ts-refs/trans-render/be/types';
+import {BEAllProps, IEnhancement} from '../trans-render/be/types';
 //import {BVAAllProps} from 'be-value-added/types';
 //import {AP as BPAP, ISignal, Actions as BPActions} from 'be-propagating/types';
 //import {ElTypes, SignalRefType} from 'be-linked/types';
 //import { Propagator } from "../trans-render/froop/PropSvc";
-import {Specifier} from './ts-refs/trans-render/dss/types';
+import {Specifier} from '../trans-render/dss/types';
 
 export interface EndUserProps extends IEnhancement<HTMLTemplateElement>{
     lhs?: any,
@@ -39,7 +39,7 @@ export interface AllProps extends EndUserProps{
     twoValSwitchNoGo?: boolean,
     switchesSatisfied?: boolean,
     echoVal: boolean,
-    singleValSwitches?: Array<OneValueSwitch>,
+    singleValSwitches: Array<OneValueSwitch>,
     twoValueSwitches?: Array<TwoValueSwitch>,
     offBinarySwitches?: Array<OneValueSwitch>,
     nValueSwitches?: Array<NValueScriptSwitch>
@@ -52,7 +52,7 @@ export type SwitchStatement = string;
 export interface OneValueSwitch{
     ifPart: string,
     specifier: Specifier,
-    signal?: WeakRef<SignalRefType>,
+    //signal?: WeakRef<SignalRefType>,
     req?: boolean,
 }
 
@@ -71,8 +71,8 @@ export interface TwoValueSwitch{
     withinSpecifier?: Specifier,
     req?: boolean,
     op?: Op,
-    lhsSignal?: WeakRef<SignalRefType>,
-    rhsSignal?: WeakRef<SignalRefType>,
+    //lhsSignal?: WeakRef<SignalRefType>,
+    //rhsSignal?: WeakRef<SignalRefType>,
     negate?: boolean,
     //eventNames?: string,
     lhs?: ISide,
@@ -99,7 +99,7 @@ export type PAP = Partial<AP>;
 
 export type ProPAP = Promise<PAP>;
 
-export type POA = [PAP | undefined, ActionOnEventConfigs<PAP, Actions>];
+export type BAP = AP & BEAllProps;
 
 export interface Actions{
     calcSwitchesSatisfied(self: this): PAP;

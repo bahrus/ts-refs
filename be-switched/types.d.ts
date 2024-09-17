@@ -84,7 +84,7 @@ export interface CanBeSwitchedOn {
 
 export interface NValueScriptSwitch extends CanBeSwitchedOn {
     dependsOn?: string,
-    dependencies?: Array<Dependency>,
+    dependencies: Array<Dependency>,
     registeredHandler?: string,
 }
 

@@ -2,6 +2,7 @@ import {BEAllProps, EventListenerOrFn, IEnhancement} from '../trans-render/be/ty
 import {StringWithAutocompleteOptions} from '../trans-render/types';
 import { Specifier } from '../trans-render/dss/types';
 import {AbsorbingObject} from '../trans-render/asmr/types';
+import {Handlers} from '../be-hive/types';
 
 export interface EndUserProps extends IEnhancement<HTMLElement>{
     forAttr?: string,
@@ -51,7 +52,7 @@ export type ProPAP = Promise<PAP>
 //     //onValue(self: this): void;
 // }
 
-export type BAP = AP & BEAllProps;
+export type BAP = AP & BEAllProps & Handlers;
 
 export interface Actions{
     categorizeEl(self: BAP): PAP;

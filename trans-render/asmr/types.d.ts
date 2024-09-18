@@ -109,6 +109,8 @@ export interface AbsOptions<TProp = any> {
     propToAbsorbValueType?: ValueType;
 
     selfIsVal?: boolean;
+
+    as?: 'number' | 'boolean' | 'boolean|number'
 }
 
 // export interface Setter<TProp = any> {

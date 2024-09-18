@@ -40,7 +40,8 @@ export interface AndIfThen{
 export interface ObservingParameters{
     localPropToSet?: string,
     remoteSpecifiers: Array<Specifier>,
-    mappings?: Array<AndIfThen>
+    mappings?: Array<AndIfThen>,
+    
     //aggregateRemoteVals?: 'Union' | 'Conjunction' | 'ObjectAssign' | 'Sum' | 'Product' | 'ArrayPush'
 }
 

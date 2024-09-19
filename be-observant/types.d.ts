@@ -1,6 +1,6 @@
 import {BEAllProps, IEnhancement} from '../trans-render/be/types';
 import { Specifier } from "../trans-render/dss/types";
-import {Han} from '../be-hive/types';
+import {Handlers} from '../be-hive/types';
 export interface EndUserProps extends IEnhancement{
     
 } 
@@ -25,7 +25,7 @@ export type ProPAP = Promise<PAP>;
 export type BAP = AP & BEAllProps & Handlers;
 
 export interface Actions{
-    noAttrs(self: this): ProPAP;
+    noAttrs(self: BAP): ProPAP;
     // infer(self: this) : ProPAP;
     // seek(self: this): ProPAP;
     // hydrate(self: this): ProPAP;

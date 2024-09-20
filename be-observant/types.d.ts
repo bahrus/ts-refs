@@ -1,16 +1,19 @@
 import {BEAllProps, IEnhancement} from '../trans-render/be/types';
 import { Specifier } from "../trans-render/dss/types";
-import {Handlers} from '../be-hive/types';
+import {aggKeys, Handlers} from '../be-hive/types';
+import { StringWithAutocompleteOptions } from '../trans-render/types';
+import {AbsorbingObject} from '../trans-render/asmr/types';
 export interface EndUserProps extends IEnhancement{
     
 } 
 
 export interface AllProps extends EndUserProps{
     //observedFactors?: Array<Specifier>,
-    parsedStatements?: Array<ObservingParameters>,
+    parsedStatements: Array<ObservingParameters>,
     //bindings?: Array<EndPoints>,
     rawStatements?: Array<string>,
     //didInferring?: boolean,
+    
 }
 
 
@@ -27,7 +30,7 @@ export type BAP = AP & BEAllProps & Handlers;
 export interface Actions{
     noAttrs(self: BAP): ProPAP;
     // infer(self: this) : ProPAP;
-    // seek(self: this): ProPAP;
+    seek(self: BAP): ProPAP;
     // hydrate(self: this): ProPAP;
     // warn(...data: any[]): void;
 }
@@ -41,7 +44,7 @@ export interface ObservingParameters{
     localPropToSet?: string,
     remoteSpecifiers: Array<Specifier>,
     mappings?: Array<AndIfThen>,
-    
+    aggKey?: StringWithAutocompleteOptions<aggKeys>,
     //aggregateRemoteVals?: 'Union' | 'Conjunction' | 'ObjectAssign' | 'Sum' | 'Product' | 'ArrayPush'
 }
 

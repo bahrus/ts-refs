@@ -12,7 +12,7 @@ export interface AllProps extends EndUserProps{
     parsedStatements: Array<ObservingParameters>,
     //bindings?: Array<EndPoints>,
     rawStatements?: Array<string>,
-    //didInferring?: boolean,
+    didInferring?: boolean,
     
 }
 

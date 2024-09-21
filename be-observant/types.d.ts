@@ -44,7 +44,7 @@ export interface ObservingParameters{
     localPropToSet?: string,
     remoteSpecifiers: Array<Specifier>,
     mappings?: Array<AndIfThen>,
-    aggKey?: StringWithAutocompleteOptions<aggKeys>,
+    aggKey: StringWithAutocompleteOptions<aggKeys>,
     //aggregateRemoteVals?: 'Union' | 'Conjunction' | 'ObjectAssign' | 'Sum' | 'Product' | 'ArrayPush'
 }
 

@@ -29,10 +29,10 @@ export type BAP = AP & BEAllProps & Handlers;
 
 export interface Actions{
     noAttrs(self: BAP): ProPAP;
-    // infer(self: this) : ProPAP;
+    infer(self: BAP) : ProPAP;
     seek(self: BAP): ProPAP;
     // hydrate(self: this): ProPAP;
-    // warn(...data: any[]): void;
+    warn(...data: any[]): void;
 }
 
 export interface AndIfThen{

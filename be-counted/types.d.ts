@@ -41,7 +41,7 @@ export interface EndUserProps extends EndUserPropsBasic, IBE {
 
 export interface AllProps extends EndUserProps{
     value: number;
-    parsedStatements: Array<SharingParameters>;
+    parsedStatements?: Array<SharingParameters>;
     //checked: boolean;
     isMaxedOut?: boolean;
     //isParsed?: boolean;
@@ -49,6 +49,7 @@ export interface AllProps extends EndUserProps{
 }
 
 export interface SharingParameters{
+    localProp: string,
     remoteSpecifiers: Array<Specifier>
 }
 

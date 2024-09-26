@@ -1,12 +1,11 @@
 import {BEAllProps, IEnhancement} from '../trans-render/be/types';
-import {MatchRHS, Scope} from 'trans-render/lib/types';
 import {XForm, ITransformer} from '../trans-render/types';
 
-export interface EndUserPropsBasic{
+export interface EndUserPropsBasic extends IEnhancement{
     /**
      * How much to increment on each event
      */
-    step?: number;
+    step: number;
     /**
      * Don't allow count to exceed this number
      */
@@ -29,7 +28,7 @@ export interface EndUserPropsBasic{
     /**
      * Event name to trigger count increment
      */
-    incOn?: string;
+    incOn: string;
     /**
      * Property to subscribe to trigger count increment
      */
@@ -44,7 +43,7 @@ export interface AllProps extends EndUserProps{
     value: number;
     checked: boolean;
     isMaxedOut?: boolean;
-    isParsed?: boolean;
+    //isParsed?: boolean;
     transformer?: ITransformer<EndUserPropsBasic, Actions, {}>
 }
 
@@ -58,7 +57,7 @@ export type ProPAP = Promise<PAP>
 export type BAP = AllProps & BEAllProps;
 
  export interface Actions{
-    hydrate(self: this, mold: PAP): ProPAP;
+    hydrate(self: BAP): ProPAP;
     // inc(self: this): PAP;
     // disableInc(self: this): POA;
     // check(self: this, allGood: PAP): PAP;

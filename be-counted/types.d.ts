@@ -1,5 +1,5 @@
 import {BEAllProps, IEnhancement} from '../trans-render/be/types';
-import {XForm, ITransformer} from '../trans-render/types';
+import { Specifier } from "../trans-render/dss/types";
 
 export interface EndUserPropsBasic extends IEnhancement{
     /**
@@ -41,10 +41,15 @@ export interface EndUserProps extends EndUserPropsBasic, IBE {
 
 export interface AllProps extends EndUserProps{
     value: number;
-    checked: boolean;
+    parsedStatements: Array<SharingParameters>;
+    //checked: boolean;
     isMaxedOut?: boolean;
     //isParsed?: boolean;
-    transformer?: ITransformer<EndUserPropsBasic, Actions, {}>
+    //transformer?: ITransformer<EndUserPropsBasic, Actions, {}>
+}
+
+export interface SharingParameters{
+    remoteSpecifiers: Array<Specifier>
 }
 
 
@@ -58,6 +63,7 @@ export type BAP = AllProps & BEAllProps;
 
  export interface Actions{
     hydrate(self: BAP): ProPAP;
+    shareValue(self: BAP): ProPAP
     // inc(self: this): PAP;
     // disableInc(self: this): POA;
     // check(self: this, allGood: PAP): PAP;

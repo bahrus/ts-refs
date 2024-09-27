@@ -35,11 +35,12 @@ export interface EndUserPropsBasic extends IEnhancement{
     incOnSet?: string;
     
 }
-export interface EndUserProps extends EndUserPropsBasic, IBE {
+export interface EndUserProps extends EndUserPropsBasic, IEnhancement {
 
 }
 
 export interface AllProps extends EndUserProps{
+    count: number;
     value: number;
     parsedStatements?: Array<SharingParameters>;
     //checked: boolean;

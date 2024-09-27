@@ -65,6 +65,7 @@ export type BAP = AllProps & BEAllProps;
 
  export interface Actions{
     hydrate(self: BAP): ProPAP;
+    onCount(self: BAP): PAP;
     shareValue(self: BAP): ProPAP
     // inc(self: this): PAP;
     // disableInc(self: this): POA;

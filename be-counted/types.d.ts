@@ -31,8 +31,16 @@ export interface EndUserPropsBasic extends IEnhancement{
     incOn: string;
     /**
      * Property to subscribe to trigger count increment
+     * [TODO]
      */
     incOnSet?: string;
+    /**
+     * Disable on max
+     */
+    disableOnMax?: boolean;
+    /**
+     * 
+     */
     
 }
 export interface EndUserProps extends EndUserPropsBasic, IEnhancement {

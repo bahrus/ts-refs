@@ -78,7 +78,7 @@ export type BAP = AllProps & BEAllProps & RoundaboutReady;
  export interface Actions{
     hydrate(self: BAP): ProPAP;
     onCount(self: BAP): PAP;
-    shareValue(self: BAP): ProPAP;
+    //shareValue(self: BAP): ProPAP;
     onOnce(self: BAP): PAP
     // inc(self: this): PAP;
     // disableInc(self: this): POA;

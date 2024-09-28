@@ -1,5 +1,6 @@
 import {BEAllProps, IEnhancement} from '../trans-render/be/types';
 import { Specifier } from "../trans-render/dss/types";
+import { RoundaboutReady } from '../trans-render/froop/types';
 
 export interface EndUserPropsBasic extends IEnhancement{
     /**
@@ -22,9 +23,9 @@ export interface EndUserPropsBasic extends IEnhancement{
     loop?: boolean;
 
     /**
-     * Slowly "awaken" a disabled element.  If the disabled attribute is not set to a number, or is set to "1", removes the disabled attribute.  If it is a larger number, decrements the number by 1. 
+     * Slowly "awakens" a disabled element.  If the disabled attribute is not set to a number, or is set to "1", removes the disabled attribute.  If it is a larger number, decrements the number by 1. 
      */
-    nudge?: boolean;
+    nudges?: boolean;
     /**
      * Event name to trigger count increment
      */
@@ -72,7 +73,7 @@ export type PAP = Partial<AP>;
 
 export type ProPAP = Promise<PAP>
 
-export type BAP = AllProps & BEAllProps;
+export type BAP = AllProps & BEAllProps & RoundaboutReady;
 
  export interface Actions{
     hydrate(self: BAP): ProPAP;

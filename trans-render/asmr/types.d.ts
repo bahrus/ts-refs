@@ -65,7 +65,7 @@ export interface ASMROptions<TProp = any>{
     falseText?: FalseText;
     trueValue?: TrueStringValue;
     falseValue?: FalseStringValue;
-
+    path?: string;
 }
 
 export interface SetOptions<TProp = any> extends ASMROptions<TProp>{
@@ -109,6 +109,8 @@ export interface AbsOptions<TProp = any> {
     propToAbsorbValueType?: ValueType;
 
     selfIsVal?: boolean;
+
+    as?: 'number' | 'boolean' | 'boolean|number'
 }
 
 // export interface Setter<TProp = any> {

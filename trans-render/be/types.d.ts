@@ -25,11 +25,11 @@ export interface AttrCacheConfig {
 }
 
 export type SafeProps = StringWithAutocompleteOptions<
-    'textContent',
-    'value',
-    'object',
-    'checked',
-    '^aria'
+    | 'textContent'
+    | 'value'
+    | 'object'
+    | 'checked'
+    | '^aria'
 >;
 
 export type EventListenerOrFn = EventListener | ((e: Event) => void);

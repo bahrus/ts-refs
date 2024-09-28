@@ -31,15 +31,27 @@ export interface EndUserPropsBasic extends IEnhancement{
     incOn: string;
     /**
      * Property to subscribe to trigger count increment
+     * [TODO]
      */
     incOnSet?: string;
-    
+    /**
+     * Disable on max
+     */
+    disableOnMax?: boolean;
+    /**
+     * set lt = 1
+     * and min = 0
+     * and step = 1
+     * and disableOnMax = true
+     */
+    once?: boolean
 }
-export interface EndUserProps extends EndUserPropsBasic, IBE {
+export interface EndUserProps extends EndUserPropsBasic, IEnhancement {
 
 }
 
 export interface AllProps extends EndUserProps{
+    count: number;
     value: number;
     parsedStatements?: Array<SharingParameters>;
     //checked: boolean;
@@ -64,7 +76,9 @@ export type BAP = AllProps & BEAllProps;
 
  export interface Actions{
     hydrate(self: BAP): ProPAP;
-    shareValue(self: BAP): ProPAP
+    onCount(self: BAP): PAP;
+    shareValue(self: BAP): ProPAP;
+    onOnce(self: BAP): PAP
     // inc(self: this): PAP;
     // disableInc(self: this): POA;
     // check(self: this, allGood: PAP): PAP;

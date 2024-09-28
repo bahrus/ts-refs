@@ -21,6 +21,6 @@ export type BAP = AllProps & BEAllProps & RoundaboutReady;
 
 export interface Actions{
     hydrate(self: BAP): PAP;
-    findTarget(self: this): Promise<void>;
-    handleCommit(self: this, e: KeyboardEvent): Promise<void>;
+    // findTarget(self: this): Promise<void>;
+    // handleCommit(self: this, e: KeyboardEvent): Promise<void>;
 }

@@ -16,4 +16,6 @@ export type ProPAP = Promise<PAP>;
 
 export type BAP = AP & BEAllProps;
 
-export interface Actions{}
+export interface Actions{
+    logHash(self: BAP): PAP
+}

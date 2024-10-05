@@ -1,4 +1,4 @@
-import {BEAllProps, IEnhancement} from '../trans-render/be/types.d.ts';
+import {BEAllProps, IEnhancement} from '../trans-render/be/types';
 
 export interface EndUserProps extends IEnhancement{
     hash: string;

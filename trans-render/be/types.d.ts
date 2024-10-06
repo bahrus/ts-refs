@@ -119,7 +119,8 @@ export interface EnhancementInfo {
     initialPropValues?: any,
     initialAttrInfo?: Array<AttrChangeInfo>,
     mountCnfg: EMC,
-    synConfig: EMC
+    synConfig: EMC,
+    observedAttrs: Array<string> | undefined,
 }
 
 export interface BEAllProps<TElement = Element> {

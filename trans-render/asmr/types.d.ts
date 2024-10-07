@@ -65,7 +65,7 @@ export interface ASMROptions<TProp = any>{
     falseText?: FalseText;
     trueValue?: TrueStringValue;
     falseValue?: FalseStringValue;
-
+    path?: string;
 }
 
 export interface SetOptions<TProp = any> extends ASMROptions<TProp>{

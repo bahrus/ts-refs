@@ -25,11 +25,11 @@ export interface AttrCacheConfig {
 }
 
 export type SafeProps = StringWithAutocompleteOptions<
-    'textContent',
-    'value',
-    'object',
-    'checked',
-    '^aria'
+    | 'textContent'
+    | 'value'
+    | 'object'
+    | 'checked'
+    | '^aria'
 >;
 
 export type EventListenerOrFn = EventListener | ((e: Event) => void);
@@ -87,7 +87,7 @@ export interface EnhancementMountConfig<TBranches = any, TProps = any>{
 
     allowedMutations?: {[key: CSSQuery]: []}
 
-    top: EnhancementMountConfig<TBranches, TProps>
+    top?: EnhancementMountConfig<TBranches, TProps>
     
 }
 
@@ -119,7 +119,8 @@ export interface EnhancementInfo {
     initialPropValues?: any,
     initialAttrInfo?: Array<AttrChangeInfo>,
     mountCnfg: EMC,
-    synConfig: EMC
+    synConfig: EMC,
+    observedAttrs: Array<string> | undefined,
 }
 
 export interface BEAllProps<TElement = Element> {

@@ -46,8 +46,12 @@ type CustomHandlers = Map<HandlerName, EventListenerOrFn>;
 type ScopedCustomHandlers = Map<HandlerName, Array<[CSSQuery, EventListenerOrFn]>>;
 type CustomHandlerCluster = Map<HandlerKey, CustomHandlers>;
 type ScopedCustomHandlerCluster = Map<HandlerKey, ScopedCustomHandlers>;
-type EventTypeToListener = Map<EventType, EventListenerOrFn>;
-type EventTypeHandlers = Map<DOM_ID, EventTypeToListener>;
+type EventTypeToListener = Map<EventType, ListenerAndOptions>;
+export interface ListenerAndOptions  {
+    listener: EventListenerOrFn,
+    options: OnOptions
+}
+type DOM_IDToEventTypeToListener = Map<DOM_ID, EventTypeToListener>;
 
 export interface EnhancementMountConfig<TBranches = any, TProps = any>{
     id?: string;

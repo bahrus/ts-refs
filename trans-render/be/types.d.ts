@@ -38,10 +38,16 @@ export type HandlerKey = string;
 
 export type HandlerName = string;
 
+export type EventType = string;
+
+export type DOM_ID = string;
+
 type CustomHandlers = Map<HandlerName, EventListenerOrFn>;
 type ScopedCustomHandlers = Map<HandlerName, Array<[CSSQuery, EventListenerOrFn]>>;
 type CustomHandlerCluster = Map<HandlerKey, CustomHandlers>;
 type ScopedCustomHandlerCluster = Map<HandlerKey, ScopedCustomHandlers>;
+type EventTypeToListener = Map<EventType, EventListenerOrFn>;
+type EventTypeHandlers = Map<DOM_ID, EventTypeToListener>;
 
 export interface EnhancementMountConfig<TBranches = any, TProps = any>{
     id?: string;
@@ -141,4 +147,8 @@ export interface IEnhancement<TElement = Element> extends BEAllProps<TElement>{
     channelEvent(e: Event): void;
     //parsedFrom: string;
     //autoImport?: boolean | string;
+}
+
+export interface OnOptions extends EventListenerOptions{
+    initOn?: 'resolved'
 }

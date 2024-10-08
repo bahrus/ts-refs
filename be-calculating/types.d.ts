@@ -36,21 +36,7 @@ export type AP = AllProps;
 
 export type PAP = Partial<AP>;
 
-export type ProPAP = Promise<PAP>
-
-// export interface Actions{
-//     parseForAttr(self: this): PAP;
-//     regOnInput(self: this): PAP;
-//     regOnChange(self: this): PAP;
-//     regOnLoad(self: this): PAP;
-//     genRemoteSpecifiers(self: this): PAP;
-//     hydrate(self: this): ProPAP;
-//     findScriptEl(self: this): PAP;
-//     //getArgs(self: this): PAP;
-//     //observe(self: this): ProPAP;
-//     importSymbols(self: this): ProPAP;
-//     //onValue(self: this): void;
-// }
+export type ProPAP = Promise<PAP>;
 
 export type BAP = AP & BEAllProps & Handlers;
 

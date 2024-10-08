@@ -93,7 +93,7 @@ export interface EnhancementMountConfig<TBranches = any, TProps = any>{
 
     allowedMutations?: {[key: CSSQuery]: []}
 
-    top: EnhancementMountConfig<TBranches, TProps>
+    top?: EnhancementMountConfig<TBranches, TProps>
     
 }
 

@@ -1,4 +1,4 @@
-import { CustomHandlers, ScopedCustomHandlers } from '../trans-render/be/types';
+import { CustomHandlers} from '../trans-render/be/types';
 import {StringWithAutocompleteOptions} from '../trans-render/types';
 export type aggKeys = StringWithAutocompleteOptions<
     | '+'
@@ -14,5 +14,4 @@ export type aggKeys = StringWithAutocompleteOptions<
 
 export interface Handlers{
     customHandlers: CustomHandlers;
-    scopedCustomHandlers?: ScopedCustomHandlers;
 }

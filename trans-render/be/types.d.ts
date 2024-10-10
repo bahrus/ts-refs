@@ -40,7 +40,6 @@ export type HandlerName = string;
 
 export type EventType = string;
 
-// export type DOM_ID = string;
 
 type CustomHandlers = Map<HandlerName, EventListenerOrFn>;
 type CustomHandlerCluster = Map<HandlerKey, CustomHandlers>;
@@ -49,7 +48,10 @@ export interface ListenerAndOptions  {
     listener: EventListenerOrFn,
     options?: OnOptions
 }
-// type DOM_IDToEventTypeToListener = Map<DOM_ID, EventTypeToListenerAndOptions>;
+
+export interface IW {
+    a(eventsToAdd: {[key: string]: EventListenerOrFn}): IW
+}
 
 export interface EnhancementMountConfig<TBranches = any, TProps = any>{
     id?: string;
@@ -96,6 +98,8 @@ export interface EnhancementMountConfig<TBranches = any, TProps = any>{
     allowedMutations?: {[key: CSSQuery]: []}
 
     top?: EnhancementMountConfig<TBranches, TProps>
+
+    ws?: Array<W>
     
 }
 

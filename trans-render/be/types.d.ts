@@ -50,6 +50,7 @@ export interface ListenerAndOptions  {
 }
 
 export interface IW {
+    q: CSSQuery,
     a(eventsToAdd: {[key: string]: EventListenerOrFn}): IW
 }
 
@@ -99,7 +100,7 @@ export interface EnhancementMountConfig<TBranches = any, TProps = any>{
 
     top?: EnhancementMountConfig<TBranches, TProps>
 
-    ws?: Array<W>
+    ws?: Array<IW>
     
 }
 

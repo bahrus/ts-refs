@@ -32,7 +32,9 @@ export type SafeProps = StringWithAutocompleteOptions<
     | '^aria'
 >;
 
-export type EventListenerOrFn = EventListener | ((e: Event) => void);
+export type EventListenerClass = {new(): EventListenerObject}
+
+export type EventListenerOrFn = EventListener | ((e: Event) => void) | EventListenerClass;
 
 export type HandlerKey = string;
 
@@ -43,15 +45,18 @@ export type EventType = string;
 
 type CustomHandlers = Map<HandlerName, EventListenerOrFn>;
 type CustomHandlerCluster = Map<HandlerKey, CustomHandlers>;
-type EventTypeToListenerAndOptions = Map<EventType, ListenerAndOptions>;
-export interface ListenerAndOptions  {
-    listener: EventListenerOrFn,
-    options?: OnOptions
-}
+// type EventTypeToListenerAndOptions = Map<EventType, ListenerAndOptions>;
+// export interface ListenerAndOptions  {
+//     listener: EventListenerOrFn,
+//     options?: OnOptions
+// }
+
+export type MappedListeners = {[key: string]: EventListenerOrFn}
 
 export interface IW {
     q: CSSQuery,
-    a(eventsToAdd: {[key: string]: EventListenerOrFn}): IW
+    a(eventsToAdd: MappedListeners): IW,
+    listeners: MappedListeners
 }
 
 export interface EnhancementMountConfig<TBranches = any, TProps = any>{

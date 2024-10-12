@@ -55,7 +55,15 @@ export type MappedListeners = {[key: string]: EventListenerOrFn}
 
 export interface IW<T = EventTarget> {
     q: CSSQuery,
+    /**
+     * "addEventListeners or Actions"
+     * @param eventsToAdd 
+     */
     a(eventsToAdd: MappedListeners): IW,
+    /**
+     * set properties
+     * @param propsToMerge 
+     */
     s(propsToMerge: Partial<T>): IW,
     listeners: MappedListeners,
     props: Partial<T>
@@ -107,7 +115,7 @@ export interface EnhancementMountConfig<TBranches = any, TProps = any>{
 
     top?: EnhancementMountConfig<TBranches, TProps>
 
-    ws?: Array<IW>
+    ws: Array<IW>
     
 }
 

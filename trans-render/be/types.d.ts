@@ -53,10 +53,12 @@ type CustomHandlerCluster = Map<HandlerKey, CustomHandlers>;
 
 export type MappedListeners = {[key: string]: EventListenerOrFn}
 
-export interface IW {
+export interface IW<T = EventTarget> {
     q: CSSQuery,
     a(eventsToAdd: MappedListeners): IW,
-    listeners: MappedListeners
+    s(propsToMerge: Partial<T>): IW,
+    listeners: MappedListeners,
+    props: Partial<T>
 }
 
 export interface EnhancementMountConfig<TBranches = any, TProps = any>{

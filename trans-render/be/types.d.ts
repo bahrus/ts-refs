@@ -65,8 +65,10 @@ export interface IW<T = EventTarget> {
      * @param propsToMerge 
      */
     s(propsToMerge: Partial<T>): IW,
+    r(refs: {[key: string]: any}): IW,
     listeners: MappedListeners,
-    props: Partial<T>
+    props: Partial<T>,
+    refs: {[key: string]: any},
 }
 
 export interface EnhancementMountConfig<TBranches = any, TProps = any>{

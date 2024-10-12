@@ -65,8 +65,10 @@ export interface IW<T = EventTarget> {
      * @param propsToMerge 
      */
     s(propsToMerge: Partial<T>): IW,
+    r(refs: {[key: string]: any}): IW,
     listeners: MappedListeners,
-    props: Partial<T>
+    props: Partial<T>,
+    refs: {[key: string]: any},
 }
 
 export interface EnhancementMountConfig<TBranches = any, TProps = any>{
@@ -113,9 +115,11 @@ export interface EnhancementMountConfig<TBranches = any, TProps = any>{
 
     allowedMutations?: {[key: CSSQuery]: []}
 
-    top?: EnhancementMountConfig<TBranches, TProps>
+    top?: EnhancementMountConfig<TBranches, TProps>,
 
-    ws: Array<IW>
+    ws: Array<IW>,
+
+    mapWSTo?: keyof TProps
     
 }
 
@@ -149,6 +153,7 @@ export interface EnhancementInfo {
     mountCnfg: EMC,
     synConfig: EMC,
     observedAttrs: Array<string> | undefined,
+    ws?: Array<IW>
 }
 
 export interface BEAllProps<TElement = Element> {

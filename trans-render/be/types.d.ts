@@ -149,6 +149,7 @@ export interface EnhancementInfo {
     mountCnfg: EMC,
     synConfig: EMC,
     observedAttrs: Array<string> | undefined,
+    ws?: Array<IW>
 }
 
 export interface BEAllProps<TElement = Element> {

@@ -3,6 +3,7 @@ import {BEAllProps, IEnhancement} from '../trans-render/be/types';
 export interface EndUserProps extends IEnhancement<HTMLElement>{
     //eval?: string,
     vm: any,
+    with: string,
     //scriptRef?: string,
 }
 

@@ -69,6 +69,7 @@ export interface IW<T = EventTarget> {
     listeners: MappedListeners,
     props: Partial<T>,
     refs: {[key: string]: any},
+    primaryVal: any;
 }
 
 export interface EnhancementMountConfig<TBranches = any, TProps = any>{
@@ -119,8 +120,9 @@ export interface EnhancementMountConfig<TBranches = any, TProps = any>{
 
     ws: Array<IW>,
 
-    mapWSTo?: keyof TProps
-    
+    mapWSTo?: keyof TProps,
+
+    primaryProp?: keyof TProps
 }
 
 export type AttrMapPoint<TProps = any> = keyof TProps & string | AttrMapConfig<TProps>

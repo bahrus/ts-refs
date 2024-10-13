@@ -1,15 +1,15 @@
 import {BEAllProps, IEnhancement} from '../trans-render/be/types';
 
-export interface EndUserProps extends IEnhancement{
+export interface EndUserProps extends IEnhancement<HTMLElement>{
     //eval?: string,
-    vm?: any,
+    vm: any,
     //scriptRef?: string,
 }
 
 export interface AP extends EndUserProps{
     //attrExpr?: string | null,
     //scriptEl?: HTMLScriptElement,
-    renderer?: (vm: any, enhancedElement: Element) => any,
+    renderer: (vm: any) => any,
 }
 
 export type PAP = Partial<AP>;
@@ -22,6 +22,6 @@ export interface Actions {
     // getAttrExpr(self: this): PAP;
     // onAttrExpr(self: this): PAP;
     // importSymbols(self: this): ProPAP;
-    // doRender(self: this): void;
+    doRender(self: BAP): void;
     // onScriptRef(self: this): ProPAP;
 }

@@ -1,14 +1,14 @@
 import {BEAllProps, IEnhancement} from '../trans-render/be/types';
 
 export interface EndUserProps extends IEnhancement{
-    eval?: string,
+    //eval?: string,
     vm?: any,
-    scriptRef?: string,
+    //scriptRef?: string,
 }
 
 export interface AP extends EndUserProps{
-    attrExpr?: string | null,
-    scriptEl?: HTMLScriptElement,
+    //attrExpr?: string | null,
+    //scriptEl?: HTMLScriptElement,
     renderer?: (vm: any, enhancedElement: Element) => any,
 }
 

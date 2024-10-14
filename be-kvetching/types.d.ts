@@ -20,5 +20,5 @@ export type BAP = AP & BEAllProps;
 
 
 export interface Actions{
-    register(self: this): ProPAP;
+    register(self: BAP): ProPAP;
 }

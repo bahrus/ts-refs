@@ -128,16 +128,15 @@ export interface Methods extends Actions{
 }
 
 export interface Actions{
-    do(self: this): Promise<void>;
-    parseFor(self: this): ProPP;
-    parseTarget(self: this): ProPP;
-    listenForInput(self: this): ProPP;
-    //listenForSelect(self: this): ProPP;
-    doInitialLoad(self: this): ProPP;
-    initializeWhen(self: this): Promise<PP | undefined>;
-    onForm(self: this): ProPP;
-    onFormSpecifier(self: this): ProPP;
-    onFormRef(self: this): Promise<void>,
+    // do(self: this): Promise<void>;
+    // parseFor(self: this): ProPP;
+    // parseTarget(self: this): ProPP;
+    // listenForInput(self: this): ProPP;
+    // doInitialLoad(self: this): ProPP;
+    // initializeWhen(self: this): Promise<PP | undefined>;
+    // onForm(self: this): ProPP;
+    // onFormSpecifier(self: this): ProPP;
+    // onFormRef(self: this): Promise<void>,
 }
 
 // https://github.com/webcomponents-cg/community-protocols/issues/12#issuecomment-872415080

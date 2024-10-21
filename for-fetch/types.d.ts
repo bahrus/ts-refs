@@ -13,7 +13,9 @@ export interface EndUserProps{
      * Url to invoke
      * @readonly true
      */
-    href?: string,
+    src?: string,
+
+    ':src': string,
 
     /**
      * Specifier for list of form associated or contentEditable peer elements that 
@@ -113,9 +115,9 @@ export interface AllProps extends EndUserProps, OverridableGetters{
     readonly formSpecifier?: Specifier,
 }
 
-export type PP = Partial<AllProps>;
+export type PAP = Partial<AllProps>;
 
-export type ProPP = Promise<PP>
+export type ProPP = Promise<PAP>;
 
 
 /**
@@ -128,12 +130,13 @@ export interface Methods extends Actions{
 }
 
 export interface Actions{
-    // do(self: this): Promise<void>;
-    // parseFor(self: this): ProPP;
-    // parseTarget(self: this): ProPP;
+    do(self: this): Promise<void>;
+    bindSrc(self)
+    parseFor(self: this): ProPP;
+    parseTarget(self: this): ProPP;
     // listenForInput(self: this): ProPP;
     // doInitialLoad(self: this): ProPP;
-    // initializeWhen(self: this): Promise<PP | undefined>;
+    initializeWhen(self: this): Promise<PP | undefined>;
     // onForm(self: this): ProPP;
     // onFormSpecifier(self: this): ProPP;
     // onFormRef(self: this): Promise<void>,

@@ -1,5 +1,6 @@
 import { JSONObject } from '../trans-render/lib/types';
 import { Specifier } from '../trans-render/dss/types';
+import { URLBuilder } from '../../URLBuilder';
 //import {SimpleWCInfo} from 'may-it-be/SimpleWCInfo';
 
 declare class WeakRef<TProps = any>{}
@@ -113,6 +114,7 @@ export interface AllProps extends EndUserProps, OverridableGetters{
     readonly formData?: FormData,
     readonly formRef?: WeakRef<HTMLFormElement>,
     readonly formSpecifier?: Specifier,
+    readonly urlBuilder?: URLBuilder,
 }
 
 export type PAP = Partial<AllProps>;

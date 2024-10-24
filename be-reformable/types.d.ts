@@ -7,8 +7,13 @@ export interface EndUserProps extends IEnhancement<HTMLFormElement>{
     updateOn: string,
 }
 
+export interface IURLBuilder{
+    
+}
+
 export interface AllProps extends EndUserProps{
     updateCnt: number,
+    urlBuilder: 
 }
 
 export type AP = AllProps;
@@ -21,4 +26,5 @@ export type BAP = AP & BEAllProps;
 
 export interface Actions {
     hydrate(self: BAP): ProPAP;
+    updateAction(self: BAP): ProPAP;
 }

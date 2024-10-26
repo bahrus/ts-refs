@@ -28,6 +28,6 @@ export type BAP = AP & BEAllProps;
 
 export interface Actions {
     hydrate(self: BAP): ProPAP;
-    updateAction(self: BAP): ProPAP;
+    updateAction(self: BAP): void;//ProPAP;
     parsePath(self: BAP): ProPAP;
 }

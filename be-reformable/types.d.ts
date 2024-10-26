@@ -16,7 +16,8 @@ export interface IURLBuilder{
 
 export interface AllProps extends EndUserProps{
     updateCnt: number,
-    urlBuilder: IURLBuilder,
+    readonly urlBuilder: IURLBuilder,
+    readonly url: string,
 }
 
 export type AP = AllProps;
@@ -29,6 +30,6 @@ export type BAP = AP & BEAllProps;
 
 export interface Actions {
     hydrate(self: BAP): ProPAP;
-    updateAction(self: BAP): void;//ProPAP;
+    updateAction(self: BAP): ProPAP;
     parsePath(self: BAP): ProPAP;
 }

@@ -6,8 +6,11 @@ export interface EndUserProps extends IEnhancement<HTMLFormElement>{
     updateOn: string,
 }
 
+type BeforeToken = string;
+type TokenKey = string | undefined
+
 export interface IURLBuilder{
-    
+    readonly tokens: Array<[BeforeToken, TokenKey]>
 }
 
 export interface AllProps extends EndUserProps{

@@ -3,7 +3,7 @@ import {BEAllProps, IEnhancement} from '../trans-render/be/types';
 export interface EndUserProps extends IEnhancement<HTMLFormElement>{
     baseLink?: string,
     path: string,
-    updateOn: string,
+    updateOn: 'input' | 'change' | 'submit',
 }
 
 type BeforeToken = string;

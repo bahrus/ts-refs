@@ -4,6 +4,7 @@ export interface EndUserProps extends IEnhancement<HTMLFormElement>{
     baseLink?: string,
     path: string,
     updateOn: 'input' | 'change' | 'submit',
+    nudge: boolean,
 }
 
 type BeforeToken = string;

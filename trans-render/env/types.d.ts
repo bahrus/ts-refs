@@ -1,0 +1,1 @@
+export type protocols = 'session' | 'idb' | 'globalThis';

@@ -1,1 +1,1 @@
-export type protocols = 'session' | 'idb' | 'globalThis';
+export type protocols = 'sessionStorage' | 'localStorage' | 'idb' | 'globalThis';

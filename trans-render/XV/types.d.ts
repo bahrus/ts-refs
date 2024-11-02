@@ -31,7 +31,12 @@ export type USL =
     | storageUSL
 ;
 
-export type USPL = [USP, USL];
+export interface ParsedUSL{
+    protocol: protocols,
+    accessorChain: string,
+    usp: USP,
+    uspParts: Array<string>
+}
 
 export interface WrapperConfig<TProps = any> extends PropInfo {
     USPProp: keyof TProps & string,

@@ -31,7 +31,9 @@ export type USL =
     | storageUSL
 ;
 
-export interface WrapperSource<TProps = any> extends PropInfo {
+export type USPL = [USP, USL];
+
+export interface WrapperConfig<TProps = any> extends PropInfo {
     USPProp: keyof TProps & string,
     accessor: string,
     cache: boolean,

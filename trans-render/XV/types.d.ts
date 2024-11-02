@@ -1,3 +1,5 @@
+import { PropInfo } from "../froop/types";
+
 export type storage = 'sessionStorage' | 'localStorage';
 
 export type protocols = 
@@ -28,3 +30,12 @@ export type USL =
     | storageUSP
     | storageUSL
 ;
+
+export interface WrapperSource<TProps = any> extends PropInfo {
+    USPProp: keyof TProps & string,
+    accessor: string,
+    cache: boolean,
+    maxStaleness: number,
+    //subscribe to window message
+    beVigilant: boolean,
+}

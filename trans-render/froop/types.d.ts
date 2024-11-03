@@ -174,7 +174,7 @@ export interface OConfig<TProps = any, TActions = TProps, ETProps = TProps>{
 
     propDefaults?: Partial<{[key in keyof TProps]: TProps[key]}>;
     propInfo?: Partial<{[key in keyof TProps]: PropInfo}>;
-    //onsets?: Onsets<TProps, TActions>;
+    wrappers?: Partial<{[key in keyof TProps]: WrapperConfig<TProps>}>;
     actions?: Actions<TProps, TActions>;
     /**
      * inferred actions

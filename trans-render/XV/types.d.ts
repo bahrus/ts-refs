@@ -46,3 +46,14 @@ export interface WrapperConfig<TProps = any> extends PropInfo {
     //subscribe to window message
     beVigilant: boolean,
 }
+
+export type USLMapping = {[key: string | number | symbol]: USL}
+
+export interface StowArgs {
+    values: any,
+    mapping: USLMapping
+}
+
+export interface SavingContext {
+    USLs: Array<USL>
+}

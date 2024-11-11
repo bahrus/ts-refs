@@ -1,10 +1,16 @@
 import {BEAllProps, IEnhancement} from '../trans-render/be/types';
+import {Specifier} from '../trans-render/dss/types';
 
 export interface EndUserProps extends IEnhancement<HTMLFormElement>{
     baseLink?: string,
     path: string,
+    headers?: {},
     updateOn: 'input' | 'change' | 'submit',
-    nudge: boolean,
+    submitOptions:{
+        onlyAfter: Specifier,
+        nudges: boolean,
+        disableIfNotAllConditionsAreMet: boolean
+    }
 }
 
 type BeforeToken = string;

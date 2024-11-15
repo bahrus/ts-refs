@@ -2,7 +2,8 @@ import {BEAllProps, IEnhancement} from '../trans-render/be/types';
 import {Specifier} from '../trans-render/dss/types';
 
 export interface EndUserProps extends IEnhancement<HTMLFormElement>{
-    baseLink?: string,
+    baseLink: string,
+    baseURL: string,
     path: string,
     headers?: {},
     updateOn: 'input' | 'change' | 'submit',
@@ -24,6 +25,7 @@ export interface AllProps extends EndUserProps{
     updateCnt: number,
     readonly urlBuilder: IURLBuilder,
     readonly url: string,
+    readonly resolvedBaseURL: true
 }
 
 export type AP = AllProps;
@@ -35,6 +37,8 @@ export type ProPAP = Promise<PAP>;
 export type BAP = AP & BEAllProps;
 
 export interface Actions {
+    resolveBaseLink(self: BAP): PAP;
+    specifyDefaultBaseURL(self: BAP): PAP;
     hydrate(self: BAP): ProPAP;
     updateAction(self: BAP): ProPAP;
     parsePath(self: BAP): ProPAP;

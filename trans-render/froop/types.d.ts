@@ -384,7 +384,7 @@ export interface RoundaboutReady{
      * Doesn't do any notification
      * Allows for nested property setting
     */
-    covertAssignment(obj: any): void;
+    covertAssignment(obj: any): Promise<void>;
 
     /**
      * fires event with name matching the name of the property when the value changes (but not via covertAssignment)
@@ -420,7 +420,6 @@ export interface BaseProps{
 
 export interface ICompact{
     compacts: Compacts,
-    //covertAssignment(obj: any, vm: RoundaboutReady, keysToPropagate: Set<string>, busses: Busses): Promise<void>,
 }
 
 interface CompactStatement {

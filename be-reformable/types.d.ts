@@ -1,5 +1,5 @@
 import {BEAllProps, IEnhancement} from '../trans-render/be/types';
-import {Specifier} from '../trans-render/dss/types';
+import {Specifier, DSS} from '../trans-render/dss/types';
 
 export interface EndUserProps extends IEnhancement<HTMLFormElement>{
     baseLink: string,
@@ -11,7 +11,8 @@ export interface EndUserProps extends IEnhancement<HTMLFormElement>{
         onlyAfter: Specifier,
         nudges: boolean,
         disableIfNotAllConditionsAreMet: boolean
-    }
+    },
+    headerFields: Array<DSS>
 }
 
 type BeforeToken = string;
@@ -25,7 +26,8 @@ export interface AllProps extends EndUserProps{
     updateCnt: number,
     readonly urlBuilder: IURLBuilder,
     readonly url: string,
-    readonly resolvedBaseURL: true
+    readonly resolvedBaseURL: true,
+    //readonly headerFieldValues: {[key]: string},
 }
 
 export type AP = AllProps;

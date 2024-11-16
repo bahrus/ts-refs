@@ -25,8 +25,9 @@ export interface IURLBuilder{
 export interface AllProps extends EndUserProps{
     updateCnt: number,
     readonly urlBuilder: IURLBuilder,
-    readonly url: string,
+    //readonly url: string,
     readonly resolvedBaseURL: true,
+    readonly fetchOptions: RequestInit,
     //readonly headerFieldValues: {[key]: string},
 }
 
@@ -44,4 +45,5 @@ export interface Actions {
     hydrate(self: BAP): ProPAP;
     updateAction(self: BAP): ProPAP;
     parsePath(self: BAP): ProPAP;
+    suggestFetch(self: BAP): void;
 }

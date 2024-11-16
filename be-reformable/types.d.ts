@@ -5,7 +5,7 @@ export interface EndUserProps extends IEnhancement<HTMLFormElement>{
     baseLink: string,
     baseURL: string,
     path: string,
-    headers?: {},
+    headers: HeadersInit | undefined,
     updateOn: 'input' | 'change' | 'submit',
     submitOptions:{
         onlyAfter: Specifier,

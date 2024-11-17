@@ -46,12 +46,12 @@ export type PAP = Partial<AP>;
 
 export type ProPAP = Promise<PAP>;
 
-export type POA = [PAP | undefined, ActionOnEventConfigs<PAP, Actions>]
+export type BAP = AP & BEAllProps;
 
 
 
 export interface Actions{
-    onInvalidIf(self: this): Promise<void>;
-    onCheckValidityOn(self: this): void;
-    onCheckValidityOnInit(self: this): void;
+    // onInvalidIf(self: this): Promise<void>;
+    // onCheckValidityOn(self: this): void;
+    // onCheckValidityOnInit(self: this): void;
 }

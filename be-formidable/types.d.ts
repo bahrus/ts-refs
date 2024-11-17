@@ -1,14 +1,15 @@
 import {BEAllProps, IEnhancement} from '../trans-render/be/types';
 
 export interface EndUserProps extends IEnhancement<HTMLFormElement>{
-    invalidIf?: Array<FormCriteria>,
-    checkValidityOn?: string | Array<(string | CheckEventMonitor)>,
-    checkValidityOnInit?: boolean;
+    invalidIf: Array<FormCriteria>,
+    checkValidityOn: string | Array<(string | CheckEventMonitor)>,
+    checkValidityOnInit: boolean;
 }
 
 export interface AllProps extends EndUserProps{
     objections: Array<string>,
     isValid: boolean;
+    updateCnt: number,
 }
 
 export interface FormCriteria{
@@ -51,6 +52,7 @@ export type BAP = AP & BEAllProps;
 
 
 export interface Actions{
+    hydrate(self: BAP): ProPAP,
     // onInvalidIf(self: this): Promise<void>;
     // onCheckValidityOn(self: this): void;
     // onCheckValidityOnInit(self: this): void;

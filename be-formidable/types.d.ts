@@ -1,20 +1,18 @@
-import { ActionOnEventConfigs } from "trans-render/froop/types";
-import {IBE} from 'be-enhanced/types';
+import {BEAllProps, IEnhancement} from '../trans-render/be/types';
 
-export interface EndUserProps extends IBE<HTMLFormElement>{
-    invalidIf?: FormCriteria[],
-    checkValidityOn?: string | (string | CheckEventMonitor)[],
+export interface EndUserProps extends IEnhancement<HTMLFormElement>{
+    invalidIf?: Array<FormCriteria>,
+    checkValidityOn?: string | Array<(string | CheckEventMonitor)>,
     checkValidityOnInit?: boolean;
 }
 
 export interface AllProps extends EndUserProps{
-    objections: string[],
-    checkValidityAttached: boolean;
+    objections: Array<string>,
     isValid: boolean;
 }
 
 export interface FormCriteria{
-    noneOf?: (string | FieldOptions)[],
+    noneOf?: Array<(string | FieldOptions)>,
     instructions?: string,
     invalidMessage?: string,
 }

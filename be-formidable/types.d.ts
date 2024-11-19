@@ -15,8 +15,8 @@ export interface AllProps extends EndUserProps{
 
 export interface FormCriteria{
     noneOf?: Array<(string | FieldOptions)>,
-    instructions?: string,
-    invalidCssClass?: string,
+    //instructions?: string,
+    invalidCssClass: string,
 }
 
 export interface FieldIdentifierOptions {
@@ -56,6 +56,8 @@ export interface Actions{
     hydrate(self: BAP): ProPAP,
     markStatus(self: BAP): void,
     checkValidity(self: BAP): void,
+    applyInvalidClsses(self: BAP): void,
+    removeInvalidClasses(self: BAP): void,
     // onInvalidIf(self: this): Promise<void>;
     // onCheckValidityOn(self: this): void;
     // onCheckValidityOnInit(self: this): void;

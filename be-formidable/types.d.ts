@@ -7,15 +7,16 @@ export interface EndUserProps extends IEnhancement<HTMLFormElement>{
 }
 
 export interface AllProps extends EndUserProps{
-    objections: Array<string>,
-    isValid: boolean;
+    invalidClassesToApply: Array<string>,
+    invalidClassesToRemove: Array<string>,
+    isValid: boolean,
     updateCnt: number,
 }
 
 export interface FormCriteria{
     noneOf?: Array<(string | FieldOptions)>,
     instructions?: string,
-    invalidMessage?: string,
+    invalidCssClass?: string,
 }
 
 export interface FieldIdentifierOptions {

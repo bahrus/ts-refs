@@ -54,6 +54,7 @@ export type BAP = AP & BEAllProps;
 export interface Actions{
     hydrate(self: BAP): ProPAP,
     markStatus(self: BAP): void,
+    checkValidity(self: BAP): void,
     // onInvalidIf(self: this): Promise<void>;
     // onCheckValidityOn(self: this): void;
     // onCheckValidityOnInit(self: this): void;

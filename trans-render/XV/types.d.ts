@@ -55,5 +55,5 @@ export interface StowArgs {
 }
 
 export interface SavingContext {
-    USLs: Array<USL>
+    USLs: Set<USL>
 }

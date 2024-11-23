@@ -1,6 +1,8 @@
 import { Scope } from '../lib/types'
 import { CSSQuery } from '../types';
 
+export type DSS = string;
+
 export type DirectionalScopeSigils = 
     /**
      * upward direction, non recursive

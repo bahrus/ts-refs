@@ -6,8 +6,10 @@ export interface EndUserProps extends IEnhancement<HTMLInputElement>{
     writeTo: USL;
 }
 
+export type FileAndContents = [File, any];
+
 export interface AllProps extends EndUserProps{
-    fileContents: Array<any>;
+    fileContents: Array<FileAndContents>;
     writtenTo: Array<USL>;
 }
 

@@ -1,7 +1,9 @@
 import {IEnhancement, BEAllProps} from '../trans-render/be/types';
+import {} from '../trans-render/'
 
 export interface EndUserProps extends IEnhancement<HTMLInputElement>{
     readVerb: 'readAsText' | 'readAsDataURL' | 'readAsArrayBuffer' | 'readAsBinaryString';
+    writeTo: USL
 }
 
 export interface AllProps extends EndUserProps{

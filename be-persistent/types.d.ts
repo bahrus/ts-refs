@@ -1,5 +1,5 @@
-import { ActionOnEventConfigs } from "trans-render/froop/types";
 import {IBE} from 'be-enhanced/types';
+import { BEAllProps } from '../be-enhanced/types';
 
 export interface EndUserProps extends IBE {
     params?: PersistenceParams | Array<PersistenceParams>;
@@ -16,13 +16,12 @@ export type PAP = Partial<AP>;
 
 export type ProPAP = Promise<PAP>;
 
-export type POA = [PAP | undefined, ActionOnEventConfigs<PAP, Actions>];
+export type BAP = AP & BEAllProps;
 
 export interface Actions{
-    //intro(proxy: Proxy, target: Element, beDecorProps: BeDecoratedProps): void;
 
-    hydrate(self: this): ProPAP;
-    parameterize(self: this): ProPAP
+    // hydrate(self: this): ProPAP;
+    // parameterize(self: this): ProPAP
 }
 
 export interface PersistenceParams<TObjectToPersist = any, TEventMap = any>{

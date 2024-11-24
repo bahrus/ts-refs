@@ -3,9 +3,10 @@ import { PropInfo } from "../froop/types";
 export type storage = 'sessionStorage' | 'localStorage';
 
 export type protocols = 
-    | storage
-    |'indexedDB' 
-    |'globalThis'
+    |   storage
+    |   'indexedDB' 
+    |   'globalThis'
+    |   'cookie'
 ;
 
 export type db = string;
@@ -56,4 +57,12 @@ export interface StowArgs {
 
 export interface SavingContext {
     USLs: Set<USL>
+}
+
+export interface CookieOptions {
+    secure: boolean | undefined,
+    'max-age': number | undefined,
+    expires: Date | string | undefined,
+    domain: string | undefined,
+    path: string | undefined,
 }

@@ -1,7 +1,6 @@
-import {IBE} from 'be-enhanced/types';
-import { BEAllProps } from '../be-enhanced/types';
+import {IEnhancement, BEAllProps} from '../trans-render/be/types';
 
-export interface EndUserProps extends IBE {
+export interface EndUserProps extends IEnhancement {
     params?: PersistenceParams | Array<PersistenceParams>;
 }
 export interface AllProps extends EndUserProps{

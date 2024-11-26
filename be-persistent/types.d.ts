@@ -1,11 +1,13 @@
 import {IEnhancement, BEAllProps} from '../trans-render/be/types';
+import { USL } from '../trans-render/XV/types';
 
 export interface EndUserProps extends IEnhancement {
-    params?: PersistenceParams | Array<PersistenceParams>;
+    //params?: PersistenceParams | Array<PersistenceParams>;
+    rules: Array<PersistenceRule>
 }
 export interface AllProps extends EndUserProps{
-    isParsed?: boolean,
-    persistenceParams?: Array<PersistenceParams>
+    //isParsed?: boolean,
+    //persistenceParams?: Array<PersistenceParams>
 }
 
 
@@ -23,34 +25,40 @@ export interface Actions{
     // parameterize(self: this): ProPAP
 }
 
-export interface PersistenceParams<TObjectToPersist = any, TEventMap = any>{
-    what?: {[key in keyof TObjectToPersist]: boolean | string  | WhatToPersistCriteria},
-    where: PersistenceStorage,
-    when?: {[key in keyof TEventMap]: boolean | EventCriteria},
-    nudge?: boolean,
-    persistOnUnload?: boolean,
-    restoreIf: RestoreCriteria,
-    eventToFire?: {
-        type: string,
-        bubbles: boolean,
-        cancelable: boolean,
-        composed: boolean,
-    }
+export interface PersistenceRule {
+    localProp?: string,
+    localEvent?: string,
+    usl?: USL,
 }
 
-export interface PersistenceStorage{
-    sessionStorage?: boolean,
-    idb?: boolean,
-    autogenId?: boolean,
-    hash?: boolean,
-}
+// export interface PersistenceParams<TObjectToPersist = any, TEventMap = any>{
+//     what?: {[key in keyof TObjectToPersist]: boolean | string  | WhatToPersistCriteria},
+//     where: PersistenceStorage,
+//     when?: {[key in keyof TEventMap]: boolean | EventCriteria},
+//     nudge?: boolean,
+//     persistOnUnload?: boolean,
+//     restoreIf: RestoreCriteria,
+//     eventToFire?: {
+//         type: string,
+//         bubbles: boolean,
+//         cancelable: boolean,
+//         composed: boolean,
+//     }
+// }
 
-export interface EventCriteria{}
+// export interface PersistenceStorage{
+//     sessionStorage?: boolean,
+//     idb?: boolean,
+//     autogenId?: boolean,
+//     hash?: boolean,
+// }
 
-export interface RestoreCriteria{
-    always?: boolean,
-}
+// export interface EventCriteria{}
 
-export interface WhatToPersistCriteria {
-    //beBeatified: boolean
-}
+// export interface RestoreCriteria{
+//     always?: boolean,
+// }
+
+// export interface WhatToPersistCriteria {
+//     //beBeatified: boolean
+// }

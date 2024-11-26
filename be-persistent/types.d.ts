@@ -6,6 +6,7 @@ export interface EndUserProps extends IEnhancement {
     rules: Array<PersistenceRule>
 }
 export interface AllProps extends EndUserProps{
+    noAttrs: boolean,
     //isParsed?: boolean,
     //persistenceParams?: Array<PersistenceParams>
 }
@@ -21,7 +22,8 @@ export type BAP = AP & BEAllProps;
 
 export interface Actions{
 
-    // hydrate(self: this): ProPAP;
+    hydrate(self: BAP): ProPAP;
+    noAttrs(self: BAP): ProPAP;
     // parameterize(self: this): ProPAP
 }
 

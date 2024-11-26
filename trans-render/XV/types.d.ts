@@ -7,6 +7,7 @@ export type protocols =
     |   'indexedDB' 
     |   'globalThis'
     |   'cookie'
+    |   'locationHash'
 ;
 
 export type db = string;

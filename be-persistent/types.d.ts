@@ -51,7 +51,7 @@ export interface PersistenceRule {
 // export interface PersistenceStorage{
 //     sessionStorage?: boolean,
 //     idb?: boolean,
-//     autogenId?: boolean,
+//     autoGenId?: boolean,
 //     hash?: boolean,
 // }
 

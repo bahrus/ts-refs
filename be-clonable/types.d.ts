@@ -19,10 +19,11 @@ export type PAP = Partial<AP>;
 
 export type ProPAP = Promise<PAP>;
 
+export type BAP = AP & BEAllProps;
 
 
 export interface Actions{
-    addCloneBtn(self: this): ProPOA;
-    setBtnContent(self: this): void;
-    beCloned(self: this): void;
+    addCloneBtn(self: BAP): ProPAP;
+    setBtnContent(self: BAP): void;
+    beCloned(self: BAP): void;
 }

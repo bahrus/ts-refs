@@ -1,7 +1,6 @@
-import { ActionOnEventConfigs } from "trans-render/froop/types";
-import {IBE} from 'be-enhanced/types';
+import {BEAllProps, IEnhancement} from '../trans-render/be/types';
 
-export interface EndUserProps extends IBE<HTMLLabelElement> {
+export interface EndUserProps extends IEnhancement<HTMLLabelElement> {
     triggerInsertPosition?: InsertPosition;
     labelTextContainer?: string;
     buttonContent?: string;
@@ -17,16 +16,16 @@ export type AP = AllProps;
 
 export type PAP = Partial<AP>;
 
+export type BAP = AP & BEAllProps
+
 export type ProPAP = Promise<PAP>;
 
-export type POA = [PAP | undefined, ActionOnEventConfigs<PAP, Actions>];
 
-export type ProPOA = Promise<POA | undefined>;
 
 export interface Actions{
-    addTypingBtn(self: this): ProPOA;
-    setBtnContent(self: this): void;
-    beTyped(self: this): void;
+    // addTypingBtn(self: this): ProPOA;
+    // setBtnContent(self: this): void;
+    // beTyped(self: this): void;
     // finale(): void;
 }
 

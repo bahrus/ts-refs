@@ -1,5 +1,4 @@
-import { ActionOnEventConfigs } from "trans-render/froop/types";
-import { IEnhancement, BEAllProps } from 'trans-render/be/types';
+import { IEnhancement, BEAllProps } from '../trans-render/be/types';
 
 export interface EndUserProps extends IEnhancement{
     triggerInsertPosition?: InsertPosition;

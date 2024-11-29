@@ -1,9 +1,9 @@
 import { IEnhancement, BEAllProps } from '../trans-render/be/types';
 
 export interface EndUserProps extends IEnhancement{
-    triggerInsertPosition?: InsertPosition;
+    triggerInsertPosition: InsertPosition;
     cloneInsertPosition?: InsertPosition;
-    buttonContent?: string;
+    buttonContent: string;
 }
 
 export interface AllProps extends EndUserProps{

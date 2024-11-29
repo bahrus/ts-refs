@@ -1,7 +1,6 @@
-import { ActionOnEventConfigs } from "trans-render/froop/types";
-import {IBE} from 'be-enhanced/types';
+import { IEnhancement, BEAllProps } from '../trans-render/be/types';
 
-export interface EndUserProps extends IBE{
+export interface EndUserProps extends IEnhancement{
     buttonInsertPosition?: InsertPosition;
     buttonContent?: string;
 }
@@ -16,15 +15,11 @@ export type PAP = Partial<AP>;
 
 export type ProPAP = Promise<PAP>;
 
-export type POA = [PAP | undefined, ActionOnEventConfigs<PAP, Actions>]
-
-export type ProPOA = Promise<POA>;
+export type BAP = AP & BEAllProps;
 
 export interface Actions{
-    //batonPass(proxy: Proxy, target: Element, beDecorProps: BeDecoratedProps, baton: any): void;
     
-    addDeleteBtn(self: this): ProPOA ;
-    setBtnContent(self: this): void;
-    beDeleted(self: this): void;
-    //finale(): void;
+    // addDeleteBtn(self: BAP): ProPOA ;
+    // setBtnContent(self: this): void;
+    // beDeleted(self: this): void;
 }

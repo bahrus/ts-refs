@@ -1,7 +1,7 @@
 import {BEAllProps, IEnhancement} from '../trans-render/be/types';
 
 export interface EndUserProps extends IEnhancement<HTMLLabelElement> {
-    triggerInsertPosition?: InsertPosition;
+    triggerInsertPosition: InsertPosition;
     labelTextContainer?: string;
     buttonContent?: string;
     beReformable?: boolean;
@@ -23,7 +23,7 @@ export type ProPAP = Promise<PAP>;
 
 
 export interface Actions{
-    // addTypingBtn(self: this): ProPOA;
+    hydrate(self: BAP): ProPAP;
     // setBtnContent(self: this): void;
     // beTyped(self: this): void;
     // finale(): void;

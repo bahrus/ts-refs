@@ -1,12 +1,13 @@
 import { IEnhancement, BEAllProps } from '../trans-render/be/types';
 
 export interface EndUserProps extends IEnhancement{
-    buttonInsertPosition?: InsertPosition;
-    buttonContent?: string;
+    triggerInsertPosition: InsertPosition;
+    buttonContent: string;
 }
 
 export interface AllProps extends EndUserProps{
     byob?: boolean,
+    trigger: WeakRef<HTMLButtonElement>
 }
 
 export type AP = AllProps;
@@ -19,7 +20,7 @@ export type BAP = AP & BEAllProps;
 
 export interface Actions{
     
-    // addDeleteBtn(self: BAP): ProPOA ;
-    // setBtnContent(self: this): void;
-    // beDeleted(self: this): void;
+    addDeleteBtn(self: BAP): ProPAP ;
+    setBtnContent(self: BAP): void;
+    beDeleted(self: BAP): void;
 }

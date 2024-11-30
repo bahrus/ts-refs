@@ -10,6 +10,7 @@ export interface EndUserProps extends IEnhancement<HTMLLabelElement> {
 
 export interface AllProps extends EndUserProps{
     byob?: boolean;
+    trigger: WeakRef<HTMLButtonElement>
 }
 
 export type AP = AllProps;
@@ -23,8 +24,9 @@ export type ProPAP = Promise<PAP>;
 
 
 export interface Actions{
-    hydrate(self: BAP): ProPAP;
+    addTypeBtn(self: BAP): ProPAP;
     setBtnContent(self: BAP): void;
+    openDialog(self: BAP): Promise<void>
     // beTyped(self: this): void;
     // finale(): void;
 }

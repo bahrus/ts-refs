@@ -4,7 +4,6 @@ export interface EndUserProps extends IEnhancement<HTMLLabelElement> {
     triggerInsertPosition: InsertPosition;
     labelTextContainer?: string;
     buttonContent: string;
-    beReformable?: boolean;
     nudge?: boolean;
 }
 

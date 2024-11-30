@@ -2,7 +2,7 @@ import {BEAllProps, IEnhancement} from '../trans-render/be/types';
 
 export interface EndUserProps extends IEnhancement<HTMLLabelElement> {
     triggerInsertPosition: InsertPosition;
-    //labelTextContainer?: string;
+    labelTextContainer?: string;
     buttonContent: string;
     beReformable?: boolean;
     nudge?: boolean;

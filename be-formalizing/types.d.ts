@@ -20,4 +20,5 @@ export type ProPAP = Promise<PAP>;
 
 export interface Actions{
     addFormalizeBtn(self: BAP): ProPAP;
+    setBtnContent(self: BAP): void;
 }

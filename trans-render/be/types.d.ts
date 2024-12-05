@@ -118,7 +118,7 @@ export interface EnhancementMountConfig<TBranches = any, TProps = any>{
 
     top?: EnhancementMountConfig<TBranches, TProps>,
 
-    ws: Array<IW>,
+    ws?: Array<IW>,
 
     mapWSTo?: keyof TProps,
 

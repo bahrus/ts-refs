@@ -1,4 +1,5 @@
 import { Scope} from '../lib/types';
+import { WrapperConfig } from '../XV/types';
 
 export interface IEventConfig<MCProps = any, MCActions = MCProps, TAction = Action>{
     on?: string,
@@ -107,20 +108,7 @@ export interface INewPropagator {
     propagator: IPropagator,
 }
 
-export interface CEServiceClasses {
-    mixer?: {new(args: CEArgs): IMix},
-    itemizer?: {new(args: CEArgs): IPropRegistrar},
-    propper?: {new(args: CEArgs): IPropSvc},
-    hooker?: {new(args: CEArgs): IHookup},
-}
 
-export interface CEServices {
-    mixer?: IMix,
-    itemizer: IPropRegistrar,
-    propper: IPropSvc,
-    definer: IDefine,
-    hooker?: IHookup,
-}
 
 
 
@@ -164,6 +152,7 @@ export interface WCConfig<TProps = any, TActions = TProps, TPropInfo = PropInfo,
     isEnh?: boolean;
     propDefaults?: Partial<{[key in keyof TProps]: TProps[key]}>;
     propInfo?: Partial<{[key in keyof TProps]: TPropInfo}>;
+    wrappers?: Partial<{[key in keyof TProps]: WrapperConfig<TProps>}>;
     derivedProps?: (keyof TProps & string)[];
     // actions?: 
     //     Partial<{[key in keyof MCActions & string]: TAction | keyof MCProps}> 
@@ -185,7 +174,7 @@ export interface OConfig<TProps = any, TActions = TProps, ETProps = TProps>{
 
     propDefaults?: Partial<{[key in keyof TProps]: TProps[key]}>;
     propInfo?: Partial<{[key in keyof TProps]: PropInfo}>;
-    //onsets?: Onsets<TProps, TActions>;
+    wrappers?: Partial<{[key in keyof TProps]: WrapperConfig<TProps>}>;
     actions?: Actions<TProps, TActions>;
     /**
      * inferred actions
@@ -230,15 +219,7 @@ export type Hitches<TProps = any, TActions = TProps> =
 ;
 
 export type Handlers<ETProps = any, TActions = ETProps> = 
-    | Partial<{[key in `${keyof ETProps & string}_to_${keyof TActions & string}_on` & string]: string }>
-
-
-
-// export interface ICustomState<MCProps = any>{
-//     truthy?: string,
-//     falsy?: string,
-//     nameValue: string
-// }
+    | Partial<{[key in `${keyof ETProps & string}_to_${keyof TActions & string}_on` & string]: string }>;
 
 
 
@@ -403,7 +384,7 @@ export interface RoundaboutReady{
      * Doesn't do any notification
      * Allows for nested property setting
     */
-    covertAssignment(obj: any): void;
+    covertAssignment(obj: any): Promise<void>;
 
     /**
      * fires event with name matching the name of the property when the value changes (but not via covertAssignment)
@@ -439,7 +420,6 @@ export interface BaseProps{
 
 export interface ICompact{
     compacts: Compacts,
-    //covertAssignment(obj: any, vm: RoundaboutReady, keysToPropagate: Set<string>, busses: Busses): Promise<void>,
 }
 
 interface CompactStatement {

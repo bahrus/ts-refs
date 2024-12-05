@@ -10,6 +10,7 @@ export interface EndUserProps extends IEnhancement<RenderingHTMLScriptElement>{
 }
 
 export interface AP extends EndUserProps{
+    renderer: (vm: any, html: any) => any,
 }
 
 export type PAP = Partial<AP>;
@@ -19,9 +20,7 @@ export type BAP = AP & BEAllProps;
 export type ProPAP = Promise<PAP>;
 
 export interface Actions {
-    // getAttrExpr(self: this): PAP;
-    // onAttrExpr(self: this): PAP;
-    // importSymbols(self: this): ProPAP;
+    getRenderer(self: BAP): BAP;
     doRender(self: BAP): void;
-    // onScriptRef(self: this): ProPAP;
+    
 }

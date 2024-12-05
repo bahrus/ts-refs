@@ -1,16 +1,15 @@
 import {BEAllProps, IEnhancement} from '../trans-render/be/types';
 
-export interface EndUserProps extends IEnhancement<HTMLElement>{
-    //eval?: string,
+export interface RenderingHTMLScriptElement extends HTMLScriptElement{
+    renderer: (vm: any, html: any) => any,
+}
+
+export interface EndUserProps extends IEnhancement<RenderingHTMLScriptElement>{
     vm: any,
     with: string,
-    //scriptRef?: string,
 }
 
 export interface AP extends EndUserProps{
-    //attrExpr?: string | null,
-    //scriptEl?: HTMLScriptElement,
-    renderer: (vm: any) => any,
 }
 
 export type PAP = Partial<AP>;

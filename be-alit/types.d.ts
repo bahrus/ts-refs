@@ -25,4 +25,5 @@ export interface Actions {
     getRenderer(self: BAP): BAP;
     doRender(self: BAP): void;
     observe(self: BAP): ProPAP;
+    absorb(self: BAP, e?: Event): ProPAP;
 }

@@ -1,7 +1,7 @@
 import {IEnhancement, BEAllProps} from '../trans-render/be/types';
 
 export interface EventHandlingScriptElement extends HTMLScriptElement{
-    on: any
+    on: {[key: string]: (e: Event) => void}
 }
 
 export interface EndUserProps extends IEnhancement<EventHandlingScriptElement>{
@@ -19,5 +19,5 @@ export type ProPAP = Promise<PAP>;
 export type BAP = AP & BEAllProps;
 
 export interface Actions{
-    
+    getOn(self: BAP): PAP
 }

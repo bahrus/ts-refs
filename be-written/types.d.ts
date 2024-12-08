@@ -5,7 +5,8 @@ import {Inserts} from '../../node_modules/stream-orator/types';
 export interface EndUserProps extends IEnhancement{
     from?: string,
     to?: string,
-    shadowRootMode?: 'open' | 'closed'
+    shadowRootMode?: 'open' | 'closed',
+    encoding?: 'UTF-8' | 'UTF-16'
     reqInit?: RequestInit,
     wrapper?: string,
     beBased?: boolean | BeBasedEndUserProps,

@@ -41,6 +41,15 @@ export type ElementSigils = '/' | '~';
 
 export type Sigils = AttrSigils | ElementSigils;
 
+export type asOptions = 
+    | 'number'
+    | 'boolean'
+    | 'string' 
+    | 'object'
+    | 'regexp' 
+    | 'urlpattern'
+;
+
 export interface Specifier {
     /** Directional Scope Sigil */
     dss?: DirectionalScopeSigils,
@@ -84,20 +93,8 @@ export interface Specifier {
      */
     hpf?: string;
     
-    as?: 
-        | 'Number' 
-        | 'number'
-        | 'Boolean'
-        | 'boolean'
-        | 'String'
-        | 'string' 
-        | 'Object'
-        | 'object'
-        | 'RegExp'
-        | 'regexp' 
-        | 'URLPattern'
-        | 'urlpattern'
-    ;
+    as?: asOptions
+        
     
     isModulo?: boolean;
     modulo?: Modulo;

@@ -64,6 +64,7 @@ export interface Specifier {
 
     /**
      * Inferred prop name
+     * This should be the last token word of the DSS expression
      */
     prop?: InferredPropName,
     path?: SubPropPath;

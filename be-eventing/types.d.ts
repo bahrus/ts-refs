@@ -2,7 +2,7 @@ import {IEnhancement, BEAllProps} from '../trans-render/be/types';
 
 export interface EventHandlingScriptElement extends HTMLScriptElement{
     on: {[key: string]: (e: Event) => void}
-    
+    e: (e: Event) => void;
 }
 
 export interface EndUserProps extends IEnhancement<EventHandlingScriptElement>{

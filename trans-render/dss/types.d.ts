@@ -48,6 +48,7 @@ export type asOptions =
     | 'object'
     | 'regexp' 
     | 'urlpattern'
+    | 'boolean|number'
 ;
 
 export interface Specifier {

@@ -114,6 +114,8 @@ export interface EnhancementMountConfig<TBranches = any, TProps = any>{
 
     mapLocalNameTo?: keyof TProps,
 
+    mapEnhKeyTo?: keyof TProps,
+
     allowedMutations?: {[key: CSSQuery]: []}
 
     top?: EnhancementMountConfig<TBranches, TProps>,

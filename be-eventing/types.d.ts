@@ -6,7 +6,9 @@ export interface EventHandlingScriptElement extends HTMLScriptElement{
 }
 
 export interface EndUserProps extends IEnhancement<EventHandlingScriptElement>{
-    nudges?: string,
+    nudges: string,
+    on: string,
+    onNudges: string,
 }
 
 export interface AllProps extends EndUserProps{}
@@ -20,5 +22,6 @@ export type ProPAP = Promise<PAP>;
 export type BAP = AP & BEAllProps;
 
 export interface Actions{
-    getOn(self: BAP): ProPAP,
+    calcDefaults(self: BAP): ProPAP,
+    hydrate(self: BAP): ProPAP,
 }

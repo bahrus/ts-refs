@@ -52,4 +52,5 @@ export interface Actions{
     genRemoteSpecifiers(self: BAP): PAP;
     seek(self: BAP): ProPAP;
     hydrate(self: BAP): ProPAP;
+    parseJS(self: BAP): ProPAP;
 }

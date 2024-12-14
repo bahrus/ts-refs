@@ -120,6 +120,9 @@ export interface EnhancementMountConfig<TBranches = any, TProps = any>{
 
     ws?: Array<IW>,
 
+    /**
+     * map the where clause to this
+     */
     mapWSTo?: keyof TProps,
 
     primaryProp?: keyof TProps

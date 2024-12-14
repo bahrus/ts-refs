@@ -11,8 +11,9 @@ export type PAP = Partial<AP>;
 
 export type ProPAP = Promise<PAP>;
 
+export type BAP = AP & BEAllProps;
 
 export interface Actions{
-    hydrate(self: AP & BEAllProps): PAP;
-    retire(self: AP & BEAllProps): void;
+    hydrate(self: BAP): PAP;
+    retire(self: BAP): void;
 }

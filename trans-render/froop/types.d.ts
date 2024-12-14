@@ -242,6 +242,8 @@ export interface LogicOp<Props = any>{
 
     ifAtLeastOneOf?: Keysh<Props>,
 
+    ifNotAllOf?: Keysh<Props>,
+
     debug?: boolean,
 
     delay?: number,
@@ -261,6 +263,8 @@ export interface SetLogicOps<Props = any>{
     ifEquals?: Set<Key<Props>>,
 
     ifAtLeastOneOf?: Set<Key<Props>>,
+
+    ifNotAllOf?: Set<Key<Props>>,
 
     debug?: boolean,
 

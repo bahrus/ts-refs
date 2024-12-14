@@ -8,6 +8,7 @@ export interface EndUserProps extends IEnhancement<HTMLElement>{
     forAttr?: string,
     handler: string
     eventArg: string,
+    js: string,
 }
 
 export interface AllProps extends EndUserProps{
@@ -30,6 +31,7 @@ export interface AllProps extends EndUserProps{
     remSpecifierLen?: number,
     propToAO: {[key: string] : AbsorbingObject},
     checkedRegistry: boolean,
+    notYetParsedJS: boolean,
 } 
 
 export type AP = AllProps;

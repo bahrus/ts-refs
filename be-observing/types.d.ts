@@ -1,4 +1,4 @@
-import {BEAllProps, IEnhancement, IW} from '../trans-render/be/types';
+import {BEAllProps, EnhancementInfo, IEnhancement, IW} from '../trans-render/be/types';
 import { Specifier } from "../trans-render/dss/types";
 import {aggKeys, Handlers} from '../be-hive/types';
 import { StringWithAutocompleteOptions } from '../trans-render/types';
@@ -13,7 +13,8 @@ export interface AllProps extends EndUserProps{
     //bindings?: Array<EndPoints>,
     rawStatements?: Array<string>,
     didInferring?: boolean,
-    ws?: Array<IW>
+    ws?: Array<IW>;
+    enhancementInfo: EnhancementInfo
 }
 
 
@@ -43,8 +44,10 @@ export interface AndIfThen{
 export interface ObservingParameters{
     localPropToSet?: string,
     remoteSpecifiers: Array<Specifier>,
+    punt: boolean,
     mappings?: Array<AndIfThen>,
     aggKey: StringWithAutocompleteOptions<aggKeys>,
+    JSExpr: string,
     //aggregateRemoteVals?: 'Union' | 'Conjunction' | 'ObjectAssign' | 'Sum' | 'Product' | 'ArrayPush'
 }
 

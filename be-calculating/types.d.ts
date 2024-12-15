@@ -8,6 +8,7 @@ export interface EndUserProps extends IEnhancement<HTMLElement>{
     forAttr?: string,
     handler: string
     eventArg: string,
+    js: string,
 }
 
 export interface AllProps extends EndUserProps{
@@ -26,10 +27,12 @@ export interface AllProps extends EndUserProps{
     isAttached?: boolean,
     isOutputEl?: boolean,
     enhElLocalName: string,
+    enhKey: string,
     categorized?: boolean,
     remSpecifierLen?: number,
     propToAO: {[key: string] : AbsorbingObject},
     checkedRegistry: boolean,
+    notYetParsedJS: boolean,
 } 
 
 export type AP = AllProps;
@@ -50,4 +53,5 @@ export interface Actions{
     genRemoteSpecifiers(self: BAP): PAP;
     seek(self: BAP): ProPAP;
     hydrate(self: BAP): ProPAP;
+    parseJS(self: BAP): ProPAP;
 }

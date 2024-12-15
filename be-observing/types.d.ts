@@ -8,13 +8,12 @@ export interface EndUserProps extends IEnhancement{
 } 
 
 export interface AllProps extends EndUserProps{
-    //observedFactors?: Array<Specifier>,
     parsedStatements: Array<ObservingParameters>,
-    //bindings?: Array<EndPoints>,
     rawStatements?: Array<string>,
     didInferring?: boolean,
-    ws?: Array<IW>;
-    enhancementInfo: EnhancementInfo
+    ws?: Array<IW>,
+    //enhancementInfo: EnhancementInfo,
+    enhKey: string,
 }
 
 
@@ -47,6 +46,7 @@ export interface ObservingParameters{
     punt: boolean,
     mappings?: Array<AndIfThen>,
     aggKey: StringWithAutocompleteOptions<aggKeys>,
+    JSExpr: string,
     //aggregateRemoteVals?: 'Union' | 'Conjunction' | 'ObjectAssign' | 'Sum' | 'Product' | 'ArrayPush'
 }
 

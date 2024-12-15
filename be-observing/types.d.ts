@@ -8,13 +8,12 @@ export interface EndUserProps extends IEnhancement{
 } 
 
 export interface AllProps extends EndUserProps{
-    //observedFactors?: Array<Specifier>,
     parsedStatements: Array<ObservingParameters>,
-    //bindings?: Array<EndPoints>,
     rawStatements?: Array<string>,
     didInferring?: boolean,
-    ws?: Array<IW>;
-    enhancementInfo: EnhancementInfo
+    ws?: Array<IW>,
+    enhancementInfo: EnhancementInfo,
+    enhKey: string,
 }
 
 

@@ -47,6 +47,7 @@ export interface ObservingParameters{
     mappings?: Array<AndIfThen>,
     aggKey: StringWithAutocompleteOptions<aggKeys>,
     JSExpr: string,
+    ONExpr: string,
     //aggregateRemoteVals?: 'Union' | 'Conjunction' | 'ObjectAssign' | 'Sum' | 'Product' | 'ArrayPush'
 }
 

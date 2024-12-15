@@ -27,6 +27,7 @@ export interface AllProps extends EndUserProps{
     isAttached?: boolean,
     isOutputEl?: boolean,
     enhElLocalName: string,
+    enhKey: string,
     categorized?: boolean,
     remSpecifierLen?: number,
     propToAO: {[key: string] : AbsorbingObject},

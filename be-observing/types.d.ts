@@ -12,7 +12,7 @@ export interface AllProps extends EndUserProps{
     rawStatements?: Array<string>,
     didInferring?: boolean,
     ws?: Array<IW>,
-    enhancementInfo: EnhancementInfo,
+    //enhancementInfo: EnhancementInfo,
     enhKey: string,
 }
 

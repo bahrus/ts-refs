@@ -173,7 +173,7 @@ export interface ForEach<TProps, TMethods, TElement = {}>{
     /** css query to locate the template */
     clone?: string,
     /** within scope for locating the template */
-    wi?: 'node' | 'rootNode' | 'upShadowHost'
+    wi?: 'node' | 'rootNode' | 'upShadowSearch'
     indexProp?: string,
     xform: XForm<TProps, TMethods, TElement> & Info,
     appendTo?: string,

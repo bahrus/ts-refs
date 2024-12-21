@@ -25,10 +25,7 @@ export interface EndUserProps extends IEnhancement<HTMLTemplateElement>{
      * Works with beOosoom decorator, so becomes inert when out of view
      */
     beOosoom?: string;
-    // On?: Array<SwitchStatement>;
-    // on?: Array<SwitchStatement>;
-    // Off?: Array<SwitchStatement>;
-    // off?: Array<SwitchStatement>;
+    js?: string;
 }
 
 export interface AllProps extends EndUserProps{
@@ -43,7 +40,8 @@ export interface AllProps extends EndUserProps{
     twoValueSwitches: Array<TwoValueSwitch>,
     offBinarySwitches?: Array<OneValueSwitch>,
     nValueSwitches?: Array<NValueScriptSwitch>
-    rawStatements?: Array<string>
+    rawStatements?: Array<string>,
+    notProcessedJS?: boolean,
 }
 
 export type SwitchStatement = string;
@@ -97,18 +95,19 @@ export type ProPAP = Promise<PAP>;
 export type BAP = AP & BEAllProps;
 
 export interface Actions{
-    calcSwitchesSatisfied(self: this): PAP;
-    calcVal(self: this): PAP;
-    onTrue(self: this): Promise<void>;
-    onFalse(self: this): Promise<void>;
+    calcSwitchesSatisfied(self: BAP): PAP;
+    calcVal(self: BAP): PAP;
+    onTrue(self: BAP): Promise<void>;
+    onFalse(self: BAP): Promise<void>;
     // addMediaListener(self: this): POA;
     // chkMedia(self: this, e: MediaQueryListEvent): PAP;
     
     // doOnBinarySwitches(self: this): Promise<void>;
-    onSingleValSwitches(self: this): Promise<void>;
-    onTwoValSwitches(self: this): Promise<void>;
-    onNValSwitches(self: this): Promise<void>;
-    onRawStatements(self: this): void;
+    onSingleValSwitches(self: BAP): Promise<void>;
+    onTwoValSwitches(self: BAP): Promise<void>;
+    onNValSwitches(self: BAP): Promise<void>;
+    onRawStatements(self: BAP): void;
+    processJS(self: BAP): ProPAP;
 }
 
 

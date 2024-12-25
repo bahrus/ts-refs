@@ -16,6 +16,8 @@ export interface AP extends EndUserProps {
 
 export type AllProps = AP;
 
+export type BAP = AP & BEAllProps;
+
 export type PAP = Partial<AP>
 
 export type ProPAP  = Promise<PAP>

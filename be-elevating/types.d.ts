@@ -28,7 +28,7 @@ export type ProPAP  = Promise<PAP>
 export interface Actions{
     noAttrs(self: BAP): ProPAP;
     hydrate(self: BAP): ProPAP;
-    // onRawStatements(self: this): void;
+    getBindings(self: BAP): ProPAP;
 }
 
 // export interface ElevatingParameters {
@@ -41,7 +41,7 @@ export interface BindingRule {
     
     localProp?: string,
     localEvent?: string,
-    remoteSpecifierString?: string,
+    dependencyPart?: string,
     remoteSpecifier?: Specifier,
 
 

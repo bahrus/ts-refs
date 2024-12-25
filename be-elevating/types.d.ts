@@ -1,5 +1,5 @@
 import {IEnhancement, BEAllProps} from '../trans-render/be/types';
-
+import {AbsorbingObject, SharingObject} from '../trans-render/asmr/types';
 
 export interface EndUserProps extends IEnhancement{
     /**
@@ -10,7 +10,8 @@ export interface EndUserProps extends IEnhancement{
 }
 
 export interface AP extends EndUserProps {
-    parsedStatements?: Array<ElevatingParameters>,
+    //parsedStatements?: Array<ElevatingParameters>,
+    bindings: Array<Binding>,
     rawStatements?: Array<string>,
 }
 
@@ -23,14 +24,19 @@ export type PAP = Partial<AP>
 export type ProPAP  = Promise<PAP>
 
 export interface Actions{
-    noAttrs(self: this): ProPAP;
-    hydrate(self: this): ProPAP;
-    onRawStatements(self: this): void;
+    noAttrs(self: BAP): ProPAP;
+    // hydrate(self: this): ProPAP;
+    // onRawStatements(self: this): void;
 }
 
-export interface ElevatingParameters {
-    localPropToElevate?: string,
-    remoteSpecifiers: Array<Specifier>,
-    localEventType?: string,
+// export interface ElevatingParameters {
+//     localPropToElevate?: string,
+//     remoteSpecifiers: Array<Specifier>,
+//     localEventType?: string,
+// }
+
+export interface Binding {
+    remoteShareObj: SharingObject,
+    localAbsObj: AbsorbingObject,
 }
 

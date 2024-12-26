@@ -41,7 +41,7 @@ export interface Actions{
 export interface BindingRule {
     
     localPropToElevate?: string,
-    localEvent?: string,
+    localEventType?: string,
     dependencyPart?: string,
     remoteSpecifier?: Specifier,
 

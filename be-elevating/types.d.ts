@@ -40,7 +40,7 @@ export interface Actions{
 
 export interface BindingRule {
     
-    localProp?: string,
+    localPropToElevate?: string,
     localEvent?: string,
     dependencyPart?: string,
     remoteSpecifier?: Specifier,

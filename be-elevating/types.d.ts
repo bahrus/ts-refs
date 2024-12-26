@@ -29,6 +29,7 @@ export interface Actions{
     noAttrs(self: BAP): ProPAP;
     hydrate(self: BAP): ProPAP;
     getBindings(self: BAP): ProPAP;
+    onRawStatements(self: BAP): void;
 }
 
 // export interface ElevatingParameters {

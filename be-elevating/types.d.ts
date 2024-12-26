@@ -7,7 +7,7 @@ export interface EndUserProps extends IEnhancement{
      * abbrev for pass server-rendered value
      * This will pass the initial value from the enhanced element if applicable
      */
-    passSRV?: boolean
+    passSRV: boolean
 }
 
 export interface AP extends EndUserProps {

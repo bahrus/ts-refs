@@ -18,6 +18,7 @@ export type BAP = AP & BEAllProps;
 
 export interface Actions{
     warn(...data: any[]): void;
+    seek(self: BAP): ProPAP;
 }
 
 export interface MediatingParams{

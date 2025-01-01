@@ -1,4 +1,5 @@
 import {IEnhancement, BEAllProps} from '../trans-render/be/types';
+import {Specifier} from '../trans-render/dss/types';
 
 export interface EndUserProps extends IEnhancement{
 }
@@ -22,6 +23,8 @@ export interface Actions{
 }
 
 export interface MediatingParams{
-    originSpecifier,
-    targetSpecifier,
+    originPart: string,
+    targetPart: string,
+    originSpecifier: Specifier,
+    targetSpecifier: Specifier,
 }

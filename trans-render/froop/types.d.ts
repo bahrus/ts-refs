@@ -16,6 +16,7 @@ export interface IEventConfig<MCProps = any, MCActions = MCProps, TAction = Acti
     composedPathMatches?: string,
 }
 
+//Is anything using this anymore?
 export type ActionOnEventConfigs<MCProps = any, MCActions = MCProps, TAction = Action> = Partial<{[key in keyof MCActions]: IEventConfig<MCProps, MCActions, TAction>}>
 
 export interface IPropagator extends EventTarget{
@@ -242,6 +243,8 @@ export interface LogicOp<Props = any>{
 
     ifAtLeastOneOf?: Keysh<Props>,
 
+    ifNotAllOf?: Keysh<Props>,
+
     debug?: boolean,
 
     delay?: number,
@@ -261,6 +264,8 @@ export interface SetLogicOps<Props = any>{
     ifEquals?: Set<Key<Props>>,
 
     ifAtLeastOneOf?: Set<Key<Props>>,
+
+    ifNotAllOf?: Set<Key<Props>>,
 
     debug?: boolean,
 
@@ -438,6 +443,10 @@ interface HitchStatement {
     mrOp: 'inc',
     rOp: 'by'
 }
+
+export type CommandMethod<T extends EventTarget = EventTarget> = (self: T, evt: Event) => Partial<T> | Promise<Partial<T>>
+
+export type HookupConfig<T extends EventTarget = EventTarget> = {[key: string]: CommandMethod | [string, CommandMethod]};
 
 
 

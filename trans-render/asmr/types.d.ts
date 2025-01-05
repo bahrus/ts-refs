@@ -1,3 +1,4 @@
+import { asOptions } from '../dss/types';
 import {StringWithAutocompleteOptions, ZeroOrMore} from '../types';
 
 export type ValueProp = StringWithAutocompleteOptions<
@@ -70,6 +71,7 @@ export interface ASMROptions<TProp = any>{
 
 export interface SetOptions<TProp = any> extends ASMROptions<TProp>{
     valToDisplay?: (v: TProp) => string;
+    allowUnsafe?: boolean;
 }
 
 export interface AbsOptions<TProp = any> {
@@ -110,7 +112,7 @@ export interface AbsOptions<TProp = any> {
 
     selfIsVal?: boolean;
 
-    as?: 'number' | 'boolean' | 'boolean|number'
+    as?: asOptions | undefined;
 }
 
 // export interface Setter<TProp = any> {

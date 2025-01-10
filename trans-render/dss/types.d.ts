@@ -84,8 +84,10 @@ export interface Specifier {
     evt?: EventName;
 
     /**
-     * RoundAbout Prop
+     * RoundAbout Prop events to listen for
      */
+    raps?: Array<string>;
+
     ms?: MarkerString;
     self?: boolean;
     /**

@@ -63,7 +63,7 @@ export interface Specifier {
      */
     rnf?: boolean,
     /**
-     * include sibings in scope search
+     * include siblings in scope search
      */
     isiss?: boolean,
     scopeS?: CSSSelector,
@@ -78,7 +78,14 @@ export interface Specifier {
      */
     prop?: InferredPropName,
     path?: SubPropPath;
+    /**
+     * Event Name
+     */
     evt?: EventName;
+
+    /**
+     * RoundAbout Prop
+     */
     ms?: MarkerString;
     self?: boolean;
     /**

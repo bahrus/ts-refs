@@ -1,5 +1,6 @@
 import {IEnhancement, BEAllProps} from '../trans-render/be/types';
 import {Specifier} from '../trans-render/dss/types';
+import { CSSQuery } from '../trans-render/types';
 
 export interface EndUserProps extends IEnhancement{
 }
@@ -29,5 +30,5 @@ export interface MediatingParams{
     originPart: string,
     targetPart: string,
     originSpecifiers: Array<Specifier>,
-    targetSpecifier: Specifier,
+    targetCSS: CSSQuery,
 }

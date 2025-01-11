@@ -28,6 +28,6 @@ export interface Actions{
 export interface MediatingParams{
     originPart: string,
     targetPart: string,
-    originSpecifier: Specifier,
+    originSpecifiers: Array<Specifier>,
     targetSpecifier: Specifier,
 }

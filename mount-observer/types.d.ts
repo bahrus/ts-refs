@@ -77,7 +77,7 @@ export interface IMountObserver {
     observe(within: Node): void;
     disconnect(within: Node): void;
     module?: any;
-    mountedElements: WeakSet<Element>;
+    mountedElements: WeakDual<Element>;
     readAttrs(match: Element, branchIndexes?: Set<number>) : AttrChangeInfo[];
     observedAttrs(): Promise<Array<string> | undefined>;
 } 

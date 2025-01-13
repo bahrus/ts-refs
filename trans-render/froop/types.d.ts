@@ -16,6 +16,7 @@ export interface IEventConfig<MCProps = any, MCActions = MCProps, TAction = Acti
     composedPathMatches?: string,
 }
 
+//Is anything using this anymore?
 export type ActionOnEventConfigs<MCProps = any, MCActions = MCProps, TAction = Action> = Partial<{[key in keyof MCActions]: IEventConfig<MCProps, MCActions, TAction>}>
 
 export interface IPropagator extends EventTarget{
@@ -442,6 +443,10 @@ interface HitchStatement {
     mrOp: 'inc',
     rOp: 'by'
 }
+
+export type CommandMethod<T extends EventTarget = EventTarget> = (self: T, evt: Event) => Partial<T> | Promise<Partial<T>>
+
+export type HookupConfig<T extends EventTarget = EventTarget> = {[key: string]: CommandMethod | [string, CommandMethod]};
 
 
 

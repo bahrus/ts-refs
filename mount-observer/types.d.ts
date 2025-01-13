@@ -70,6 +70,11 @@ export interface AttribMatch{
     // validator?: (v: any) => boolean;
 }
 
+export interface WeakDual<T>{
+    weakSet: WeakSet<T>,
+    setWeak: Set<WeakRef<T>>
+}
+
 export interface IMountObserver {
     // readonly mountInit: MountInit,
     // readonly mountedRefs:  WeakRef<Element>[],

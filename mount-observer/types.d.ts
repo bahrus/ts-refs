@@ -70,6 +70,11 @@ export interface AttribMatch{
     // validator?: (v: any) => boolean;
 }
 
+export interface WeakDual<T>{
+    weakSet: WeakSet<T>,
+    setWeak: Set<WeakRef<T>>
+}
+
 export interface IMountObserver {
     // readonly mountInit: MountInit,
     // readonly mountedRefs:  WeakRef<Element>[],
@@ -77,7 +82,7 @@ export interface IMountObserver {
     observe(within: Node): void;
     disconnect(within: Node): void;
     module?: any;
-    mountedElements: WeakSet<Element>;
+    mountedElements: WeakDual<Element>;
     readAttrs(match: Element, branchIndexes?: Set<number>) : AttrChangeInfo[];
     observedAttrs(): Promise<Array<string> | undefined>;
 } 

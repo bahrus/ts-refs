@@ -72,7 +72,13 @@ export interface TwoValueSwitch{
     //negate?: boolean,
     lhs?: ISide,
     rhs?: ISide,
-    onOrOff: 'on' | 'On' | 'off' | 'Off'
+    onOrOff: 
+        | 'on' 
+        | 'On' 
+        | 'off' 
+        | 'Off',
+    qualifier: 
+        | ' transitionally'
 }
 
 export interface Dependency extends Specifier{}

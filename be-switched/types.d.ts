@@ -69,10 +69,10 @@ export interface TwoValueSwitch{
     withinSpecifier?: Specifier,
     req?: boolean,
     op?: Op,
-    negate?: boolean,
+    //negate?: boolean,
     lhs?: ISide,
     rhs?: ISide,
-    onOrOff?: 'on' | 'On' | 'off' | 'Off'
+    onOrOff: 'on' | 'On' | 'off' | 'Off'
 }
 
 export interface Dependency extends Specifier{}
@@ -129,12 +129,12 @@ export interface Elevate {
 
 export interface EventForNValueSwitch {
     ctx: NValueScriptSwitch,
-    factors: {[key: string] : SignalRefType},
+    factors: {[key: string] : any},
     switchOn?: boolean,
     elevate?: Elevate
 }
 
-export interface SignalAndEvent {
-    signal?: WeakRef<SignalRefType>,
-    eventSuggestion?: string
-}
+// export interface SignalAndEvent {
+//     signal?: WeakRef<SignalRefType>,
+//     eventSuggestion?: string
+// }

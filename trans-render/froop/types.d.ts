@@ -356,8 +356,7 @@ export type roundaboutOptions<TProps = any, TActions = TProps, ETProps = TProps>
     //onsets?: Onsets<TProps, TActions>,
     handlers?: Handlers<ETProps, TActions>,
     hitch?: Hitches<TProps, TActions>,
-    positractions?: Positractions<TProps>
-    //do?:  Partial<{[key in `${keyof TActions & string}_on`]: Keysh<TProps> }>
+    positractions?: Positractions<TProps>,
 }
 
 export type PropsToPartialProps<TProps = any> = 

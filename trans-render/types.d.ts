@@ -60,6 +60,7 @@ export interface TransformOptions{
     propagator?: MarkedUpEventTarget,
     propagatorIsReady?: boolean,
     skipInit?: boolean,
+    useViewTransition?: boolean,
 }
 
 export type Derivative<TProps, TMethods, TElement = {}> = 
@@ -471,7 +472,9 @@ export interface MntCfg<TProps = any, TActions = TProps, ETProps = TProps> exten
 
     shadowRootInit?: ShadowRootInit,
 
-    assumeCSR?: boolean
+    assumeCSR?: boolean,
+
+
 }
 
 export interface MountProps<TProps = any, TActions = TProps, ETProps = TProps>{

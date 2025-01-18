@@ -26,6 +26,7 @@ export interface EndUserProps extends IEnhancement<HTMLTemplateElement>{
      */
     beOosoom?: string;
     js?: string;
+    transitional: boolean;
 }
 
 export interface AllProps extends EndUserProps{
@@ -77,8 +78,7 @@ export interface TwoValueSwitch{
         | 'On' 
         | 'off' 
         | 'Off',
-    qualifier: 
-        | ' transitionally'
+
 }
 
 export interface Dependency extends Specifier{}

@@ -489,7 +489,7 @@ export interface MountProps<TProps = any, TActions = TProps, ETProps = TProps>{
     readonly hydrated?: boolean;
     readonly csr?: boolean;
     readonly xform?: XForm<TProps, TActions>,
-    
+    readonly xxform?: XForm<TProps, TActions>,
 }
 export type PMP<TProps = any, TActions = TProps, ETProps = TProps> = Partial<MountProps<TProps, TActions, ETProps>>;
 export type ProPMP<TProps = any, TActions = TProps, ETProps = TProps> = Promise<PMP<TProps, TActions, ETProps>>

@@ -468,6 +468,12 @@ export interface MntCfg<TProps = any, TActions = TProps, ETProps = TProps> exten
      */
     lcXform?: XForm<TProps, TActions>,
 
+
+    /**
+     * transforms within ShadowRoot if applicable that uses view transitions 
+     */
+    xxform?: XForm<TProps, TActions>
+
     styles?: /*CSSStyleSheet[] |*/ string | string[] | CSSStyleSheet | Array<CSSStyleSheet>;
 
     shadowRootInit?: ShadowRootInit,

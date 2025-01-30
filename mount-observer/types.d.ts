@@ -131,7 +131,7 @@ interface AttrChangeInfo{
 
 //#region mount event
 export type mountEventName = 'mount';
-export interface IMountEvent{
+export interface IMountEvent extends Event{
     mountedElement: Element,
 }
 export type mountEventHandler = (e: IMountEvent) => void;

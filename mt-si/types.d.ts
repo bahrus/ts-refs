@@ -4,7 +4,9 @@ export interface EndUserProps extends IEnhancement{
     doEval: boolean;
 }
 
-export interface AllProps extends EndUserProps{}
+export interface AllProps extends EndUserProps{
+    enhKey: string;
+}
 
 export type AP = AllProps;
 

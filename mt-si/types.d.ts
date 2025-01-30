@@ -5,7 +5,7 @@ export interface EndUserProps extends IEnhancement{
 }
 
 export interface AllProps extends EndUserProps{
-    enhKey: string;
+    //enhKey: string;
 }
 
 export type AP = AllProps;

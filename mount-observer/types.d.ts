@@ -33,7 +33,7 @@ export interface MountInit extends JSONSerializableMountInit{
 }
 
 export interface MountObserverOptions{
-    LeaveBreadcrumb?: boolean,
+    leaveBreadcrumb?: boolean,
 }
 
 export interface MountObserverCallbacks{

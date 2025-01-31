@@ -32,6 +32,10 @@ export interface MountInit extends JSONSerializableMountInit{
     // readonly ignoreInitialMatches?: boolean,
 }
 
+export interface MountObserverOptions{
+    LeaveBreadcrumb?: boolean,
+}
+
 export interface MountObserverCallbacks{
     readonly mount?: PipelineProcessor,
     readonly dismount?: PipelineProcessor,

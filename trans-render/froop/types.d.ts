@@ -1,3 +1,4 @@
+import { IMountObserver } from '../../mount-observer/types';
 import { Scope} from '../lib/types';
 import { WrapperConfig } from '../XV/types';
 
@@ -357,6 +358,7 @@ export type roundaboutOptions<TProps = any, TActions = TProps, ETProps = TProps>
     handlers?: Handlers<ETProps, TActions>,
     hitch?: Hitches<TProps, TActions>,
     positractions?: Positractions<TProps>,
+    mountObservers?: Set<IMountObserver>
 }
 
 export type PropsToPartialProps<TProps = any> = 

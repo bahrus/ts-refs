@@ -75,7 +75,7 @@ export interface WeakDual<T>{
     setWeak: Set<WeakRef<T>>
 }
 
-export interface IMountObserver {
+export interface IMountObserver extends EventTarget {
     // readonly mountInit: MountInit,
     // readonly mountedRefs:  WeakRef<Element>[],
     // readonly dismountedRefs: WeakRef<Element>[],

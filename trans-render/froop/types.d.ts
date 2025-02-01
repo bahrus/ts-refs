@@ -349,7 +349,7 @@ export type Checks<TProps = any, TActions = TProps> =
     Partial<{[key in keyof TActions & string]: SetLogicOps<TProps>}>
 
 export type roundaboutOptions<TProps = any, TActions = TProps, ETProps = TProps> = {
-    vm?: TProps & TActions & RoundaboutReady,
+    vm?: TProps & TActions & RoundaboutReady | WeakRef<TProps & TActions & RoundaboutReady>,
     //for enhanced elements, pass in the container, referenced via $0.
     container?: EventTarget,
     propagate?: keyof TProps & string | Array<keyof TProps & string>,

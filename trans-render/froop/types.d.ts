@@ -1,3 +1,4 @@
+import { IMountObserver } from '../../mount-observer/types';
 import { Scope} from '../lib/types';
 import { WrapperConfig } from '../XV/types';
 
@@ -186,6 +187,7 @@ export interface OConfig<TProps = any, TActions = TProps, ETProps = TProps>{
     handlers?: Handlers<ETProps, TActions>;
     positractions?: Positractions<TProps, TActions>;
     mainTemplate?: string | HTMLTemplateElement;
+    isSleepless?: boolean;
 }
 
 export type Positractions<TProps = any, TActions = TProps> = 
@@ -347,7 +349,7 @@ export type Checks<TProps = any, TActions = TProps> =
     Partial<{[key in keyof TActions & string]: SetLogicOps<TProps>}>
 
 export type roundaboutOptions<TProps = any, TActions = TProps, ETProps = TProps> = {
-    vm?: TProps & TActions & RoundaboutReady,
+    vm?: TProps & TActions & RoundaboutReady | WeakRef<TProps & TActions & RoundaboutReady>,
     //for enhanced elements, pass in the container, referenced via $0.
     container?: EventTarget,
     propagate?: keyof TProps & string | Array<keyof TProps & string>,
@@ -356,8 +358,8 @@ export type roundaboutOptions<TProps = any, TActions = TProps, ETProps = TProps>
     //onsets?: Onsets<TProps, TActions>,
     handlers?: Handlers<ETProps, TActions>,
     hitch?: Hitches<TProps, TActions>,
-    positractions?: Positractions<TProps>
-    //do?:  Partial<{[key in `${keyof TActions & string}_on`]: Keysh<TProps> }>
+    positractions?: Positractions<TProps>,
+    mountObservers?: Set<IMountObserver>
 }
 
 export type PropsToPartialProps<TProps = any> = 
@@ -414,6 +416,8 @@ export interface RoundaboutReady{
     async awake(): void;
 
     async nudge(): void;
+
+    async rock(): void;
 }
 
 

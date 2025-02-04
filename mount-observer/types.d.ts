@@ -32,6 +32,10 @@ export interface MountInit extends JSONSerializableMountInit{
     // readonly ignoreInitialMatches?: boolean,
 }
 
+export interface MountObserverOptions{
+    leaveBreadcrumb?: boolean,
+}
+
 export interface MountObserverCallbacks{
     readonly mount?: PipelineProcessor,
     readonly dismount?: PipelineProcessor,
@@ -75,7 +79,7 @@ export interface WeakDual<T>{
     setWeak: Set<WeakRef<T>>
 }
 
-export interface IMountObserver {
+export interface IMountObserver extends EventTarget {
     // readonly mountInit: MountInit,
     // readonly mountedRefs:  WeakRef<Element>[],
     // readonly dismountedRefs: WeakRef<Element>[],
@@ -131,7 +135,7 @@ interface AttrChangeInfo{
 
 //#region mount event
 export type mountEventName = 'mount';
-export interface IMountEvent{
+export interface IMountEvent extends Event{
     mountedElement: Element,
 }
 export type mountEventHandler = (e: IMountEvent) => void;

@@ -60,6 +60,7 @@ export interface TransformOptions{
     propagator?: MarkedUpEventTarget,
     propagatorIsReady?: boolean,
     skipInit?: boolean,
+    useViewTransition?: boolean,
 }
 
 export type Derivative<TProps, TMethods, TElement = {}> = 
@@ -467,11 +468,19 @@ export interface MntCfg<TProps = any, TActions = TProps, ETProps = TProps> exten
      */
     lcXform?: XForm<TProps, TActions>,
 
+
+    /**
+     * transforms within ShadowRoot if applicable that uses view transitions 
+     */
+    xxform?: XForm<TProps, TActions>
+
     styles?: /*CSSStyleSheet[] |*/ string | string[] | CSSStyleSheet | Array<CSSStyleSheet>;
 
     shadowRootInit?: ShadowRootInit,
 
-    assumeCSR?: boolean
+    assumeCSR?: boolean,
+
+
 }
 
 export interface MountProps<TProps = any, TActions = TProps, ETProps = TProps>{
@@ -480,7 +489,7 @@ export interface MountProps<TProps = any, TActions = TProps, ETProps = TProps>{
     readonly hydrated?: boolean;
     readonly csr?: boolean;
     readonly xform?: XForm<TProps, TActions>,
-    
+    readonly xxform?: XForm<TProps, TActions>,
 }
 export type PMP<TProps = any, TActions = TProps, ETProps = TProps> = Partial<MountProps<TProps, TActions, ETProps>>;
 export type ProPMP<TProps = any, TActions = TProps, ETProps = TProps> = Promise<PMP<TProps, TActions, ETProps>>

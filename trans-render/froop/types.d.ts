@@ -403,7 +403,7 @@ export interface RoundaboutReady{
      * 
      * https://github.com/whatwg/dom/issues/1296
      */
-    readonly disconnectedSignal: AbortSignal
+    readonly RAController: AbortController
 
     /**
      * During this time, queues/buses continue to perform "bookkeeping"

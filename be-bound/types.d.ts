@@ -12,10 +12,7 @@ export interface EndUserProps extends IEnhancement{
 export interface AllProps extends EndUserProps{
     bindingRules: Array<BindingRule>,
     bindings: Array<Binding>,
-    //partialBindingRules?: Array<BindingRule>,
     isParsed?: boolean,
-    //parsedWith?: boolean,
-    //parsedBetween?: boolean,
     rawStatements?: Array<string>
 }
 

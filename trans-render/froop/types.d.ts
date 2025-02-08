@@ -1,3 +1,4 @@
+import { IMountObserver } from '../../mount-observer/types';
 import { Scope} from '../lib/types';
 import { WrapperConfig } from '../XV/types';
 
@@ -16,6 +17,7 @@ export interface IEventConfig<MCProps = any, MCActions = MCProps, TAction = Acti
     composedPathMatches?: string,
 }
 
+//Is anything using this anymore?
 export type ActionOnEventConfigs<MCProps = any, MCActions = MCProps, TAction = Action> = Partial<{[key in keyof MCActions]: IEventConfig<MCProps, MCActions, TAction>}>
 
 export interface IPropagator extends EventTarget{
@@ -242,6 +244,8 @@ export interface LogicOp<Props = any>{
 
     ifAtLeastOneOf?: Keysh<Props>,
 
+    ifNotAllOf?: Keysh<Props>,
+
     debug?: boolean,
 
     delay?: number,
@@ -261,6 +265,8 @@ export interface SetLogicOps<Props = any>{
     ifEquals?: Set<Key<Props>>,
 
     ifAtLeastOneOf?: Set<Key<Props>>,
+
+    ifNotAllOf?: Set<Key<Props>>,
 
     debug?: boolean,
 
@@ -351,8 +357,8 @@ export type roundaboutOptions<TProps = any, TActions = TProps, ETProps = TProps>
     //onsets?: Onsets<TProps, TActions>,
     handlers?: Handlers<ETProps, TActions>,
     hitch?: Hitches<TProps, TActions>,
-    positractions?: Positractions<TProps>
-    //do?:  Partial<{[key in `${keyof TActions & string}_on`]: Keysh<TProps> }>
+    positractions?: Positractions<TProps>,
+    mountObservers?: Set<IMountObserver>
 }
 
 export type PropsToPartialProps<TProps = any> = 
@@ -396,7 +402,9 @@ export interface RoundaboutReady{
      * 
      * https://github.com/whatwg/dom/issues/1296
      */
-    readonly disconnectedSignal: AbortSignal
+    //readonly disconnectedSignal: AbortSignal
+
+    RAController: AbortController;
 
     /**
      * During this time, queues/buses continue to perform "bookkeeping"
@@ -409,6 +417,8 @@ export interface RoundaboutReady{
     async awake(): void;
 
     async nudge(): void;
+
+    async rock(): void;
 }
 
 
@@ -438,6 +448,10 @@ interface HitchStatement {
     mrOp: 'inc',
     rOp: 'by'
 }
+
+export type CommandMethod<T extends EventTarget = EventTarget> = (self: T, evt: Event) => Partial<T> | Promise<Partial<T>>
+
+export type HookupConfig<T extends EventTarget = EventTarget> = {[key: string]: CommandMethod | [string, CommandMethod]};
 
 
 

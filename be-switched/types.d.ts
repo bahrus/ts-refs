@@ -25,10 +25,8 @@ export interface EndUserProps extends IEnhancement<HTMLTemplateElement>{
      * Works with beOosoom decorator, so becomes inert when out of view
      */
     beOosoom?: string;
-    // On?: Array<SwitchStatement>;
-    // on?: Array<SwitchStatement>;
-    // Off?: Array<SwitchStatement>;
-    // off?: Array<SwitchStatement>;
+    js?: string;
+    transitional: boolean;
 }
 
 export interface AllProps extends EndUserProps{
@@ -43,7 +41,8 @@ export interface AllProps extends EndUserProps{
     twoValueSwitches: Array<TwoValueSwitch>,
     offBinarySwitches?: Array<OneValueSwitch>,
     nValueSwitches?: Array<NValueScriptSwitch>
-    rawStatements?: Array<string>
+    rawStatements?: Array<string>,
+    notProcessedJS?: boolean,
 }
 
 export type SwitchStatement = string;
@@ -71,9 +70,15 @@ export interface TwoValueSwitch{
     withinSpecifier?: Specifier,
     req?: boolean,
     op?: Op,
-    negate?: boolean,
+    //negate?: boolean,
     lhs?: ISide,
     rhs?: ISide,
+    onOrOff: 
+        | 'on' 
+        | 'On' 
+        | 'off' 
+        | 'Off',
+
 }
 
 export interface Dependency extends Specifier{}
@@ -97,18 +102,19 @@ export type ProPAP = Promise<PAP>;
 export type BAP = AP & BEAllProps;
 
 export interface Actions{
-    calcSwitchesSatisfied(self: this): PAP;
-    calcVal(self: this): PAP;
-    onTrue(self: this): Promise<void>;
-    onFalse(self: this): Promise<void>;
+    calcSwitchesSatisfied(self: BAP): PAP;
+    calcVal(self: BAP): PAP;
+    onTrue(self: BAP): Promise<void>;
+    onFalse(self: BAP): Promise<void>;
     // addMediaListener(self: this): POA;
     // chkMedia(self: this, e: MediaQueryListEvent): PAP;
     
     // doOnBinarySwitches(self: this): Promise<void>;
-    onSingleValSwitches(self: this): Promise<void>;
-    onTwoValSwitches(self: this): Promise<void>;
-    onNValSwitches(self: this): Promise<void>;
-    onRawStatements(self: this): void;
+    onSingleValSwitches(self: BAP): Promise<void>;
+    onTwoValSwitches(self: BAP): Promise<void>;
+    onNValSwitches(self: BAP): Promise<void>;
+    onRawStatements(self: BAP): void;
+    processJS(self: BAP): ProPAP;
 }
 
 
@@ -129,12 +135,12 @@ export interface Elevate {
 
 export interface EventForNValueSwitch {
     ctx: NValueScriptSwitch,
-    factors: {[key: string] : SignalRefType},
+    factors: {[key: string] : any},
     switchOn?: boolean,
     elevate?: Elevate
 }
 
-export interface SignalAndEvent {
-    signal?: WeakRef<SignalRefType>,
-    eventSuggestion?: string
-}
+// export interface SignalAndEvent {
+//     signal?: WeakRef<SignalRefType>,
+//     eventSuggestion?: string
+// }

@@ -41,6 +41,16 @@ export type ElementSigils = '/' | '~';
 
 export type Sigils = AttrSigils | ElementSigils;
 
+export type asOptions = 
+    | 'number'
+    | 'boolean'
+    | 'string' 
+    | 'object'
+    | 'regexp' 
+    | 'urlpattern'
+    | 'boolean|number'
+;
+
 export interface Specifier {
     /** Directional Scope Sigil */
     dss?: DirectionalScopeSigils,
@@ -53,7 +63,7 @@ export interface Specifier {
      */
     rnf?: boolean,
     /**
-     * include sibings in scope search
+     * include siblings in scope search
      */
     isiss?: boolean,
     scopeS?: CSSSelector,
@@ -64,10 +74,20 @@ export interface Specifier {
 
     /**
      * Inferred prop name
+     * This should be the last token word of the DSS expression
      */
     prop?: InferredPropName,
     path?: SubPropPath;
+    /**
+     * Event Name
+     */
     evt?: EventName;
+
+    /**
+     * RoundAbout Prop events to listen for
+     */
+    raps?: Array<string>;
+
     ms?: MarkerString;
     self?: boolean;
     /**
@@ -84,20 +104,8 @@ export interface Specifier {
      */
     hpf?: string;
     
-    as?: 
-        | 'Number' 
-        | 'number'
-        | 'Boolean'
-        | 'boolean'
-        | 'String'
-        | 'string' 
-        | 'Object'
-        | 'object'
-        | 'RegExp'
-        | 'regexp' 
-        | 'URLPattern'
-        | 'urlpattern'
-    ;
+    as?: asOptions
+        
     
     isModulo?: boolean;
     modulo?: Modulo;

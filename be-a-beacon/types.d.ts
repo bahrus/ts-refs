@@ -3,6 +3,7 @@ import {IEnhancement, BEAllProps} from '../trans-render/be/types';
 export interface EndUserProps extends IEnhancement{
     eventName: string, //TODO
 }
+
 export interface AllProps extends EndUserProps{}
 
 export type AP = AllProps;

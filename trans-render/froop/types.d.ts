@@ -187,6 +187,7 @@ export interface OConfig<TProps = any, TActions = TProps, ETProps = TProps>{
     handlers?: Handlers<ETProps, TActions>;
     positractions?: Positractions<TProps, TActions>;
     mainTemplate?: string | HTMLTemplateElement;
+    isSleepless?: boolean;
 }
 
 export type Positractions<TProps = any, TActions = TProps> = 

@@ -31,7 +31,8 @@ export interface XtalFrappeChartProps{
     value: object,
     mainTemplate: HTMLTemplateElement | string,
     clonedTemplate: DocumentFragment | undefined,
-    refs: any,
+    target: HTMLDivElement,
+    //refs: any,
 
     /**
      * Add new data point to chart
@@ -79,7 +80,7 @@ export interface XtalFrappeChartProps{
 
 
 export interface XtalFrappeChartActions{
-    createChart(self: this): void;
+    createChart(self: XtalFrappeChartProps): void;
 }
 export type ChartType = 'axis-mixed' | 'bar' | 'line' | 'scatter' | 'pie' | 'percentage';
 

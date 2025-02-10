@@ -78,6 +78,8 @@ export interface XtalFrappeChartProps{
 
 }
 
+export interface AllProps extends XtalFrappeChartProps{}
+
 
 export interface XtalFrappeChartActions{
     createChart(self: XtalFrappeChartProps): void;

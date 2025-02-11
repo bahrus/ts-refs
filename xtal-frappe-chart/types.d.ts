@@ -83,6 +83,7 @@ export interface AllProps extends XtalFrappeChartProps{}
 
 export interface XtalFrappeChartActions{
     createChart(self: XtalFrappeChartProps): void;
+    handleDataSelect(e: Event): void;
 }
 export type ChartType = 'axis-mixed' | 'bar' | 'line' | 'scatter' | 'pie' | 'percentage';
 

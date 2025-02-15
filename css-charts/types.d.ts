@@ -12,9 +12,11 @@ export interface AllProps extends EndUserProps{
 
 export type PAP = Partial<AllProps>;
 
+export type ProPAP = Promise<PAP>;
+
 export interface Actions {
     //handleSlotChange(evt: Event, transformer: ITransformer<AllProps, Actions, any>): void;
-    extractData(self: AllProps): PAP;
+    extractData(self: AllProps): ProPAP;
 
     buildTable(self: AllProps): PAP;
 }

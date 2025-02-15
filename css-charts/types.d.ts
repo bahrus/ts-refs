@@ -15,4 +15,6 @@ export type PAP = Partial<AllProps>;
 export interface Actions {
     //handleSlotChange(evt: Event, transformer: ITransformer<AllProps, Actions, any>): void;
     extractData(self: AllProps): PAP;
+
+    buildTable(self: AllProps): PAP;
 }

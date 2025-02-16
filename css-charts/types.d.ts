@@ -7,7 +7,13 @@ export interface EndUserProps {
 export interface AllProps extends EndUserProps{
     $slot: HTMLSlotElement,
     slotChangeCount: number,
-    data: Array<any>
+    data: Array<DataItem>
+}
+
+export interface DataItem {
+    key: string, 
+    value: number, 
+    scaledVal: number
 }
 
 export type PAP = Partial<AllProps>;

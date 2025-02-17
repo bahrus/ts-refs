@@ -20,7 +20,9 @@ export interface AllProps extends EndUserProps{
 export interface DataItem {
     key: string, 
     value: number, 
-    scaledVal: number
+    scaledVal: number,
+    start: number,
+    end: number,
 }
 
 export type PAP = Partial<AllProps>;

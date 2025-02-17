@@ -1,7 +1,7 @@
 import { ITransformer } from "../trans-render/types";
 
 export interface EndUserProps {
-    chartType: 'bar' | 'pie',
+    chartType: 'bar' | 'column' | 'pie',
     showLabels: boolean,
     showPrimaryAxis: boolean,
     showDataAxes: boolean,
@@ -14,6 +14,7 @@ export interface AllProps extends EndUserProps{
     slotChangeCount: number,
     data: Array<DataItem>,
     isBar: boolean,
+    isColumn: boolean,
     isPie: boolean,
 }
 

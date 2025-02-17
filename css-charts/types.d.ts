@@ -5,7 +5,8 @@ export interface EndUserProps {
     showLabels: boolean,
     showPrimaryAxis: boolean,
     showDataAxes: boolean,
-    
+    hideData: boolean,
+    show2SecondaryAxes: boolean,
 }
 
 export interface AllProps extends EndUserProps{

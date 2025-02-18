@@ -1,7 +1,7 @@
 import { ITransformer } from "../trans-render/types";
 
 export interface EndUserProps {
-    chartType: 'area' | 'bar' | 'column' | 'pie',
+    chartType: 'area' | 'bar' | 'column' | 'line' | 'pie',
     showLabels: boolean,
     showPrimaryAxis: boolean,
     showDataAxes: boolean,
@@ -16,6 +16,7 @@ export interface AllProps extends EndUserProps{
     isArea: boolean,
     isBar: boolean,
     isColumn: boolean,
+    isLine: boolean,
     isPie: boolean,
     
 }

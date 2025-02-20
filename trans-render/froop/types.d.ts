@@ -68,10 +68,10 @@ export interface IPropRegistrar extends IResolvableService{
     nonDryProps: Set<string>,
 }
 
-export interface IDefine extends IResolvableService{
-    custElClass: {new(): HTMLElement};
-    resolveInstanceSvcs(args: CEArgs, instance: any): Promise<void>;
-}
+// export interface IDefine extends IResolvableService{
+//     custElClass: {new(): HTMLElement};
+//     resolveInstanceSvcs(args: CEArgs, instance: any): Promise<void>;
+// }
 
 export interface IPropSvc extends IResolvableService{
     createPropBag(instance: Element): void;

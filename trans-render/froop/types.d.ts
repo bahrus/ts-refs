@@ -114,12 +114,12 @@ export interface INewPropagator {
 
 
 
-export interface CEArgs<TProps = any, TActions = TProps, TPropInfo = PropInfo, TAction extends Action<TProps> = Action<TProps>> extends DefineArgs<TProps, TActions, TPropInfo, TAction>{
-    definer?: IDefine,
-    servers?: CEServiceClasses
-    services?: CEServices,
-    asides?: any
-}
+// export interface CEArgs<TProps = any, TActions = TProps, TPropInfo = PropInfo, TAction extends Action<TProps> = Action<TProps>> extends DefineArgs<TProps, TActions, TPropInfo, TAction>{
+//     definer?: IDefine,
+//     servers?: CEServiceClasses
+//     services?: CEServices,
+//     asides?: any
+// }
 
 export interface DynamicTransform {
     scope?: Scope,

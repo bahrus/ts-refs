@@ -74,7 +74,7 @@ export interface AttribMatch{
     // validator?: (v: any) => boolean;
 }
 
-export interface WeakDual<T>{
+export interface WeakDual<T extends Object>{
     weakSet: WeakSet<T>,
     setWeak: Set<WeakRef<T>>
 }

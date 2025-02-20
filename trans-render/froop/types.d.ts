@@ -415,11 +415,11 @@ export interface RoundaboutReady{
      */  
     readonly sleep?: number,
 
-    async awake(): void;
+    awake(): Promise<void>;
 
-    async nudge(): void;
+    nudge(): Promise<void>;
 
-    async rock(): void;
+    rock(): Promise<void>;
 }
 
 

@@ -1,4 +1,4 @@
-import { MountContext, PipelineStage } from "mount-observer/types";
+import { MountContext, PipelineStage } from "../mount-observer/types";
 import { ConvertOptions, Scope } from "./lib/types";
 import { EMC} from './be/types';
 

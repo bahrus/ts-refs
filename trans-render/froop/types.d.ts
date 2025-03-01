@@ -68,10 +68,10 @@ export interface IPropRegistrar extends IResolvableService{
     nonDryProps: Set<string>,
 }
 
-export interface IDefine extends IResolvableService{
-    custElClass: {new(): HTMLElement};
-    resolveInstanceSvcs(args: CEArgs, instance: any): Promise<void>;
-}
+// export interface IDefine extends IResolvableService{
+//     custElClass: {new(): HTMLElement};
+//     resolveInstanceSvcs(args: CEArgs, instance: any): Promise<void>;
+// }
 
 export interface IPropSvc extends IResolvableService{
     createPropBag(instance: Element): void;
@@ -415,11 +415,11 @@ export interface RoundaboutReady{
      */  
     readonly sleep?: number,
 
-    async awake(): void;
+    awake(): Promise<void>;
 
-    async nudge(): void;
+    nudge(): Promise<void>;
 
-    async rock(): void;
+    rock(): Promise<void>;
 }
 
 

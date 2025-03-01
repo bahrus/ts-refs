@@ -18,7 +18,6 @@ export interface AllProps extends EndUserProps{
     isColumn: boolean,
     isLine: boolean,
     isPie: boolean,
-    
 }
 
 export interface DataItem {

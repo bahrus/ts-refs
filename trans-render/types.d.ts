@@ -458,6 +458,10 @@ export interface TransRenderMethods{
 import {OConfig} from './froop/types';
 export interface MntCfg<TProps = any, TActions = TProps, ETProps = TProps> extends OConfig<TProps, TActions, ETProps>{
     mainTemplate: string | HTMLTemplateElement,
+    /**
+     * Only set to true if shadow dom is used and the light children play a critical role as far as 
+     * progressive enhancement.
+     */
     appendOnClone?: boolean,
     /**
      * transform within ShadowRoot if applicable

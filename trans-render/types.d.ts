@@ -458,6 +458,7 @@ export interface TransRenderMethods{
 import {OConfig} from './froop/types';
 export interface MntCfg<TProps = any, TActions = TProps, ETProps = TProps> extends OConfig<TProps, TActions, ETProps>{
     mainTemplate: string | HTMLTemplateElement,
+    appendOnClone?: boolean,
     /**
      * transform within ShadowRoot if applicable
      */

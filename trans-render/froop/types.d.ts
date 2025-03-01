@@ -417,9 +417,9 @@ export interface RoundaboutReady{
 
     awake(): Promise<void>;
 
-    nudge(): Promise<void>;
+    nudge(): void;
 
-    rock(): Promise<void>;
+    rock(): void;
 }
 
 

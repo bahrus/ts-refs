@@ -19,8 +19,10 @@ export type PAP = Partial<AP>;
 
 export type ProPAP = Promise<PAP>;
 
+export type BAP = AP & BEAllProps;
+
 
 export interface Actions{
-    onInitModel(self: this): ProPAP;
+    onInitModel(self: BAP): ProPAP;
     startWeaving(self: this): ProPAP;
 }

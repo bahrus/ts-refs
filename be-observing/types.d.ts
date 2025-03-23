@@ -48,6 +48,7 @@ export interface ObservingParameters{
     aggKey: StringWithAutocompleteOptions<aggKeys>,
     JSExpr: string,
     ONExpr: string,
+    action: 'set' | 'toggle'
     //aggregateRemoteVals?: 'Union' | 'Conjunction' | 'ObjectAssign' | 'Sum' | 'Product' | 'ArrayPush'
 }
 

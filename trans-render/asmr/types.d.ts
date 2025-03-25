@@ -72,7 +72,7 @@ export interface ASMROptions<TProp = any>{
 export interface SetOptions<TProp = any> extends ASMROptions<TProp>{
     valToDisplay?: (v: TProp) => string;
     allowUnsafe?: boolean;
-    action?: 'set' | 'toggle';
+    action?: 'set' | 'toggle' | 'increment' | 'decrement' | 'set-class';
 }
 
 export interface AbsOptions<TProp = any> {

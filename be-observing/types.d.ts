@@ -54,6 +54,7 @@ export interface ObservingParameters{
         | 'increment' 
         | 'decrement'
         | 'set-class' 
+        | 'set-part'
     //aggregateRemoteVals?: 'Union' | 'Conjunction' | 'ObjectAssign' | 'Sum' | 'Product' | 'ArrayPush'
 }
 

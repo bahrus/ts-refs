@@ -25,6 +25,10 @@ export type DirectionalScopeSigils =
      * modulo
      */
     |'%'
+    /**
+     * itemscoped host
+     */
+    |'$'
     ;
 
 export type AttrSigils =
@@ -126,7 +130,7 @@ export type CSSSelector = string;
 
 /**
  * starts with a dash, typically all kebab case 
- * inferrered prop name will be camel cased based on this.
+ * inferred prop name will be camel cased based on this.
  */
 export type MarkerString = string;
 

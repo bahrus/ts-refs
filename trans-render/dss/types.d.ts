@@ -60,6 +60,11 @@ export interface $copeDetail{
     itemProp?: string,
 }
 
+export interface $ScopeHierarchy {
+    home: Element;
+    satellites?: Array<Element>;
+}
+
 export interface Specifier {
     /** Directional Scope Sigil */
     dss?: DirectionalScopeSigils,

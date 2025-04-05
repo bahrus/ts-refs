@@ -55,6 +55,11 @@ export type asOptions =
     | 'boolean|number'
 ;
 
+export interface $copeDetail{
+    ceName?: string,
+    itemProp?: string,
+}
+
 export interface Specifier {
     /** Directional Scope Sigil */
     dss?: DirectionalScopeSigils,
@@ -110,9 +115,21 @@ export interface Specifier {
     
     as?: asOptions
         
-    
+    /**
+     * is a scope query within the aria-[row|col|row]index[text]
+     */
     isModulo?: boolean;
+    /**
+     * Specify which aria-[?]index to use
+     */
     modulo?: Modulo;
+
+    /**
+     * itemscope hierarchy domain specifier
+     */
+    is$cope?: boolean;
+
+    $copeDetail?: $copeDetail
 }
 
 export type Modulo = 'aria-rowindex' | 'aria-colindex' | 'aria-rowindextext'

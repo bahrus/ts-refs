@@ -25,6 +25,10 @@ export type DirectionalScopeSigils =
      * modulo
      */
     |'%'
+    /**
+     * itemscoped host
+     */
+    |'$'
     ;
 
 export type AttrSigils =
@@ -50,6 +54,16 @@ export type asOptions =
     | 'urlpattern'
     | 'boolean|number'
 ;
+
+export interface $copeDetail{
+    ceName?: string,
+    itemProp?: string,
+}
+
+export interface $ScopeHierarchy {
+    home: Element;
+    satellites?: Array<Element>;
+}
 
 export interface Specifier {
     /** Directional Scope Sigil */
@@ -106,9 +120,21 @@ export interface Specifier {
     
     as?: asOptions
         
-    
+    /**
+     * is a scope query within the aria-[row|col|row]index[text]
+     */
     isModulo?: boolean;
+    /**
+     * Specify which aria-[?]index to use
+     */
     modulo?: Modulo;
+
+    /**
+     * itemscope hierarchy domain specifier
+     */
+    is$cope?: boolean;
+
+    $copeDetail?: $copeDetail
 }
 
 export type Modulo = 'aria-rowindex' | 'aria-colindex' | 'aria-rowindextext'
@@ -126,7 +152,7 @@ export type CSSSelector = string;
 
 /**
  * starts with a dash, typically all kebab case 
- * inferrered prop name will be camel cased based on this.
+ * inferred prop name will be camel cased based on this.
  */
 export type MarkerString = string;
 
@@ -156,4 +182,8 @@ export interface PIP<TProp = any, TElement = Element> extends EventListenerObjec
     disconnect();
     toString(nv: TProp): string;
     readonly outEvtName: string;
+}
+
+export interface HasIshList extends HTMLElement{
+    ishList: Array<any>;
 }

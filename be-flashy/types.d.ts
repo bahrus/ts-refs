@@ -2,6 +2,8 @@ import {IEnhancement, BEAllProps} from '../trans-render/be/types';
 
 export interface EndUserProps extends IEnhancement{
     delay: number,
+    attr: string,
+    css: string,
 }
 
 export interface AllProps extends EndUserProps{}

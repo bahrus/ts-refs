@@ -46,6 +46,7 @@ export interface ObservingParameters{
     punt: boolean,
     mappings?: Array<AndIfThen>,
     aggKey: StringWithAutocompleteOptions<aggKeys>,
+    interpolatingExpr: string,
     JSExpr: string,
     ONExpr: string,
     action: 

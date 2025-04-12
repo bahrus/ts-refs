@@ -319,7 +319,7 @@ export interface PropInfo{
     ip?: boolean;
 }
 
-export type ConstString = String;
+export type ConstString = string;
 
 export type NameOfProp = string;
 

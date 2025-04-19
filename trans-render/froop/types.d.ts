@@ -287,7 +287,7 @@ export interface IActionProcessor{
 }
 
 type PropInfoTypes = "String" | "Number" | "Boolean" | "Object" | "RegExp";
-export interface PropInfo<TProps=any, TActions>{
+export interface PropInfo<TProps=any, TActions=any>{
     type?: PropInfoTypes;
     dry?: boolean;
     parse?: boolean;

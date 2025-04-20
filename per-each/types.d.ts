@@ -16,3 +16,8 @@ export type BAP = AP & BEAllProps;
 
 export interface Actions{
 }
+
+export interface PerEachParameters {
+    listProp: string;
+    itemProp: string;
+}

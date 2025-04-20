@@ -170,7 +170,7 @@ export interface WCConfig<TProps = any, TActions = TProps, TPropInfo = PropInfo,
     
 }
 
-export type PropLookup<TProps = any> = Partial<{[key in keyof TProps]: PropInfo}>;
+export type PropLookup<TProps = any, TActions = any> = Partial<{[key in keyof TProps]: PropInfo<TProps, TActions>}>;
 
 export interface OConfig<TProps = any, TActions = TProps, ETProps = TProps>{
 
@@ -287,7 +287,7 @@ export interface IActionProcessor{
 }
 
 type PropInfoTypes = "String" | "Number" | "Boolean" | "Object" | "RegExp";
-export interface PropInfo{
+export interface PropInfo<TProps=any, TActions=any>{
     type?: PropInfoTypes;
     dry?: boolean;
     parse?: boolean;
@@ -317,6 +317,14 @@ export interface PropInfo{
      * examples: role, ariaRole
      */
     ip?: boolean;
+
+    /**
+     * Allow for discarding what is passed in favor of a modified value such as a formatted value
+     * or filtered list
+     */
+    adjuster?: 
+        |keyof TActions & string 
+        |((nv: any) => any)
 }
 
 export type ConstString = string;

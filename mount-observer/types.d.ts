@@ -24,7 +24,8 @@ export interface MountInit extends JSONSerializableMountInit{
     readonly withTargetShadowRoot?: ShadowRoot, 
     readonly whereInstanceOf?: Array<{new(): Element}>,
     readonly whereSatisfies?: PipelineProcessor<boolean>,
-    readonly do?: MountObserverCallbacks
+    readonly do?: MountObserverCallbacks,
+    readonly assigner?: (target: any, source: any) => Promise<void>,
     // /**
     //  * Purpose -- there are scenarios where we may only want to affect changes that occur after the initial 
     //  * server rendering, so we only want to mount elements that appear 

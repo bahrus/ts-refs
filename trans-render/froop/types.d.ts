@@ -171,9 +171,8 @@ export interface WCConfig<TProps = any, TActions = TProps, TPropInfo = PropInfo,
 }
 
 export type PropLookup<TProps = any, TActions = any> = Partial<{[key in keyof TProps]: PropInfo<TProps, TActions>}>;
-
-export interface OConfig<TProps = any, TActions = TProps, ETProps = TProps>{
-
+export type IshPropLookup<TProps = any, TActions = any> = Partial<{[key in keyof TProps]: IshPropInfo<TProps, TActions>}>;
+export interface IshConfig<TProps = any, TActions = TProps, ETProps = TProps>{
     propDefaults?: Partial<{[key in keyof TProps]: TProps[key]}>;
     propInfo?: Partial<{[key in keyof TProps]: PropInfo}>;
     wrappers?: Partial<{[key in keyof TProps]: WrapperConfig<TProps>}>;
@@ -186,8 +185,11 @@ export interface OConfig<TProps = any, TActions = TProps, ETProps = TProps>{
     hitch?: Hitches<TProps, TActions>;
     handlers?: Handlers<ETProps, TActions>;
     positractions?: Positractions<TProps, TActions>;
-    mainTemplate?: string | HTMLTemplateElement;
+    
     isSleepless?: boolean;
+}
+export interface OConfig<TProps = any, TActions = TProps, ETProps = TProps> extends IshConfig<TProps, TActions, ETProps>{
+    mainTemplate?: string | HTMLTemplateElement;
 }
 
 export type Positractions<TProps = any, TActions = TProps> = 
@@ -287,14 +289,26 @@ export interface IActionProcessor{
 }
 
 type PropInfoTypes = "String" | "Number" | "Boolean" | "Object" | "RegExp";
-export interface PropInfo<TProps=any, TActions=any>{
+
+export interface IshPropInfo<TProps = any, TActions = any>{
     type?: PropInfoTypes;
     dry?: boolean;
-    parse?: boolean;
     ro?: boolean;
+    propName?: string;
+    /**
+     * Allow for discarding what is passed in favor of a modified value such as a formatted value
+     * or filtered list
+     */
+    adjuster?: 
+        |keyof TActions & string 
+        |((nv: any) => any)
+}
+
+export interface PropInfo<TProps=any, TActions=any> extends IshPropInfo<TProps, TActions>{
+
+    parse?: boolean;
     def?: any;
     attrName?: string;
-    propName?: string;
     /**
      * form associated read only property
      * https://web.dev/articles/more-capable-form-controls#:~:text=Form-associated%20custom%20elements%20aim%20to%20bridge%20the%20gap,associated%20with%20the%20form%2C%20like%20a%20browser-provided%20control.
@@ -318,13 +332,7 @@ export interface PropInfo<TProps=any, TActions=any>{
      */
     ip?: boolean;
 
-    /**
-     * Allow for discarding what is passed in favor of a modified value such as a formatted value
-     * or filtered list
-     */
-    adjuster?: 
-        |keyof TActions & string 
-        |((nv: any) => any)
+
 }
 
 export type ConstString = string;

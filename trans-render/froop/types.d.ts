@@ -188,6 +188,7 @@ export interface IshConfig<TProps = any, TActions = TProps, ETProps = TProps>{
     
     isSleepless?: boolean;
     xform?: XForm<TProps, TActions>;
+    inScopeXForms?: Array<XForm<TProps, TActions>>;
 }
 export interface OConfig<TProps = any, TActions = TProps, ETProps = TProps> extends IshConfig<TProps, TActions, ETProps>{
     mainTemplate?: string | HTMLTemplateElement;

@@ -19,13 +19,15 @@ export interface ObservedSourceOfTruthAttribute<TProps = any>  {
     customParser?: (newValue: string | null, oldValue: string | null, instance: Element) => any
 }
 
+export type Assigner = (target: any, source: any) => Promise<void> | void;
+
 export interface MountInit extends JSONSerializableMountInit{
     
     readonly withTargetShadowRoot?: ShadowRoot, 
     readonly whereInstanceOf?: Array<{new(): Element}>,
     readonly whereSatisfies?: PipelineProcessor<boolean>,
     readonly do?: MountObserverCallbacks,
-    readonly assigner?: (target: any, source: any) => Promise<void>,
+    readonly assigner?: Assigner,
     // /**
     //  * Purpose -- there are scenarios where we may only want to affect changes that occur after the initial 
     //  * server rendering, so we only want to mount elements that appear 

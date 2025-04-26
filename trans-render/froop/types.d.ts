@@ -1,6 +1,7 @@
 import { IMountObserver } from '../../mount-observer/types';
 import { Scope} from '../lib/types';
 import { WrapperConfig } from '../XV/types';
+import {XForm} from '../types';
 
 export interface IEventConfig<MCProps = any, MCActions = MCProps, TAction = Action>{
     on?: string,
@@ -454,7 +455,7 @@ export interface ICompact{
 interface CompactStatement {
     srcKey: string,
     destKey: string,
-    op: 'toggle' | 'negate' | 'invoke' | 'pass_length' | 'echo' | 'inc',
+    op: 'toggle' | 'negate' | 'call' | 'pass_length' | 'echo' | 'inc',
     rhsIsDynamic: boolean
 }
 

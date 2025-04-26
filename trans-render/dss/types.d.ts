@@ -184,6 +184,6 @@ export interface PIP<TProp = any, TElement = Element> extends EventListenerObjec
     readonly outEvtName: string;
 }
 
-export interface HasIshList extends HTMLElement{
+export interface HasIshList {
     ishList: Array<any>;
 }

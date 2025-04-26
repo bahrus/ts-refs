@@ -184,6 +184,11 @@ export interface PIP<TProp = any, TElement = Element> extends EventListenerObjec
     readonly outEvtName: string;
 }
 
+//TODO:  move to mount observer
+export interface HasIsh {
+    ish: EventTarget;
+}
+
 export interface HasIshList {
     ishList: Array<any>;
 }

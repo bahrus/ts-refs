@@ -218,6 +218,7 @@ export type Compacts<TProps = any, TActions = TProps> =
     | Partial<{[key in `when_${keyof TProps & string}_changes_call_${keyof TActions & string}`]: number}>
     | Partial<{[key in `when_${keyof TProps & string}_changes_toggle_${keyof TProps & string}`]: number}>
     | Partial<{[key in `when_${keyof TProps & string}_changes_inc_${keyof TProps & string}_by`]: number}>
+    | Partial<{[key in `when_${keyof TProps & string}_changes_dispatch`]: string}> //TODO
 ;
 
 export type Hitches<TProps = any, TActions = TProps> = 
@@ -454,7 +455,7 @@ export interface ICompact{
 interface CompactStatement {
     srcKey: string,
     destKey: string,
-    op: 'toggle' | 'negate' | 'call' | 'pass_length' | 'echo' | 'inc',
+    op: 'toggle' | 'negate' | 'call' | 'pass_length' | 'echo' | 'inc' | 'dispatch',
     rhsIsDynamic: boolean
 }
 

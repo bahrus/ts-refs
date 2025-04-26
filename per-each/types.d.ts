@@ -22,6 +22,7 @@ export type BAP = AP & BEAllProps;
 
 export interface Actions{
     parse(self: BAP): PAP;
-    hydrate(self: BAP): ProPAP;
+    init(self: BAP): ProPAP;
+    hydrate(self: BAP)
 }
 

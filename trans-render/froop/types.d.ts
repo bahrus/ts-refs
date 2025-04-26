@@ -1,6 +1,7 @@
 import { IMountObserver } from '../../mount-observer/types';
 import { Scope} from '../lib/types';
 import { WrapperConfig } from '../XV/types';
+import {XForm} from '../types';
 
 export interface IEventConfig<MCProps = any, MCActions = MCProps, TAction = Action>{
     on?: string,

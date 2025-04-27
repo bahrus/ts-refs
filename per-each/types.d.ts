@@ -3,6 +3,7 @@ import { HasIshList } from '../trans-render/dss/types';
 
 export interface EndUserProps extends IEnhancement{
     statement: string;
+    mapIdxTo: string;
 }
 
 export interface AllProps extends EndUserProps{

@@ -1,4 +1,3 @@
-//import { MountObserver } from "./MountObserver";
 
 export interface JSONSerializableMountInit{
     readonly on?: CSSMatch,
@@ -206,6 +205,11 @@ export interface MOSEAddedProps<TSynConfig=any>{
 export interface MOSE<TSynConfig=any> 
     extends HTMLScriptElement, MOSEAddedProps<TSynConfig>{
 
+}
+
+export interface BindishOptions{
+    assigner?: Assigner,
+    waitFor?: string,
 }
 
 //#endregion

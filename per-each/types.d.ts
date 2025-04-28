@@ -12,6 +12,7 @@ export interface AllProps extends EndUserProps{
     itemProp: string;
     ish: EventTarget & HasIshList;
     itemTemplate: HTMLTemplateElement;
+    emc: any;
     //updateCnt: number;
 }
 

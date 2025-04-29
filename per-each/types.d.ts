@@ -3,12 +3,16 @@ import { HasIshList } from '../trans-render/dss/types';
 
 export interface EndUserProps extends IEnhancement{
     statement: string;
+    mapIdxTo: string;
+    idxStart: number;
 }
 
 export interface AllProps extends EndUserProps{
     listProp: string;
     itemProp: string;
     ish: EventTarget & HasIshList;
+    itemTemplate: HTMLTemplateElement;
+    emc: any;
     //updateCnt: number;
 }
 

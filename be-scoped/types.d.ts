@@ -18,7 +18,7 @@ export type ProPAP = Promise<PAP>;
 export type BAP = AP & BEAllProps;
 
 export interface Actions{
-    parse(self: BAP): PAP;
+    parse(self: BAP): ProPAP;
     hydrate(self: BAP): ProPAP;
     retire(self: BAP): void;
 }

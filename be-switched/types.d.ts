@@ -1,5 +1,5 @@
 //import { ActionOnEventConfigs } from "trans-render/froop/types";
-import {BEAllProps, IEnhancement} from '../trans-render/be/types';
+import {BEAllProps, EMC, IEnhancement} from '../trans-render/be/types';
 //import {BVAAllProps} from 'be-value-added/types';
 //import {AP as BPAP, ISignal, Actions as BPActions} from 'be-propagating/types';
 //import {ElTypes, SignalRefType} from 'be-linked/types';
@@ -43,6 +43,7 @@ export interface AllProps extends EndUserProps{
     nValueSwitches?: Array<NValueScriptSwitch>
     rawStatements?: Array<string>,
     notProcessedJS?: boolean,
+    emc: EMC<any, AllProps>,
 }
 
 export type SwitchStatement = string;

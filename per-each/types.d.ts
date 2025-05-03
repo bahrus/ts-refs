@@ -5,6 +5,7 @@ export interface EndUserProps extends IEnhancement{
     statement: string;
     mapIdxTo: string;
     idxStart: number;
+    idleTimeout: number;
 }
 
 export interface AllProps extends EndUserProps{

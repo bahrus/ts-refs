@@ -27,6 +27,7 @@ export interface MountInit extends JSONSerializableMountInit{
     readonly whereSatisfies?: PipelineProcessor<boolean>,
     readonly do?: MountObserverCallbacks,
     readonly assigner?: Assigner,
+    readonly idleTimeout?: number
     // /**
     //  * Purpose -- there are scenarios where we may only want to affect changes that occur after the initial 
     //  * server rendering, so we only want to mount elements that appear 

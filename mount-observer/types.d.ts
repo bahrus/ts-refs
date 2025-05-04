@@ -210,7 +210,12 @@ export interface MOSE<TSynConfig=any>
 
 export interface BindishOptions{
     assigner?: Assigner,
-    waitFor?: string,
+    //waitFor?: string,
+    /**
+     * If derived from a template, set to true
+     * to indicate that the initial 
+     */
+    csr?: boolean,
 }
 
 //#endregion

@@ -2,10 +2,11 @@ import {IEnhancement, BEAllProps} from '../trans-render/be/types';
 import { HasIshList } from '../trans-render/dss/types';
 
 export interface EndUserProps extends IEnhancement{
-    statement: string;
+    each: string;
     mapIdxTo: string;
     idxStart: number;
     idleTimeout: number;
+    options: Partial<EndUserProps>;
 }
 
 export interface AllProps extends EndUserProps{

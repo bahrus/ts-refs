@@ -257,6 +257,8 @@ export interface LogicOp<Props = any>{
 
     delay?: number,
 
+    do?: (x: Props) => (Promise<Partial<Props>> | Partial<Props>)
+
 }
 
 export interface SetLogicOps<Props = any>{
@@ -278,6 +280,8 @@ export interface SetLogicOps<Props = any>{
     debug?: boolean,
 
     delay?: number,
+
+    do?: (x: Props) => (Promise<Partial<Props>> | Partial<Props>),
 }
 
 export interface Action<MCProps = any, MCActions = MCProps> extends LogicOp<MCProps>{

@@ -53,7 +53,11 @@ export type DerivationCriteria<TProps, TMethods> = {
     path: string,
     from?: number,
     //TODO
-    as?: ConvertOptions 
+    as?: ConvertOptions,
+    //TODO - applicable to arrays
+    filter?: keyof TModhods & string | ((val: any) => boolean),
+    //TODO
+    map?: keyof TModhods & string | ((val: any) => any,
 };
 
 export interface TransformOptions{
@@ -183,6 +187,12 @@ export interface ForEach<TProps, TMethods, TElement = {}>{
     outOfRangeProp?: string,
 }
 
+export interface MapInstructions<TProps, TMethods, TElement = {}>{
+    // itemCss: CSSQuery,
+    // each: string | [string, IshConfig<TProps, TMethods, TElement>],
+    // in: string | [string, IshConfig<TProps, TMethods, TElement>],
+}
+
 export interface ForEachInterface{
     init(): Promise<void>;
     update(model: any[]): Promise<void>;
@@ -224,7 +234,7 @@ export interface UnitOfWork<TProps, TMethods = TProps, TElement = {}>{
 
     forEachBinding?: ForEach<any, any, any>
     /**
-     * for each
+     * for each -- deprecated?
      */
     f?: ForEach<any, any, any>,
 
@@ -243,6 +253,8 @@ export interface UnitOfWork<TProps, TMethods = TProps, TElement = {}>{
      * [TODO]
      */
     invoke?: string,
+
+    map?: mapInstructions;
 
     /**
      * modify the model in a (mostly) declarative  way
@@ -455,7 +467,7 @@ export interface TransRenderMethods{
     skipInit: boolean,
 }
 
-import {OConfig} from './froop/types';
+import {IshConfig, OConfig} from './froop/types';
 export interface MntCfg<TProps = any, TActions = TProps, ETProps = TProps> extends OConfig<TProps, TActions, ETProps>{
     mainTemplate: string | HTMLTemplateElement,
     /**

@@ -149,7 +149,7 @@ export interface ConditionGate<TProps, TMethods, TElement = {}>{
 }
 
 export interface ScopingConfig<TProps=any, TMethods = TProps> {
-    name?: string;
+    name: string;
     config?: IshConfig<TProps, TMethods>;
 }
 

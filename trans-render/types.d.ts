@@ -148,6 +148,15 @@ export interface ConditionGate<TProps, TMethods, TElement = {}>{
 
 }
 
+export interface ScopingConfig<TProps=any, TMethods = TProps> {
+    name?: string;
+    config?: IshConfig<TProps, TMethods>;
+}
+
+export type ScopeInstructions<TProps=any, TMethods=TProps> = 
+    | ScopingConfig
+;
+
 export type WhereConditions = 
     | string //css matches
     | {
@@ -187,11 +196,11 @@ export interface ForEach<TProps, TMethods, TElement = {}>{
     outOfRangeProp?: string,
 }
 
-export interface MapInstructions<TProps, TMethods, TElement = {}>{
-    // itemCss: CSSQuery,
-    // each: string | [string, IshConfig<TProps, TMethods, TElement>],
-    // in: string | [string, IshConfig<TProps, TMethods, TElement>],
-}
+// export interface MapInstructions<TProps, TMethods, TElement = {}>{
+//     // itemCss: CSSQuery,
+//     // each: string | [string, IshConfig<TProps, TMethods, TElement>],
+//     // in: string | [string, IshConfig<TProps, TMethods, TElement>],
+// }
 
 export interface ForEachInterface{
     init(): Promise<void>;
@@ -254,7 +263,6 @@ export interface UnitOfWork<TProps, TMethods = TProps, TElement = {}>{
      */
     invoke?: string,
 
-    map?: mapInstructions;
 
     /**
      * modify the model in a (mostly) declarative  way
@@ -315,7 +323,9 @@ export interface UnitOfWork<TProps, TMethods = TProps, TElement = {}>{
      */
     w?: WhereConditions,
 
-    y?: number | YieldSettings<TProps>
+    y?: number | YieldSettings<TProps>,
+
+    $?:  ScopeInstructions<TProps, TMethods>,
 }
 
 export interface YieldSettings<TProps>{

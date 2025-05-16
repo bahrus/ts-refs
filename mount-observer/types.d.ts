@@ -218,6 +218,13 @@ export interface BindishOptions{
     csr?: boolean,
 }
 
+export interface IshFace{
+    attachedCallback?(el: Element): Promise<void>;
+    inScopeCallback?(el: Element): Promise<void>
+}
+
+export type IshCtr = ({new() : IshFace}) | (() => Promise<{new() : IshFace}>);
+
 //#endregion
 
 

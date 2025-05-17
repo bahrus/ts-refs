@@ -219,8 +219,8 @@ export interface BindishOptions{
 }
 
 export interface IshFace{
-    attachedCallback?(el: Element): Promise<void>;
-    inScopeCallback?(el: Element): Promise<void>
+    attachedCallback?(self: IshFace, el: Element): Promise<void>;
+    inScopeCallback?(self: IshFace, el: Element): Promise<void>
 }
 
 export type IshCtr = ({new() : IshFace}) | (() => Promise<{new() : IshFace}>);

@@ -57,7 +57,7 @@ export type DerivationCriteria<TProps, TMethods> = {
     //TODO - applicable to arrays
     filter?: keyof TModhods & string | ((val: any) => boolean),
     //TODO
-    map?: keyof TModhods & string | ((val: any) => any,
+    //map?: keyof TModhods & string | ((val: any) => any,
 };
 
 export interface TransformOptions{

@@ -218,14 +218,14 @@ export interface BindishOptions{
     csr?: boolean,
 }
 
-export interface IshFace{
-    '<mount>'?(self: IshFace, el: Element): Promise<void>;
+export interface Ishcycle{
+    '<mount>'?(self: Ishcycle, el: Element): Promise<void>;
     //'</dismount>'?(self: IshFace, el: Element): Promise<void>;
-    '<inScope>'?(self: IshFace, el: Element): Promise<void>;
+    '<inScope>'?(self: Ishcycle, el: Element): Promise<void>;
     //'</outOfScope>'?(self: IshFace, el: Element): Promise<void>;
 }
 
-export type IshCtr = ({new() : IshFace}) | (() => Promise<{new() : IshFace}>);
+export type IshCtr = ({new() : Ishcycle}) | (() => Promise<{new() : Ishcycle}>);
 
 //#endregion
 

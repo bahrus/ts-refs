@@ -219,9 +219,9 @@ export interface BindishOptions{
 }
 
 export interface Ishcycle{
-    '<mount>'?(self: Ishcycle, el: Element): Promise<void>;
+    '<mount>'?(self: Ishcycle, el: Element, options: BindishOptions): Promise<void>;
     //'</dismount>'?(self: IshFace, el: Element): Promise<void>;
-    '<inScope>'?(self: Ishcycle, el: Element): Promise<void>;
+    '<inScope>'?(self: Ishcycle, el: Element, options: BindishOptions): Promise<void>;
     //'</outOfScope>'?(self: IshFace, el: Element): Promise<void>;
 }
 

@@ -219,8 +219,10 @@ export interface BindishOptions{
 }
 
 export interface IshFace{
-    attachedCallback?(self: IshFace, el: Element): Promise<void>;
-    inScopeCallback?(self: IshFace, el: Element): Promise<void>
+    '<mount>'?(self: IshFace, el: Element): Promise<void>;
+    //'</dismount>'?(self: IshFace, el: Element): Promise<void>;
+    '<inScope>'?(self: IshFace, el: Element): Promise<void>;
+    //'</outOfScope>'?(self: IshFace, el: Element): Promise<void>;
 }
 
 export type IshCtr = ({new() : IshFace}) | (() => Promise<{new() : IshFace}>);

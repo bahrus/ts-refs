@@ -326,6 +326,8 @@ export interface UnitOfWork<TProps, TMethods = TProps, TElement = {}>{
     y?: number | YieldSettings<TProps>,
 
     $?:  ScopeInstructions<TProps, TMethods>,
+
+    $$?:  ScopeInstructions<TProps, TMethods>,
 }
 
 export interface YieldSettings<TProps>{

@@ -157,6 +157,11 @@ export type ScopeInstructions<TProps=any, TMethods=TProps> =
     | ScopingConfig
 ;
 
+export interface ScopedLoop<TProps = any, TMethods = TProps>{
+    config?: IshConfig<TProps, TMethods>;
+    options: Clone$Options
+}
+
 export type WhereConditions = 
     | string //css matches
     | {
@@ -549,3 +554,14 @@ export type ZeroOrMore<T> = T | Array<T> | undefined;
 export type StringWithAutocompleteOptions<TOptions> = 
     | (string & {})
     | TOptions;
+
+export interface Clone$Options{
+    ish: EventTarget & HasIshList
+    seedEl: Element,
+    idxStart: number,
+    itemProp: string,
+    mapIdxTo?: string,
+    itemTemplate: HTMLTemplateElement;
+    baseCrumb: string,
+    idleTimeout: number,
+}

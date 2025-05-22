@@ -159,7 +159,7 @@ export type ScopeInstructions<TProps=any, TMethods=TProps> =
 
 export interface ScopedLoop<TProps = any, TMethods = TProps>{
     config?: IshConfig<TProps, TMethods>;
-    options: Clone$Options
+    options: Partial<Clone$Options>
 }
 
 export type WhereConditions = 
@@ -332,7 +332,7 @@ export interface UnitOfWork<TProps, TMethods = TProps, TElement = {}>{
 
     $?:  ScopeInstructions<TProps, TMethods>,
 
-    $$?:  ScopeInstructions<TProps, TMethods>,
+    $$?:  ScopedLoop<TProps, TMethods>,
 }
 
 export interface YieldSettings<TProps>{

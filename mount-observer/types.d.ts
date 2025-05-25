@@ -220,11 +220,16 @@ export interface BindishOptions{
     initPropVals?: any,
 }
 
+//TODO:  move to mount observer
+export interface HasIsh {
+    ish: any;
+}
+
 export interface Ishcycle{
-    '<mount>'?(self: Ishcycle, el: Element, options: BindishOptions): Promise<void>;
+    '<mount>'?(self: Ishcycle, el: Element & HasIsh, options: BindishOptions): Promise<void>;
     //'</dismount>'?(self: IshFace, el: Element): Promise<void>;
-    '<inScope>'?(self: Ishcycle, el: Element, options: BindishOptions): Promise<void>;
-    'arr=>'?(self: Ishcycle, arr: any[] | undefined, options: BindishOptions): Promise<void | any[]>;
+    '<inScope>'?(self: Ishcycle, el: Element & HasIsh, options: BindishOptions): Promise<void>;
+    'arr=>'?(self: Ishcycle, arr: any[] | undefined, el: Element & HasIsh, options: BindishOptions): Promise<void | any[]>;
     //'</outOfScope>'?(self: IshFace, el: Element): Promise<void>;
 }
 

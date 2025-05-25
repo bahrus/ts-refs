@@ -224,7 +224,7 @@ export interface Ishcycle{
     '<mount>'?(self: Ishcycle, el: Element, options: BindishOptions): Promise<void>;
     //'</dismount>'?(self: IshFace, el: Element): Promise<void>;
     '<inScope>'?(self: Ishcycle, el: Element, options: BindishOptions): Promise<void>;
-    'arr=>'?(self: Ishcycle, arr: any[] | undefined, options: BindishOptions): Promise<void>;
+    'arr=>'?(self: Ishcycle, arr: any[] | undefined, options: BindishOptions): Promise<void | any[]>;
     //'</outOfScope>'?(self: IshFace, el: Element): Promise<void>;
 }
 

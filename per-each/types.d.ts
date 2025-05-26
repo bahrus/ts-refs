@@ -12,7 +12,8 @@ export interface EndUserProps extends IEnhancement{
 export interface AllProps extends EndUserProps{
     listProp: string;
     itemProp: string;
-    ish: EventTarget & HasIshList;
+    ish: HasIshList;
+    ishContainer: Element;
     itemTemplate: HTMLTemplateElement;
     emc: any;
     //updateCnt: number;

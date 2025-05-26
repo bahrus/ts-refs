@@ -556,7 +556,8 @@ export type StringWithAutocompleteOptions<TOptions> =
     | TOptions;
 
 export interface Clone$Options{
-    ish: EventTarget & HasIshList
+    ish: HasIshList,
+    ishContainer: Element,
     seedEl: Element,
     idxStart: number,
     itemProp: string,

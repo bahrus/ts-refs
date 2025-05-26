@@ -191,6 +191,7 @@ export interface IshConfig<TProps = any, TActions = TProps, ETProps = TProps>{
     xform?: XForm<TProps, TActions>;
     inScopeXForms?: {[key: CSSQuery]: XForm<TProps, TActions>};
     ishListCountProp?: keyof TProps & string;
+    defaultIshList?: any[];
 }
 export interface OConfig<TProps = any, TActions = TProps, ETProps = TProps> extends IshConfig<TProps, TActions, ETProps>{
     mainTemplate?: string | HTMLTemplateElement;

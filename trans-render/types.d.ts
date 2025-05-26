@@ -564,4 +564,6 @@ export interface Clone$Options{
     itemTemplate: HTMLTemplateElement;
     baseCrumb: string,
     idleTimeout: number,
+    model?: any,
+    listProp?: string,
 }

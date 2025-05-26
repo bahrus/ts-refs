@@ -216,7 +216,7 @@ export interface BindishOptions{
      * to indicate that the initial 
      */
     csr?: boolean,
-    ctr?: {new() : Ishcycle},
+    ctr?: IshCtr,
     initPropVals?: any,
 }
 

@@ -237,5 +237,7 @@ export type IshCtr = ({new() : Ishcycle}) | (() => Promise<{new() : Ishcycle}>);
 
 //#endregion
 
+export type RefType = '#' | '!';
+
 
 

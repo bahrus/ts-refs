@@ -29,6 +29,10 @@ export type DirectionalScopeSigils =
      * itemscoped host
      */
     |'$'
+    /**
+     * comment scope
+     */
+    |'/**/'
     ;
 
 export type AttrSigils =
@@ -128,6 +132,11 @@ export interface Specifier {
      * Specify which aria-[?]index to use
      */
     modulo?: Modulo;
+
+    /**
+     * is a scope query within comments
+     */
+    cmtWrap?: boolean;
 
     /**
      * itemscope hierarchy domain specifier

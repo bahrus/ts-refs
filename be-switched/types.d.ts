@@ -20,6 +20,7 @@ export interface EndUserProps extends IEnhancement<HTMLTemplateElement>{
     hiddenStyle?: string;
     toggleInert?: boolean;
     deferRendering?: boolean;
+    /** delete content when condition evaluates to false */
     minMem?: boolean;
     /**
      * Works with beOosoom decorator, so becomes inert when out of view
@@ -27,6 +28,10 @@ export interface EndUserProps extends IEnhancement<HTMLTemplateElement>{
     beOosoom?: string;
     js?: string;
     transitional: boolean;
+    /**
+     * Use comments rather a DOM element to wrap multiple elements
+     */
+    cmtWrap?: boolean;
 }
 
 export interface AllProps extends EndUserProps{

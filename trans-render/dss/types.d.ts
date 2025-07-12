@@ -143,7 +143,9 @@ export interface Specifier {
      */
     is$cope?: boolean;
 
-    $copeDetail?: $copeDetail
+    $copeDetail?: $copeDetail;
+
+    constVal?: any;
 }
 
 export type Modulo = 'aria-rowindex' | 'aria-colindex' | 'aria-rowindextext'

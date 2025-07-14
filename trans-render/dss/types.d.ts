@@ -146,6 +146,8 @@ export interface Specifier {
     $copeDetail?: $copeDetail;
 
     constVal?: any;
+
+    enhBase?: string;
 }
 
 export type Modulo = 'aria-rowindex' | 'aria-colindex' | 'aria-rowindextext'

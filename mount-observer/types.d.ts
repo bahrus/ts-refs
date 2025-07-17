@@ -1,6 +1,7 @@
 
 export interface JSONSerializableMountInit{
     readonly on?: CSSMatch,
+    readonly outside?: CSSMatch,
     readonly observedAttrsWhenMounted?: (string | ObservedSourceOfTruthAttribute)[],
     readonly whereAttr?: WhereAttr,  
     readonly whereElementIntersectsWith?: IntersectionObserverInit,

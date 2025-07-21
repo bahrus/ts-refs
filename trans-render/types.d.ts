@@ -405,7 +405,8 @@ export interface AttrMap{
 export interface QueryInfo{
     isRootQry?: boolean,
     localPropCamelCase?: string,
-    cssQuery?: string,
+    cssQuery?: CSSQuery,
+    outside?: CSSQuery,
     o?: string[],
     s?: string[],
     localName?: string,

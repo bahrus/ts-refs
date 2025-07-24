@@ -219,7 +219,7 @@ export interface UnitOfWork<TProps, TMethods = TProps, TElement = {}>{
     /**
      * abbrev. for addEventListener
      */
-    a?:  AddEventListenerType<TProps, TMethods> | Array<AddEventListenerType<TProps, TMethods>>,
+    a?:  0 | AddEventListenerType<TProps, TMethods> | Array<AddEventListenerType<TProps, TMethods>>,
 
     /**
      * Specify how the value we want to apply to the target element should be derived from the observed props.

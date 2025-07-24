@@ -434,7 +434,7 @@ export interface AddEventListener<TProps, TMethods>{
 }
 
 export type XForm<TProps, TMethods, TElement = {}> = Partial<{
-    [key in LHS<TProps, TElement>]: RHS<TProps, TMethods, TElement>;
+    [key in LHS<TProps & TMethods, TElement>]: RHS<TProps, TMethods, TElement>;
 }>;
 
 export interface Info  {

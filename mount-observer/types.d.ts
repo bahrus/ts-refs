@@ -240,5 +240,9 @@ export type IshCtr = ({new() : Ishcycle}) | (() => Promise<{new() : Ishcycle}>);
 
 export type RefType = '#' | '!';
 
+export interface TemplateWithRemoteContent extends HTMLTemplateElement {
+    remoteContent?: DocumentFragment,
+}
+
 
 

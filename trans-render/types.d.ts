@@ -219,7 +219,7 @@ export interface UnitOfWork<TProps, TMethods = TProps, TElement = {}>{
     /**
      * abbrev. for addEventListener
      */
-    a?:  AddEventListenerType<TProps, TMethods> | Array<AddEventListenerType<TProps, TMethods>>,
+    a?:  0 | AddEventListenerType<TProps, TMethods> | Array<AddEventListenerType<TProps, TMethods>>,
 
     /**
      * Specify how the value we want to apply to the target element should be derived from the observed props.
@@ -405,7 +405,8 @@ export interface AttrMap{
 export interface QueryInfo{
     isRootQry?: boolean,
     localPropCamelCase?: string,
-    cssQuery?: string,
+    cssQuery?: CSSQuery,
+    outside?: CSSQuery,
     o?: string[],
     s?: string[],
     localName?: string,
@@ -433,7 +434,7 @@ export interface AddEventListener<TProps, TMethods>{
 }
 
 export type XForm<TProps, TMethods, TElement = {}> = Partial<{
-    [key in LHS<TProps, TElement>]: RHS<TProps, TMethods, TElement>;
+    [key in LHS<TProps & TMethods, TElement>]: RHS<TProps, TMethods, TElement>;
 }>;
 
 export interface Info  {

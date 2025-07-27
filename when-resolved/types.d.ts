@@ -26,4 +26,5 @@ export interface ResolvingParameters{
     remoteSpecifier: Specifier;
     localSpecifierString: string;
     localSpecifier: Specifier;
+    remotePropertyPath: string;
 }

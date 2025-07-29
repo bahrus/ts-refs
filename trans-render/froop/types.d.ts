@@ -192,7 +192,9 @@ export interface IshConfig<TProps = any, TActions = TProps, ETProps = TProps>{
     inScopeXForms?: {[key: CSSQuery]: XForm<TProps, TActions>};
     ishListCountProp?: keyof TProps & string;
     defaultIshList?: any[];
-    mapParentScopeRefTo?: keyof TProps & string; 
+    mapParentScopeRefTo?: keyof TProps & string;
+    //mapElTo?: keyof TProps & string; //make sure strong use case before implementing
+    ignoreItemProp?: boolean;
 }
 export interface OConfig<TProps = any, TActions = TProps, ETProps = TProps> extends IshConfig<TProps, TActions, ETProps>{
     mainTemplate?: string | HTMLTemplateElement;

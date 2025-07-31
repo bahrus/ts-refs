@@ -442,7 +442,7 @@ export interface RoundaboutReady{
      * If truthy, can call await awake() before processing should resume
      * [TODO]
      */  
-    readonly sleep?: number,
+    readonly sleep?: number | undefined;
 
     awake(): Promise<void>;
 

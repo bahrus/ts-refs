@@ -28,6 +28,7 @@ export interface EndUserProps extends IEnhancement<HTMLTemplateElement>{
     beOosoom?: string;
     js?: string;
     transitional: boolean;
+    idRefAttr: string;
     /**
      * Use comments rather a DOM element to wrap multiple elements
      */
@@ -49,6 +50,7 @@ export interface AllProps extends EndUserProps{
     rawStatements?: Array<string>,
     notProcessedJS?: boolean,
     emc: EMC<any, AllProps>,
+    
 }
 
 export type SwitchStatement = string;

@@ -31,7 +31,7 @@ export interface EndUserProps extends IEnhancement<HTMLTemplateElement>{
     /**
      * Use comments rather a DOM element to wrap multiple elements
      */
-    cmtWrap?: boolean;
+    //cmtWrap?: boolean;
 }
 
 export interface AllProps extends EndUserProps{

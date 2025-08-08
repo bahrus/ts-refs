@@ -395,7 +395,7 @@ export type UnitOfWorkRHS<TProps, TMethods, TElement = {}> =
     | XForm<any, any, any> & Info //unclear if this is necessary
 ;
 
-export type RHS<TProps, TMethods, TElements = Element> = UnitOfWorkRHS<TProps, TMethods, TElements> | Array<UnitOfWork<TProps, TMethods, TElements>>;
+export type RHS<TProps = any, TMethods = TProps, TElements = Element> = UnitOfWorkRHS<TProps, TMethods, TElements> | Array<UnitOfWork<TProps, TMethods, TElements>>;
 
 export interface AttrMap{
     type: PropAttrQueryType, 

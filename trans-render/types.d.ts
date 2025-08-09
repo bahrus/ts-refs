@@ -314,6 +314,11 @@ export interface UnitOfWork<TProps, TMethods = TProps, TElement = {}>{
     ss?: string,
 
     /**
+     * two way bind the listed props to data- attributes
+     */
+    data?: Array<keyof TProp & string>
+
+    /**
      * negate to
      */
     negTo?: string,

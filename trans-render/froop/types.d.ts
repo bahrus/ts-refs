@@ -193,7 +193,7 @@ export interface IshConfig<TProps = any, TActions = TProps, ETProps = TProps>{
     ishListCountProp?: keyof TProps & string;
     defaultIshList?: any[];
     mapParentScopeRefTo?: keyof TProps & string;
-    //mapElTo?: keyof TProps & string; //make sure strong use case before implementing
+    mapElTo?: keyof TProps & string; 
     ignoreItemProp?: boolean;
 }
 export interface OConfig<TProps = any, TActions = TProps, ETProps = TProps> extends IshConfig<TProps, TActions, ETProps>{

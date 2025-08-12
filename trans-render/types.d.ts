@@ -385,6 +385,7 @@ export interface ModificationUnitOfWork<TProps, TMethods, TElement = {}>{
     to?: any,
     toValFrom?: string | ValueFromElement<TProps, TMethods, TElement>;
     toggle?: keyof TProps & string,
+    stopPropagation?: boolean,
 }
 
 export interface QuenitOfWork<TProps, TMethods, TElement = {}> extends UnitOfWork<TProps, TMethods, TElement>{

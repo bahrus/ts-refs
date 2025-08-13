@@ -567,11 +567,11 @@ export interface Clone$Options{
     ishContainer: Element,
     seedEl: Element,
     idxStart: number,
-    itemProp: string,
+    itemScopes: Array<string>: string,
     mapIdxTo?: string,
-    itemTemplate: HTMLTemplateElement;
+    itemTemplates: Array<HTMLTemplateElement>;
     baseCrumb: string,
     idleTimeout: number,
     //model?: any,
-    listProp?: string,
+    listScope: string
 }

@@ -5,7 +5,7 @@ export interface EndUserProps extends IEnhancement{
 }
 
 export interface AllProps extends EndUserProps{
-    parsedStatements: Array<ResolvingParameters>,
+    parsedStatements: Array<EnhancingParameters>,
     rawStatements?: Array<string>
 }
 
@@ -21,7 +21,7 @@ export interface Actions{
     hydrate(self: BAP): ProPAP;
 }
 
-export interface ResolvingParameters{
+export interface EnhancingParameters{
     remoteSpecifierString: string;
     remoteSpecifier: Specifier;
     enhancementBase: string;

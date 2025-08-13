@@ -567,7 +567,7 @@ export interface Clone$Options{
     ishContainer: Element,
     seedEl: Element,
     idxStart: number,
-    itemScopes: Array<string>: string,
+    itemScopes: Array<string>,
     mapIdxTo?: string,
     itemTemplates: Array<HTMLTemplateElement>;
     baseCrumb: string,

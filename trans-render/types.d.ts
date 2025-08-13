@@ -573,5 +573,5 @@ export interface Clone$Options{
     baseCrumb: string,
     idleTimeout: number,
     //model?: any,
-    listScope: string
+    //listScope: string
 }

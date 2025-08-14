@@ -354,6 +354,8 @@ export type ValueFromElement<TProps, TMethods, TElement = {}> =
 
 export interface ModificationUnitOfWork<TProps, TMethods, TElement = {}>{
     on: string,
+    //Double check that the event is the type expected
+    instanceOf?: any,
     /**
      * Increment
      */

@@ -47,7 +47,9 @@ export type AttrSigils =
 
 export type ElementSigils = '/' | '~';
 
-export type Sigils = AttrSigils | ElementSigils;
+export type ScopeSigils = '';
+
+export type Sigils = AttrSigils | ElementSigils | ScopeSigils;
 
 export type asOptions = 
     | 'number'

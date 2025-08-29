@@ -65,6 +65,7 @@ export interface TransformOptions{
     propagatorIsReady?: boolean,
     skipInit?: boolean,
     useViewTransition?: boolean,
+    outside?: string,
 }
 
 export type Derivative<TProps, TMethods, TElement = {}> = 

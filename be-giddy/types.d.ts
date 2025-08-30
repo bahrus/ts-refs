@@ -4,7 +4,9 @@ export interface EndUserProps extends IEnhancement{
     idString: string;
 }
 
-export interface AllProps extends EndUserProps{}
+export interface AllProps extends EndUserProps{
+    ids: string[];
+}
 
 export type AP = AllProps;
 
@@ -15,5 +17,7 @@ export type ProPAP = Promise<PAP>;
 export type BAP = AP & BEAllProps;
 
 export interface Actions{
-    parseIdString(self: BAP): PAP;
+    parseIdString(self: AP & BEAllProps): PAP;
+
+    autoGen(self: AP & BEAllProps): void;
 }

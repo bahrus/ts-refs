@@ -20,5 +20,7 @@ export type BAP = AP & BEAllProps;
 export interface Actions{
     parseIdString(self: AP & BEAllProps): PAP;
 
-    autoGen(self: AP & BEAllProps): void;
+    autoGen(self: AP & BEAllProps): PAP;
+
+    retire(self: AP & BEAllProps): void;
 }

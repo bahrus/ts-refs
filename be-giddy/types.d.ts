@@ -1,4 +1,4 @@
-import {IEnhancement, BEAllProps} from '../trans-render/be/types';
+import {IEnhancement, BEAllProps, EMC} from '../trans-render/be/types';
 
 export interface EndUserProps extends IEnhancement{
     idString: string;
@@ -6,6 +6,7 @@ export interface EndUserProps extends IEnhancement{
 
 export interface AllProps extends EndUserProps{
     ids: string[];
+    emc: EMC<any, AllProps>,
 }
 
 export type AP = AllProps;

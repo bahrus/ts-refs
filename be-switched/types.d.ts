@@ -4,7 +4,7 @@ import {BEAllProps, EMC, IEnhancement} from '../trans-render/be/types';
 //import {AP as BPAP, ISignal, Actions as BPActions} from 'be-propagating/types';
 //import {ElTypes, SignalRefType} from 'be-linked/types';
 //import { Propagator } from "../trans-render/froop/PropSvc";
-import {Specifier} from '../trans-render/dss/types';
+import {IPE, Specifier} from '../trans-render/dss/types';
 
 export interface EndUserProps extends IEnhancement<HTMLTemplateElement>{
     lhs?: any,
@@ -73,12 +73,13 @@ export interface TwoPartOpStatement{
 }
 
 export interface TwoValueSwitch{
-    lhsSpecifier: Specifier,
-    rhsSpecifier: Specifier,
-    withinSpecifier?: Specifier,
+    lhsIPE: IPE,
+    rhsIPE: IPE,
+    // lhsSpecifier: Specifier,
+    // rhsSpecifier: Specifier,
+    //withinSpecifier?: Specifier,
     req?: boolean,
     op?: Op,
-    //negate?: boolean,
     lhs?: ISide,
     rhs?: ISide,
     onOrOff: 

@@ -155,8 +155,10 @@ export interface Specifier {
 
 export interface IPE {
     id?: string,
-    path?: string,
+    path?: SubPropPath,
     evtName?: string,
+    as?: asOptions,
+    constVal?: any;
 }
 
 export type Modulo = 'aria-rowindex' | 'aria-colindex' | 'aria-rowindextext'

@@ -71,6 +71,7 @@ export interface $ScopeHierarchy {
     satellites?: Array<Element>;
 }
 
+// deprecated
 export interface Specifier {
     /** Directional Scope Sigil */
     dss?: DirectionalScopeSigils,
@@ -150,6 +151,12 @@ export interface Specifier {
     constVal?: any;
 
     enhBase?: string;
+}
+
+export interface IPE {
+    id?: string,
+    path?: string,
+    evtName?: string,
 }
 
 export type Modulo = 'aria-rowindex' | 'aria-colindex' | 'aria-rowindextext'

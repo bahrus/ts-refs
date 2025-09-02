@@ -58,8 +58,7 @@ export type SwitchStatement = string;
 
 export interface OneValueSwitch{
     ifPart: string,
-    specifier: Specifier,
-    //signal?: WeakRef<SignalRefType>,
+    ipe: IPE,
     req?: boolean,
 }
 
@@ -75,9 +74,6 @@ export interface TwoPartOpStatement{
 export interface TwoValueSwitch{
     lhsIPE: IPE,
     rhsIPE: IPE,
-    // lhsSpecifier: Specifier,
-    // rhsSpecifier: Specifier,
-    //withinSpecifier?: Specifier,
     req?: boolean,
     op?: Op,
     lhs?: ISide,

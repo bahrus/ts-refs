@@ -86,7 +86,7 @@ export interface TwoValueSwitch{
 
 }
 
-export interface Dependency extends Specifier{}
+export interface Dependency extends IPE{}
 
 export interface CanBeSwitchedOn {
     switchedOn?: boolean,

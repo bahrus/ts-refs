@@ -160,6 +160,8 @@ export interface IPE {
     evtName?: string,
     as?: asOptions,
     constVal?: any;
+    enhKey?: string;
+    ish?: boolean;
 }
 
 export type Modulo = 'aria-rowindex' | 'aria-colindex' | 'aria-rowindextext'

@@ -155,6 +155,7 @@ export interface Specifier {
 
 export interface IPE {
     id?: string,
+    prop?: string,
     path?: SubPropPath,
     evtName?: string,
     as?: asOptions,

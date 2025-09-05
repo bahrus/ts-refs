@@ -6,6 +6,10 @@ import {BEAllProps, EMC, IEnhancement} from '../trans-render/be/types';
 //import { Propagator } from "../trans-render/froop/PropSvc";
 import {IPE, Specifier} from '../trans-render/dss/types';
 
+export interface Element{
+    hostish(): Promise<any>
+}
+
 export interface EndUserProps extends IEnhancement<HTMLTemplateElement>{
     lhs?: any,
     rhs?: any,

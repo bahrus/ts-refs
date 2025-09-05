@@ -162,6 +162,8 @@ export interface IPE {
     constVal?: any;
     enhKey?: string;
     ish?: boolean;
+    //element to observe must be a shadowed custom element host.
+    host?: boolean;
 }
 
 export type Modulo = 'aria-rowindex' | 'aria-colindex' | 'aria-rowindextext'

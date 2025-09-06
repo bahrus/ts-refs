@@ -1,6 +1,3 @@
-import { Scope } from '../lib/types'
-import { CSSQuery } from '../types';
-
 export type ID = `#${string}`;
 export type Host = `:host()`;
 export type Hostish = ``;
@@ -26,9 +23,9 @@ export type ValExpression = `${PropPath | ConstVal | MindReadProp}${TypeQualifie
 
 export type MindReadEvent = ``;
 
-export type EvtName = `::${string}`;
+export type EventName = `::${string}`;
 
-export type DSS = `${Target}${ValExpression}${EvtName}`;
+export type DSS = `${Target}${ValExpression}${EventName}`;
 
 
 export interface Specifier {

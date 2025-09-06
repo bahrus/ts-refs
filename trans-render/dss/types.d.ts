@@ -3,53 +3,53 @@ import { CSSQuery } from '../types';
 
 export type DSS = string;
 
-export type DirectionalScopeSigils = 
-    /**
-     * upward direction, non recursive
-     */
-    |'^'  
-    /**
-     * downward direction, next element siblings only
-     */
-    |'Y' 
-    /**
-     * IdRef query
-     * 
-     */ 
-    |'?'
-    /**
-     * self
-     */
-    |'.'
-    /**
-     * modulo
-     */
-    |'%'
-    /**
-     * itemscoped host
-     */
-    |'$'
-    /**
-     * comment scope
-     */
-    |'/**/'
-    ;
+// export type DirectionalScopeSigils = 
+//     /**
+//      * upward direction, non recursive
+//      */
+//     |'^'  
+//     /**
+//      * downward direction, next element siblings only
+//      */
+//     |'Y' 
+//     /**
+//      * IdRef query
+//      * 
+//      */ 
+//     |'?'
+//     /**
+//      * self
+//      */
+//     |'.'
+//     /**
+//      * modulo
+//      */
+//     |'%'
+//     /**
+//      * itemscoped host
+//      */
+//     |'$'
+//     /**
+//      * comment scope
+//      */
+//     |'/**/'
+//     ;
 
-export type AttrSigils =
-    /**
-     * Reference to self / local element
-     */
-    '$0' |
-    /**
-     * Reference by ID
-     */
-    '#' | '@' |  '-' | '|' | '%';
+// export type AttrSigils =
+//     /**
+//      * Reference to self / local element
+//      */
+//     '$0' |
+//     /**
+//      * Reference by ID
+//      */
+//     '#' | '@' |  '-' | '|' | '%';
 
-export type ElementSigils = '/' | '~';
+// export type ElementSigils = '/' | '~';
 
-export type ScopeSigils = '';
+// export type ScopeSigils = '';
 
-export type Sigils = AttrSigils | ElementSigils | ScopeSigils;
+// export type Sigils = AttrSigils | ElementSigils | ScopeSigils;
 
 export type asOptions = 
     | 'number'
@@ -61,96 +61,14 @@ export type asOptions =
     | 'boolean|number'
 ;
 
-export interface $copeDetail{
-    ceName?: string,
-    itemProp?: string,
-}
+// export interface $copeDetail{
+//     ceName?: string,
+//     itemProp?: string,
+// }
 
-export interface $ScopeHierarchy {
-    home: Element;
-    satellites?: Array<Element>;
-}
-
-// // deprecated
-// export interface Specifier {
-//     /** Directional Scope Sigil */
-//     dss?: DirectionalScopeSigils,
-//     /**
-//      * recursive
-//      */
-//     rec?: boolean,
-//     /**
-//      * root node fallback
-//      */
-//     rnf?: boolean,
-//     /**
-//      * include siblings in scope search
-//      */
-//     isiss?: boolean,
-//     scopeS?: CSSSelector,
-//     elS?: CSSSelector,
-//     el?: string,
-//     idRefS?: string,
-//     s?: Sigils,
-
-//     /**
-//      * Inferred prop name
-//      * This should be the last token word of the DSS expression
-//      */
-//     prop?: InferredPropName,
-//     path?: SubPropPath;
-//     /**
-//      * Event Name
-//      */
-//     evt?: EventName;
-
-//     /**
-//      * RoundAbout Prop events to listen for
-//      */
-//     raps?: Array<string>;
-
-//     ms?: MarkerString;
-//     self?: boolean;
-//     /**
-//      * must have a dash in the localName
-//      * wait for whenDefined in find
-//      */
-//     host?: boolean;
-//     /**
-//      * host prop
-//      */
-//     hp?: string;
-//     /**
-//      * host prop fallback
-//      */
-//     hpf?: string;
-    
-//     as?: asOptions
-        
-//     /**
-//      * is a scope query within the aria-[row|col|row]index[text]
-//      */
-//     isModulo?: boolean;
-//     /**
-//      * Specify which aria-[?]index to use
-//      */
-//     modulo?: Modulo;
-
-//     /**
-//      * is a scope query within comments
-//      */
-//     cmtWrap?: boolean;
-
-//     /**
-//      * itemscope hierarchy domain specifier
-//      */
-//     is$cope?: boolean;
-
-//     $copeDetail?: $copeDetail;
-
-//     constVal?: any;
-
-//     enhBase?: string;
+// export interface $ScopeHierarchy {
+//     home: Element;
+//     satellites?: Array<Element>;
 // }
 
 export interface Specifier {
@@ -166,7 +84,7 @@ export interface Specifier {
     host?: boolean;
 }
 
-export type Modulo = 'aria-rowindex' | 'aria-colindex' | 'aria-rowindextext'
+//export type Modulo = 'aria-rowindex' | 'aria-colindex' | 'aria-rowindextext'
 
 export type InferredPropName = string;
 

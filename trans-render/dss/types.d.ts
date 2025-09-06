@@ -71,89 +71,89 @@ export interface $ScopeHierarchy {
     satellites?: Array<Element>;
 }
 
-// deprecated
-export interface Specifier {
-    /** Directional Scope Sigil */
-    dss?: DirectionalScopeSigils,
-    /**
-     * recursive
-     */
-    rec?: boolean,
-    /**
-     * root node fallback
-     */
-    rnf?: boolean,
-    /**
-     * include siblings in scope search
-     */
-    isiss?: boolean,
-    scopeS?: CSSSelector,
-    elS?: CSSSelector,
-    el?: string,
-    idRefS?: string,
-    s?: Sigils,
+// // deprecated
+// export interface Specifier {
+//     /** Directional Scope Sigil */
+//     dss?: DirectionalScopeSigils,
+//     /**
+//      * recursive
+//      */
+//     rec?: boolean,
+//     /**
+//      * root node fallback
+//      */
+//     rnf?: boolean,
+//     /**
+//      * include siblings in scope search
+//      */
+//     isiss?: boolean,
+//     scopeS?: CSSSelector,
+//     elS?: CSSSelector,
+//     el?: string,
+//     idRefS?: string,
+//     s?: Sigils,
 
-    /**
-     * Inferred prop name
-     * This should be the last token word of the DSS expression
-     */
-    prop?: InferredPropName,
-    path?: SubPropPath;
-    /**
-     * Event Name
-     */
-    evt?: EventName;
+//     /**
+//      * Inferred prop name
+//      * This should be the last token word of the DSS expression
+//      */
+//     prop?: InferredPropName,
+//     path?: SubPropPath;
+//     /**
+//      * Event Name
+//      */
+//     evt?: EventName;
 
-    /**
-     * RoundAbout Prop events to listen for
-     */
-    raps?: Array<string>;
+//     /**
+//      * RoundAbout Prop events to listen for
+//      */
+//     raps?: Array<string>;
 
-    ms?: MarkerString;
-    self?: boolean;
-    /**
-     * must have a dash in the localName
-     * wait for whenDefined in find
-     */
-    host?: boolean;
-    /**
-     * host prop
-     */
-    hp?: string;
-    /**
-     * host prop fallback
-     */
-    hpf?: string;
+//     ms?: MarkerString;
+//     self?: boolean;
+//     /**
+//      * must have a dash in the localName
+//      * wait for whenDefined in find
+//      */
+//     host?: boolean;
+//     /**
+//      * host prop
+//      */
+//     hp?: string;
+//     /**
+//      * host prop fallback
+//      */
+//     hpf?: string;
     
-    as?: asOptions
+//     as?: asOptions
         
-    /**
-     * is a scope query within the aria-[row|col|row]index[text]
-     */
-    isModulo?: boolean;
-    /**
-     * Specify which aria-[?]index to use
-     */
-    modulo?: Modulo;
+//     /**
+//      * is a scope query within the aria-[row|col|row]index[text]
+//      */
+//     isModulo?: boolean;
+//     /**
+//      * Specify which aria-[?]index to use
+//      */
+//     modulo?: Modulo;
 
-    /**
-     * is a scope query within comments
-     */
-    cmtWrap?: boolean;
+//     /**
+//      * is a scope query within comments
+//      */
+//     cmtWrap?: boolean;
 
-    /**
-     * itemscope hierarchy domain specifier
-     */
-    is$cope?: boolean;
+//     /**
+//      * itemscope hierarchy domain specifier
+//      */
+//     is$cope?: boolean;
 
-    $copeDetail?: $copeDetail;
+//     $copeDetail?: $copeDetail;
 
-    constVal?: any;
+//     constVal?: any;
 
-    enhBase?: string;
-}
+//     enhBase?: string;
+// }
 
-export interface IPE {
+export interface Specifier {
     id?: string,
     prop?: string,
     path?: SubPropPath,

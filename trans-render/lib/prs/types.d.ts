@@ -25,13 +25,11 @@ export interface ElO {
 export interface RegExpExt<TStatementGroup = any>{
     regExp: RegExp | string,
     defaultVals: Partial<TStatementGroup>,
-    // deprecated
     dssKeys?: [string, string][],
-    // deprecated
     dssArrayKeys?: [string, string][],
     statementPartParser?: StatementPartParser,
-    ipeKeys?: [string, string][];
-    ipeArrayKeys?: [string, string][];
+    //ipeKeys?: [string, string][];
+   // ipeArrayKeys?: [string, string][];
 }
 
 export interface StatementPartParser {

@@ -17,7 +17,7 @@ export type asOptions =
     | 'boolean|number'
 ;
 export type MindReadType = ``;
-export type TypeQualifier = `as ${asOptions}`;
+export type TypeQualifier = `-as-${asOptions}`;
 
 export type ValExpression = `${PropPath | ConstVal | MindReadProp}${TypeQualifier | MindReadType}`;
 

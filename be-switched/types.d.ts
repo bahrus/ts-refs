@@ -76,8 +76,8 @@ export interface TwoPartOpStatement{
 }
 
 export interface TwoValueSwitch{
-    lhsIPE: Specifier,
-    rhsIPE: Specifier,
+    lhsSpecifier: Specifier,
+    rhsSpecifier: Specifier,
     req?: boolean,
     op?: Op,
     lhs?: ISide,

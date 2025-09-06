@@ -23,16 +23,16 @@ export type ValExpression = `${PropPath | ConstVal | MindReadProp}${TypeQualifie
 
 export type MindReadEvent = ``;
 
-export type EventName = `::${string}`;
+export type EventPart = `::${string}`;
 
-export type DSS = `${Target}${ValExpression}${EventName}`;
+export type DSS = `${Target}${ValExpression}${EventPart}`;
 
 
 export interface Specifier {
     id?: string,
     prop?: string,
     path?: SubPropPath,
-    evtName?: string,
+    evtName?: EventName,
     as?: asOptions,
     constVal?: any;
     enhKey?: string;

@@ -62,7 +62,7 @@ export type SwitchStatement = string;
 
 export interface OneValueSwitch{
     ifPart: string,
-    ipe: Specifier,
+    specifier: Specifier,
     req?: boolean,
 }
 

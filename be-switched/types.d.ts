@@ -4,7 +4,11 @@ import {BEAllProps, EMC, IEnhancement} from '../trans-render/be/types';
 //import {AP as BPAP, ISignal, Actions as BPActions} from 'be-propagating/types';
 //import {ElTypes, SignalRefType} from 'be-linked/types';
 //import { Propagator } from "../trans-render/froop/PropSvc";
-import {IPE, Specifier} from '../trans-render/dss/types';
+import {Specifier} from '../trans-render/dss/types';
+
+export interface Element{
+    hostish(): Promise<any>
+}
 
 export interface EndUserProps extends IEnhancement<HTMLTemplateElement>{
     lhs?: any,
@@ -58,7 +62,7 @@ export type SwitchStatement = string;
 
 export interface OneValueSwitch{
     ifPart: string,
-    ipe: IPE,
+    specifier: Specifier,
     req?: boolean,
 }
 
@@ -72,8 +76,8 @@ export interface TwoPartOpStatement{
 }
 
 export interface TwoValueSwitch{
-    lhsIPE: IPE,
-    rhsIPE: IPE,
+    lhsSpecifier: Specifier,
+    rhsSpecifier: Specifier,
     req?: boolean,
     op?: Op,
     lhs?: ISide,
@@ -86,7 +90,7 @@ export interface TwoValueSwitch{
 
 }
 
-export interface Dependency extends IPE{}
+export interface Dependency extends Specifier{}
 
 export interface CanBeSwitchedOn {
     switchedOn?: boolean,

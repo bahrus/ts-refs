@@ -1,7 +1,7 @@
 import {BEAllProps, IEnhancement} from '../trans-render/be/types';
 import { Specifier } from "../trans-render/dss/types";
 
-export interface EndUserProps extends IEnhancement{
+export interface EndUserProps extends IEnhancement<HTMLElement>{
 
 }
 
@@ -20,7 +20,8 @@ export type PAP = Partial<AP>;
 
 export type ProPAP = Promise<PAP>;
 
-export type BAP = AP & BEAllProps;
+export type BAP = AP & BEAllProps<HTMLElement>;
 
 export interface Actions{
+    hydrate(self: BAP) : ProPAP;
 }

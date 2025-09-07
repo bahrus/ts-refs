@@ -23,7 +23,9 @@ export type ValExpression = `${PropPath | ConstVal | MindReadProp}${TypeQualifie
 
 export type MindReadEvent = ``;
 
-export type EventPart = `::${string}`;
+export type EventSpecifier = `::${string}`;
+
+export type EventPart = MindReadEvent | EventSpecifier;
 
 export type DSS = `${Target}${ValExpression}${EventPart}`;
 

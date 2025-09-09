@@ -5,6 +5,8 @@ export type Target = ID | Host | Hostish;
 
 export type MindReadProp = ``;
 export type PropPath = `?.${string}`;
+
+export type Prop = string;
 export type ConstVal = `\`${string}\``;
 
 export type asOptions = 
@@ -19,7 +21,7 @@ export type asOptions =
 export type MindReadType = ``;
 export type TypeQualifier = `-as-${asOptions}`;
 
-export type ValExpression = `${PropPath | ConstVal | MindReadProp}${TypeQualifier | MindReadType}`;
+export type ValExpression = `${Prop | PropPath | ConstVal | MindReadProp}${TypeQualifier | MindReadType}`;
 
 export type MindReadEvent = ``;
 

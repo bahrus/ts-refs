@@ -6,8 +6,8 @@ export interface EndUserProps extends IEnhancement{
 }
 
 export interface AP extends EndUserProps{
-    parsedStatements?: Array<InvokingParameters>,
-    rawStatements?: Array<string>,
+    parsedStatements: Array<InvokingParameters>,
+    rawStatements: Array<string>,
 }
 
 export type AllProps = AP;

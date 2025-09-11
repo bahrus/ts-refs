@@ -43,6 +43,7 @@ export interface Specifier {
     ish?: boolean;
     //element to observe must be a shadowed custom element host.
     host?: boolean;
+    self?: boolean;
 }
 
 

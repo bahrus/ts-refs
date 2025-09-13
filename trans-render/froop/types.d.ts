@@ -96,6 +96,7 @@ export interface IshConfig<TProps = any, TActions = TProps, ETProps = TProps>{
     compacts?: Compacts<TProps, TActions>;
     hitch?: Hitches<TProps, TActions>;
     handlers?: Handlers<ETProps, TActions>;
+    extHandlers?: ExtHandlers<TProps>;
     positractions?: Positractions<TProps, TActions>;
     
     isSleepless?: boolean;
@@ -139,8 +140,16 @@ export type Compacts<TProps = any, TActions = TProps> =
 ;
 
 export type Hitches<TProps = any, TActions = TProps> = 
-    | Partial<{[key in `when_${keyof TProps & string}_emits_${keyof TProps & string}_inc_${keyof TProps & string}_by`]: number}>
-    
+    | Partial<{[key in `when_${keyof TProps & string}_emits_${keyof TProps & string}_inc_${keyof TProps & string}_by`]: number}>   
+;
+
+export interface ExtHandlerOptions {
+    on: string,
+    stopPropagation?: boolean,
+}
+
+export type ExtHandlers<ETProps = any> =
+    | Partial<{[key in `inc_${keyof TProps & string}` & string]: ExtHandlerOptions}>
 ;
 
 export type Handlers<ETProps = any, TActions = ETProps> = 

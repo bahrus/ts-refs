@@ -4,18 +4,26 @@ import {Inserts} from '../../node_modules/stream-orator/types';
 
 export interface EndUserProps extends IEnhancement{
     from?: string,
-    to?: string,
+    to: string,
     shadowRootMode?: 'open' | 'closed',
-    encoding?: 'UTF-8' | 'UTF-16'
-    reqInit?: RequestInit,
-    wrapper?: string,
-    beBased?: boolean | BeBasedEndUserProps,
-    beOosoom?: string,
-    defer?: boolean,
-    inProgressCss?: string,
-    inserts?:Inserts,
-    between?: [lhs: string, rhs: string],
-    once?: boolean,
+    encoding: 'UTF-8' | 'UTF-16'
+    reqInit: RequestInit,
+    wrapper: string,
+    beBased: boolean | BeBasedEndUserProps,
+    beOosoom: string,
+    defer: boolean,
+    inProgressCss: string,
+    inserts:Inserts,
+    between: [lhs: string, rhs: string],
+    once: boolean,
+    onNavigationProps: OnNavigationProps
+}
+
+export interface OnNavigationProps {
+    whereSrcElementMatches: string,
+    whereUrlPatternMatches: string,
+    map: {[key: string]: string},
+    minMem: boolean,
 }
 
 export interface AllProps extends EndUserProps{

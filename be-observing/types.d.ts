@@ -1,4 +1,4 @@
-import {BEAllProps, EnhancementInfo, IEnhancement, IW} from '../trans-render/be/types';
+import {BEAllProps, IEnhancement, IW} from '../trans-render/be/types';
 import { Specifier } from "../trans-render/dss/types";
 import {aggKeys, Handlers} from '../be-hive/types';
 import { StringWithAutocompleteOptions } from '../trans-render/types';

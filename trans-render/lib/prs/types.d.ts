@@ -27,7 +27,8 @@ export interface RegExpExt<TStatementGroup = any>{
     defaultVals: Partial<TStatementGroup>,
     dssKeys?: [string, string][],
     dssArrayKeys?: [string, string][],
-    statementPartParser?: StatementPartParser
+    statementPartParser?: StatementPartParser,
+
 }
 
 export interface StatementPartParser {

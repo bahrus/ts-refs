@@ -6,6 +6,10 @@ import {BEAllProps, EMC, IEnhancement} from '../trans-render/be/types';
 //import { Propagator } from "../trans-render/froop/PropSvc";
 import {Specifier} from '../trans-render/dss/types';
 
+export interface Element{
+    hostish(): Promise<any>
+}
+
 export interface EndUserProps extends IEnhancement<HTMLTemplateElement>{
     lhs?: any,
     rhs?: any,
@@ -59,7 +63,6 @@ export type SwitchStatement = string;
 export interface OneValueSwitch{
     ifPart: string,
     specifier: Specifier,
-    //signal?: WeakRef<SignalRefType>,
     req?: boolean,
 }
 
@@ -75,10 +78,8 @@ export interface TwoPartOpStatement{
 export interface TwoValueSwitch{
     lhsSpecifier: Specifier,
     rhsSpecifier: Specifier,
-    withinSpecifier?: Specifier,
     req?: boolean,
     op?: Op,
-    //negate?: boolean,
     lhs?: ISide,
     rhs?: ISide,
     onOrOff: 

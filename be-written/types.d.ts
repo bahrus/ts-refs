@@ -19,9 +19,22 @@ export interface EndUserProps extends IEnhancement{
     onNavigationProps: OnNavigationProps
 }
 
+//https://www.npmjs.com/package/urlpattern-polyfill
+interface URLPatternInit {
+  baseURL?: string;
+  username?: string;
+  password?: string;
+  protocol?: string;
+  hostname?: string;
+  port?: string;
+  pathname?: string;
+  search?: string;
+  hash?: string;
+}
+
 export interface OnNavigationProps {
     whereSrcElementMatches: string,
-    whereUrlPatternMatches: string,
+    whereDestMatchesURLPattern: URLPatternInit,
     map: {[key: string]: string},
     minMem: boolean,
 }
@@ -41,5 +54,6 @@ export type ProPAP = Promise<PAP>;
 
 
 export interface Actions{
+    hydrate(self: AP & BEAllProps): ProPAP;
     write(self: AP & BEAllProps): ProPAP;
 }

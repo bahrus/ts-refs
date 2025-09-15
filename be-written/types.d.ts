@@ -16,7 +16,7 @@ export interface EndUserProps extends IEnhancement{
     inserts:Inserts,
     between: [lhs: string, rhs: string],
     once: boolean,
-    onNavigationProps: OnNavigationProps
+    onNavigate: OnNavigationProps
 }
 
 //https://www.npmjs.com/package/urlpattern-polyfill

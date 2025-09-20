@@ -1,4 +1,4 @@
-import { MountContext, PipelineStage } from "mount-observer/types";
+import { MountContext, PipelineStage } from "../mount-observer/types";
 import { ConvertOptions, Scope } from "./lib/types";
 import { EMC} from './be/types';
 
@@ -53,7 +53,11 @@ export type DerivationCriteria<TProps, TMethods> = {
     path: string,
     from?: number,
     //TODO
-    as?: ConvertOptions 
+    as?: ConvertOptions,
+    //TODO - applicable to arrays
+    filter?: keyof TModhods & string | ((val: any) => boolean),
+    //TODO
+    //map?: keyof TModhods & string | ((val: any) => any,
 };
 
 export interface TransformOptions{
@@ -61,6 +65,7 @@ export interface TransformOptions{
     propagatorIsReady?: boolean,
     skipInit?: boolean,
     useViewTransition?: boolean,
+    outside?: string,
 }
 
 export type Derivative<TProps, TMethods, TElement = {}> = 
@@ -144,6 +149,20 @@ export interface ConditionGate<TProps, TMethods, TElement = {}>{
 
 }
 
+export interface ScopingConfig<TProps=any, TMethods = TProps> {
+    name: string;
+    config?: IshConfig<TProps, TMethods>;
+}
+
+export type ScopeInstructions<TProps=any, TMethods=TProps> = 
+    | ScopingConfig
+;
+
+export interface ScopedLoop<TProps = any, TMethods = TProps>{
+    config?: IshConfig<TProps, TMethods>;
+    options: Partial<Clone$Options>
+}
+
 export type WhereConditions = 
     | string //css matches
     | {
@@ -183,6 +202,12 @@ export interface ForEach<TProps, TMethods, TElement = {}>{
     outOfRangeProp?: string,
 }
 
+// export interface MapInstructions<TProps, TMethods, TElement = {}>{
+//     // itemCss: CSSQuery,
+//     // each: string | [string, IshConfig<TProps, TMethods, TElement>],
+//     // in: string | [string, IshConfig<TProps, TMethods, TElement>],
+// }
+
 export interface ForEachInterface{
     init(): Promise<void>;
     update(model: any[]): Promise<void>;
@@ -195,7 +220,7 @@ export interface UnitOfWork<TProps, TMethods = TProps, TElement = {}>{
     /**
      * abbrev. for addEventListener
      */
-    a?:  AddEventListenerType<TProps, TMethods> | Array<AddEventListenerType<TProps, TMethods>>,
+    a?:  0 | AddEventListenerType<TProps, TMethods> | Array<AddEventListenerType<TProps, TMethods>>,
 
     /**
      * Specify how the value we want to apply to the target element should be derived from the observed props.
@@ -224,7 +249,7 @@ export interface UnitOfWork<TProps, TMethods = TProps, TElement = {}>{
 
     forEachBinding?: ForEach<any, any, any>
     /**
-     * for each
+     * for each -- deprecated?
      */
     f?: ForEach<any, any, any>,
 
@@ -243,6 +268,7 @@ export interface UnitOfWork<TProps, TMethods = TProps, TElement = {}>{
      * [TODO]
      */
     invoke?: string,
+
 
     /**
      * modify the model in a (mostly) declarative  way
@@ -289,6 +315,11 @@ export interface UnitOfWork<TProps, TMethods = TProps, TElement = {}>{
     ss?: string,
 
     /**
+     * two way bind the listed props to data- attributes
+     */
+    data?: Array<keyof TProp & string>
+
+    /**
      * negate to
      */
     negTo?: string,
@@ -303,7 +334,11 @@ export interface UnitOfWork<TProps, TMethods = TProps, TElement = {}>{
      */
     w?: WhereConditions,
 
-    y?: number | YieldSettings<TProps>
+    y?: number | YieldSettings<TProps>,
+
+    $?:  ScopeInstructions<TProps, TMethods>,
+
+    $$?:  ScopedLoop<TProps, TMethods>,
 }
 
 export interface YieldSettings<TProps>{
@@ -320,6 +355,8 @@ export type ValueFromElement<TProps, TMethods, TElement = {}> =
 
 export interface ModificationUnitOfWork<TProps, TMethods, TElement = {}>{
     on: string,
+    //Double check that the event is the type expected
+    instanceOf?: any,
     /**
      * Increment
      */
@@ -351,6 +388,7 @@ export interface ModificationUnitOfWork<TProps, TMethods, TElement = {}>{
     to?: any,
     toValFrom?: string | ValueFromElement<TProps, TMethods, TElement>;
     toggle?: keyof TProps & string,
+    stopPropagation?: boolean,
 }
 
 export interface QuenitOfWork<TProps, TMethods, TElement = {}> extends UnitOfWork<TProps, TMethods, TElement>{
@@ -366,7 +404,7 @@ export type UnitOfWorkRHS<TProps, TMethods, TElement = {}> =
     | XForm<any, any, any> & Info //unclear if this is necessary
 ;
 
-export type RHS<TProps, TMethods, TElements = Element> = UnitOfWorkRHS<TProps, TMethods, TElements> | Array<UnitOfWork<TProps, TMethods, TElements>>;
+export type RHS<TProps = any, TMethods = TProps, TElements = Element> = UnitOfWorkRHS<TProps, TMethods, TElements> | Array<UnitOfWork<TProps, TMethods, TElements>>;
 
 export interface AttrMap{
     type: PropAttrQueryType, 
@@ -376,7 +414,8 @@ export interface AttrMap{
 export interface QueryInfo{
     isRootQry?: boolean,
     localPropCamelCase?: string,
-    cssQuery?: string,
+    cssQuery?: CSSQuery,
+    outside?: CSSQuery,
     o?: string[],
     s?: string[],
     localName?: string,
@@ -404,7 +443,7 @@ export interface AddEventListener<TProps, TMethods>{
 }
 
 export type XForm<TProps, TMethods, TElement = {}> = Partial<{
-    [key in LHS<TProps, TElement>]: RHS<TProps, TMethods, TElement>;
+    [key in LHS<TProps & TMethods, TElement>]: RHS<TProps, TMethods, TElement>;
 }>;
 
 export interface Info  {
@@ -421,7 +460,7 @@ export interface ITransformer<TProps, TMethods, TElement = {}>{
     model: TProps & TMethods,
     xform: XForm<TProps, TMethods, TElement> & Info,
     options: TransformOptions,
-    initializedMods: Set<ModificationUnitOfWork<TProps, TMethods, TElement>>
+    initializedMods: Set<ModificationUnitOfWork<TProps, TMethods, TElement>>,
     //propagator?: EventTarget,
 }
 
@@ -455,9 +494,14 @@ export interface TransRenderMethods{
     skipInit: boolean,
 }
 
-import {OConfig} from './froop/types';
+import {IshConfig, OConfig} from './froop/types';
 export interface MntCfg<TProps = any, TActions = TProps, ETProps = TProps> extends OConfig<TProps, TActions, ETProps>{
     mainTemplate: string | HTMLTemplateElement,
+    /**
+     * Only set to true if shadow dom is used and the light children play a critical role as far as 
+     * progressive enhancement.
+     */
+    appendOnClone?: boolean,
     /**
      * transform within ShadowRoot if applicable
      */
@@ -520,3 +564,17 @@ export type ZeroOrMore<T> = T | Array<T> | undefined;
 export type StringWithAutocompleteOptions<TOptions> = 
     | (string & {})
     | TOptions;
+
+export interface Clone$Options{
+    ish: HasIshList,
+    ishContainer: Element,
+    seedEl: Element,
+    idxStart: number,
+    itemScopes: Array<string>,
+    mapIdxTo?: string,
+    itemTemplates: Array<HTMLTemplateElement>;
+    baseCrumb: string,
+    idleTimeout: number,
+    //model?: any,
+    //listScope: string
+}

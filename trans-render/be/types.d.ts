@@ -116,6 +116,8 @@ export interface EnhancementMountConfig<TBranches = any, TProps = any>{
 
     mapEnhKeyTo?: keyof TProps,
 
+    mapEmcTo?: keyof TProps,
+
     allowedMutations?: {[key: CSSQuery]: []}
 
     top?: EnhancementMountConfig<TBranches, TProps>,

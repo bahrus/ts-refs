@@ -1,6 +1,7 @@
 import { IMountObserver } from '../../mount-observer/types';
 import { Scope} from '../lib/types';
 import { WrapperConfig } from '../XV/types';
+import {CSSQuery, XForm} from '../types';
 
 export interface IEventConfig<MCProps = any, MCActions = MCProps, TAction = Action>{
     on?: string,
@@ -20,66 +21,7 @@ export interface IEventConfig<MCProps = any, MCActions = MCProps, TAction = Acti
 //Is anything using this anymore?
 export type ActionOnEventConfigs<MCProps = any, MCActions = MCProps, TAction = Action> = Partial<{[key in keyof MCActions]: IEventConfig<MCProps, MCActions, TAction>}>
 
-export interface IPropagator extends EventTarget{
-    get(key: string): any;
-    set(key: string, val: any): void;
-    /**
-     * Delta Keys
-     */
-    dk: Set<string>;
 
-    /**
-     * Mature keys
-     */
-    mk: Set<string>;
-
-    /**
-     * timeout handles - key is name of prop
-     * used for simple debouncing of echo notifications in XtalElement
-     */
-    eth: Map<string, string | number | NodeJS.Timeout> | undefined; 
-
-    /**
-     * timeout handles - key is name of prop
-     * used for simple debouncing of toggle echo notifications in XtalElement
-     */
-    tth:  Map<string, string | number | NodeJS.Timeout> | undefined;
-}
-
-export interface IResolvableService extends EventTarget{
-    resolved: boolean;
-    resolve(): Promise<void>;
-    
-}
-
-export interface IInstanceResolvableService<T extends object = object> extends IResolvableService{
-    instanceResolve(instance: T): Promise<void>;
-}
-
-export interface IMix extends IResolvableService{
-    ext: {new(): HTMLElement}
-}
-
-export interface IPropRegistrar extends IResolvableService{
-    propInfos: {[key: string]: PropInfo},
-    allPropNames: string[],
-    getAttrNames(ext: any): Promise<string[]>,
-    getPropsFromAction(action: string | Action): Set<string>,
-    nonDryProps: Set<string>,
-}
-
-export interface IDefine extends IResolvableService{
-    custElClass: {new(): HTMLElement};
-    resolveInstanceSvcs(args: CEArgs, instance: any): Promise<void>;
-}
-
-export interface IPropSvc extends IResolvableService{
-    createPropBag(instance: Element): void;
-}
-
-export interface IHookup extends IInstanceResolvableService{
-
-}
 
 export interface IAttrChgCB{
     instance: HTMLElement,
@@ -90,9 +32,7 @@ export interface IAttrChgCB{
     filteredAttrs: {[key: string]: string}
 }
 
-export interface IConnectedCB{
-    instance: HTMLElement,
-}
+
 
 export interface IPropChg{
     key: string,
@@ -101,37 +41,9 @@ export interface IPropChg{
     
 }
 
-export interface IDisconnectedCB {
-    instance: HTMLElement
-}
-
-export interface INewPropagator {
-    instance: HTMLElement,
-    propagator: IPropagator,
-}
-
-
-
-
-
-export interface CEArgs<TProps = any, TActions = TProps, TPropInfo = PropInfo, TAction extends Action<TProps> = Action<TProps>> extends DefineArgs<TProps, TActions, TPropInfo, TAction>{
-    definer?: IDefine,
-    servers?: CEServiceClasses
-    services?: CEServices,
-    asides?: any
-}
-
 export interface DynamicTransform {
     scope?: Scope,
     noCache?: boolean,
-}
-
-export interface IPE {
-    do(instance: EventTarget, originMethodName: string, vals: [any, ActionOnEventConfigs] ): Promise<void>,
-}
-
-export interface IPET extends IPE{
-    re(instance: EventTarget, originMethodName: string, vals: [any, ActionOnEventConfigs, DynamicTransform] ): Promise<void>,
 }
 
 export interface DefineArgs<MixinCompositeProps = any, MixinCompositeActions = MixinCompositeProps, TPropInfo = PropInfo, TAction extends Action = Action<MixinCompositeProps>>{
@@ -170,10 +82,9 @@ export interface WCConfig<TProps = any, TActions = TProps, TPropInfo = PropInfo,
     
 }
 
-export type PropLookup<TProps = any> = Partial<{[key in keyof TProps]: PropInfo}>;
-
-export interface OConfig<TProps = any, TActions = TProps, ETProps = TProps>{
-
+export type PropLookup<TProps = any, TActions = any> = Partial<{[key in keyof TProps]: PropInfo<TProps, TActions>}>;
+export type IshPropLookup<TProps = any, TActions = any> = Partial<{[key in keyof TProps]: IshPropInfo<TProps, TActions>}>;
+export interface IshConfig<TProps = any, TActions = TProps, ETProps = TProps>{
     propDefaults?: Partial<{[key in keyof TProps]: TProps[key]}>;
     propInfo?: Partial<{[key in keyof TProps]: PropInfo}>;
     wrappers?: Partial<{[key in keyof TProps]: WrapperConfig<TProps>}>;
@@ -185,7 +96,19 @@ export interface OConfig<TProps = any, TActions = TProps, ETProps = TProps>{
     compacts?: Compacts<TProps, TActions>;
     hitch?: Hitches<TProps, TActions>;
     handlers?: Handlers<ETProps, TActions>;
+    extHandlers?: ExtHandlers<TProps>;
     positractions?: Positractions<TProps, TActions>;
+    
+    isSleepless?: boolean;
+    xform?: XForm<TProps, TActions>;
+    inScopeXForms?: {[key: CSSQuery]: XForm<TProps, TActions>};
+    ishListCountProp?: keyof TProps & string;
+    defaultIshList?: any[];
+    mapParentScopeRefTo?: keyof TProps & string;
+    mapElTo?: keyof TProps & string; 
+    ignoreItemProp?: boolean;
+}
+export interface OConfig<TProps = any, TActions = TProps, ETProps = TProps> extends IshConfig<TProps, TActions, ETProps>{
     mainTemplate?: string | HTMLTemplateElement;
 }
 
@@ -213,11 +136,20 @@ export type Compacts<TProps = any, TActions = TProps> =
     | Partial<{[key in `when_${keyof TProps & string}_changes_call_${keyof TActions & string}`]: number}>
     | Partial<{[key in `when_${keyof TProps & string}_changes_toggle_${keyof TProps & string}`]: number}>
     | Partial<{[key in `when_${keyof TProps & string}_changes_inc_${keyof TProps & string}_by`]: number}>
+    | Partial<{[key in `when_${keyof TProps & string}_changes_dispatch`]: string}> //TODO
 ;
 
 export type Hitches<TProps = any, TActions = TProps> = 
-    | Partial<{[key in `when_${keyof TProps & string}_emits_${keyof TProps & string}_inc_${keyof TProps & string}_by`]: number}>
-    
+    | Partial<{[key in `when_${keyof TProps & string}_emits_${keyof TProps & string}_inc_${keyof TProps & string}_by`]: number}>   
+;
+
+export interface ExtHandlerOptions {
+    on: string,
+    stopPropagation?: boolean,
+}
+
+export type ExtHandlers<ETProps = any> =
+    | Partial<{[key in `inc_${keyof TProps & string}` & string]: ExtHandlerOptions}>
 ;
 
 export type Handlers<ETProps = any, TActions = ETProps> = 
@@ -250,6 +182,8 @@ export interface LogicOp<Props = any>{
 
     delay?: number,
 
+    do?: (x: Props) => (Promise<Partial<Props>> | Partial<Props>)
+
 }
 
 export interface SetLogicOps<Props = any>{
@@ -271,6 +205,8 @@ export interface SetLogicOps<Props = any>{
     debug?: boolean,
 
     delay?: number,
+
+    do?: (x: Props) => (Promise<Partial<Props>> | Partial<Props>),
 }
 
 export interface Action<MCProps = any, MCActions = MCProps> extends LogicOp<MCProps>{
@@ -286,14 +222,26 @@ export interface IActionProcessor{
 }
 
 type PropInfoTypes = "String" | "Number" | "Boolean" | "Object" | "RegExp";
-export interface PropInfo{
+
+export interface IshPropInfo<TProps = any, TActions = any>{
     type?: PropInfoTypes;
     dry?: boolean;
-    parse?: boolean;
     ro?: boolean;
+    propName?: string;
+    /**
+     * Allow for discarding what is passed in favor of a modified value such as a formatted value
+     * or filtered list
+     */
+    adjuster?: 
+        |keyof TActions & string 
+        |((nv: any) => any)
+}
+
+export interface PropInfo<TProps=any, TActions=any> extends IshPropInfo<TProps, TActions>{
+
+    parse?: boolean;
     def?: any;
     attrName?: string;
-    propName?: string;
     /**
      * form associated read only property
      * https://web.dev/articles/more-capable-form-controls#:~:text=Form-associated%20custom%20elements%20aim%20to%20bridge%20the%20gap,associated%20with%20the%20form%2C%20like%20a%20browser-provided%20control.
@@ -316,9 +264,11 @@ export interface PropInfo{
      * examples: role, ariaRole
      */
     ip?: boolean;
+
+
 }
 
-export type ConstString = String;
+export type ConstString = string;
 
 export type NameOfProp = string;
 
@@ -412,13 +362,13 @@ export interface RoundaboutReady{
      * If truthy, can call await awake() before processing should resume
      * [TODO]
      */  
-    readonly sleep?: number,
+    readonly sleep?: number | undefined;
 
-    async awake(): void;
+    awake(): Promise<void>;
 
-    async nudge(): void;
+    nudge(): void;
 
-    async rock(): void;
+    rock(): void;
 }
 
 
@@ -435,7 +385,7 @@ export interface ICompact{
 interface CompactStatement {
     srcKey: string,
     destKey: string,
-    op: 'toggle' | 'negate' | 'invoke' | 'pass_length' | 'echo' | 'inc',
+    op: 'toggle' | 'negate' | 'call' | 'pass_length' | 'echo' | 'inc' | 'dispatch',
     rhsIsDynamic: boolean
 }
 

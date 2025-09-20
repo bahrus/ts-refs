@@ -1,10 +1,14 @@
 //import { ActionOnEventConfigs } from "trans-render/froop/types";
-import {BEAllProps, IEnhancement} from '../trans-render/be/types';
+import {BEAllProps, EMC, IEnhancement} from '../trans-render/be/types';
 //import {BVAAllProps} from 'be-value-added/types';
 //import {AP as BPAP, ISignal, Actions as BPActions} from 'be-propagating/types';
 //import {ElTypes, SignalRefType} from 'be-linked/types';
 //import { Propagator } from "../trans-render/froop/PropSvc";
 import {Specifier} from '../trans-render/dss/types';
+
+export interface Element{
+    hostish(): Promise<any>
+}
 
 export interface EndUserProps extends IEnhancement<HTMLTemplateElement>{
     lhs?: any,
@@ -20,6 +24,7 @@ export interface EndUserProps extends IEnhancement<HTMLTemplateElement>{
     hiddenStyle?: string;
     toggleInert?: boolean;
     deferRendering?: boolean;
+    /** delete content when condition evaluates to false */
     minMem?: boolean;
     /**
      * Works with beOosoom decorator, so becomes inert when out of view
@@ -27,6 +32,11 @@ export interface EndUserProps extends IEnhancement<HTMLTemplateElement>{
     beOosoom?: string;
     js?: string;
     transitional: boolean;
+    idRefAttr: string;
+    /**
+     * Use comments rather a DOM element to wrap multiple elements
+     */
+    //cmtWrap?: boolean;
 }
 
 export interface AllProps extends EndUserProps{
@@ -43,6 +53,8 @@ export interface AllProps extends EndUserProps{
     nValueSwitches?: Array<NValueScriptSwitch>
     rawStatements?: Array<string>,
     notProcessedJS?: boolean,
+    emc: EMC<any, AllProps>,
+    
 }
 
 export type SwitchStatement = string;
@@ -51,7 +63,6 @@ export type SwitchStatement = string;
 export interface OneValueSwitch{
     ifPart: string,
     specifier: Specifier,
-    //signal?: WeakRef<SignalRefType>,
     req?: boolean,
 }
 
@@ -67,10 +78,8 @@ export interface TwoPartOpStatement{
 export interface TwoValueSwitch{
     lhsSpecifier: Specifier,
     rhsSpecifier: Specifier,
-    withinSpecifier?: Specifier,
     req?: boolean,
     op?: Op,
-    //negate?: boolean,
     lhs?: ISide,
     rhs?: ISide,
     onOrOff: 

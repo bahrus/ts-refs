@@ -1,7 +1,7 @@
-//import { MountObserver } from "./MountObserver";
 
 export interface JSONSerializableMountInit{
     readonly on?: CSSMatch,
+    readonly outside?: CSSMatch,
     readonly observedAttrsWhenMounted?: (string | ObservedSourceOfTruthAttribute)[],
     readonly whereAttr?: WhereAttr,  
     readonly whereElementIntersectsWith?: IntersectionObserverInit,
@@ -19,12 +19,16 @@ export interface ObservedSourceOfTruthAttribute<TProps = any>  {
     customParser?: (newValue: string | null, oldValue: string | null, instance: Element) => any
 }
 
+export type Assigner = (target: any, source: any) => Promise<void> | void;
+
 export interface MountInit extends JSONSerializableMountInit{
     
     readonly withTargetShadowRoot?: ShadowRoot, 
     readonly whereInstanceOf?: Array<{new(): Element}>,
     readonly whereSatisfies?: PipelineProcessor<boolean>,
-    readonly do?: MountObserverCallbacks
+    readonly do?: MountObserverCallbacks,
+    readonly assigner?: Assigner,
+    readonly idleTimeout?: number
     // /**
     //  * Purpose -- there are scenarios where we may only want to affect changes that occur after the initial 
     //  * server rendering, so we only want to mount elements that appear 
@@ -74,7 +78,7 @@ export interface AttribMatch{
     // validator?: (v: any) => boolean;
 }
 
-export interface WeakDual<T>{
+export interface WeakDual<T extends Object>{
     weakSet: WeakSet<T>,
     setWeak: Set<WeakRef<T>>
 }
@@ -205,7 +209,40 @@ export interface MOSE<TSynConfig=any>
 
 }
 
+export interface BindishOptions{
+    assigner?: Assigner,
+    //waitFor?: string,
+    /**
+     * If derived from a template, set to true
+     * to indicate that the initial 
+     */
+    csr?: boolean,
+    ctr?: IshCtr,
+    initPropVals?: any,
+}
+
+//TODO:  move to mount observer
+export interface HasIsh {
+    ish: any;
+}
+
+export interface Ishcycle{
+    '<mount>'?(self: Ishcycle, el: Element & HasIsh, options: BindishOptions): Promise<void>;
+    //'</dismount>'?(self: IshFace, el: Element): Promise<void>;
+    '<inScope>'?(self: Ishcycle, el: Element & HasIsh, options: BindishOptions): Promise<void>;
+    'arr=>'?(self: Ishcycle, arr: any[] | undefined, el: Element & HasIsh, options: BindishOptions): Promise<void | any[]>;
+    //'</outOfScope>'?(self: IshFace, el: Element): Promise<void>;
+}
+
+export type IshCtr = ({new() : Ishcycle}) | (() => Promise<{new() : Ishcycle}>);
+
 //#endregion
+
+export type RefType = '#' | '!';
+
+export interface TemplateWithRemoteContent extends HTMLTemplateElement {
+    remoteContent?: DocumentFragment,
+}
 
 
 

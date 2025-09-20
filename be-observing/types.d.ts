@@ -1,4 +1,4 @@
-import {BEAllProps, EnhancementInfo, IEnhancement, IW} from '../trans-render/be/types';
+import {BEAllProps, IEnhancement, IW} from '../trans-render/be/types';
 import { Specifier } from "../trans-render/dss/types";
 import {aggKeys, Handlers} from '../be-hive/types';
 import { StringWithAutocompleteOptions } from '../trans-render/types';
@@ -46,8 +46,16 @@ export interface ObservingParameters{
     punt: boolean,
     mappings?: Array<AndIfThen>,
     aggKey: StringWithAutocompleteOptions<aggKeys>,
+    interpolatingExpr: string,
     JSExpr: string,
     ONExpr: string,
+    action: 
+        | 'set' 
+        | 'toggle' 
+        | 'increment' 
+        | 'decrement'
+        | 'set-class' 
+        | 'set-part'
     //aggregateRemoteVals?: 'Union' | 'Conjunction' | 'ObjectAssign' | 'Sum' | 'Product' | 'ArrayPush'
 }
 

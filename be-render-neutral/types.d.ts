@@ -10,8 +10,10 @@ export interface EndUserProps extends IEnhancement<RenderingHTMLScriptElement>{
     with: Array<string>,
 }
 
+export type Renderer = (vm: any, html: any) => any;
+
 export interface AP extends EndUserProps{
-    renderer: (vm: any, html: any) => any,
+    renderer: Renderer,
     absorbingObject: AbsorbingObject
 }
 

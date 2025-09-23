@@ -339,6 +339,8 @@ export interface UnitOfWork<TProps, TMethods = TProps, TElement = {}>{
     $?:  ScopeInstructions<TProps, TMethods>,
 
     $$?:  ScopedLoop<TProps, TMethods>,
+
+    nudge?: boolean,
 }
 
 export interface YieldSettings<TProps>{

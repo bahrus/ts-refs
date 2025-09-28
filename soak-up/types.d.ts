@@ -6,6 +6,8 @@ export interface EndUserProps extends IEnhancement{
 }
 
 export interface AllProps extends EndUserProps{
+
+    fullyParsed?: boolean
 }
 
 export type AP = AllProps;
@@ -19,8 +21,14 @@ export type BAP = AP & BEAllProps;
 export interface Actions{
 }
 
+export interface PropMap  {
+    srcProp: string,
+    destProp?: string
+}
+
 export interface SoakUpRule {
-    targetProps: string
+    propMap: string
     sourceSpecifier: Specifier
     sourceSpecifierString: string
+    parsedPropMap: PropMap[]
 }

@@ -1,6 +1,8 @@
 import {IEnhancement, BEAllProps, EMC} from '../trans-render/be/types';
+import { Specifier } from "../trans-render/dss/types";
 
 export interface EndUserProps extends IEnhancement{
+    soakUpRules: SoakUpRule[]
 }
 
 export interface AllProps extends EndUserProps{
@@ -15,4 +17,10 @@ export type ProPAP = Promise<PAP>;
 export type BAP = AP & BEAllProps;
 
 export interface Actions{
+}
+
+export interface SoakUpRule {
+    targetProps: string
+    sourceSpecifier: Specifier
+    sourceSpecifierString: string
 }

@@ -242,6 +242,7 @@ export interface PropInfo<TProps=any, TActions=any> extends IshPropInfo<TProps, 
     parse?: boolean;
     def?: any;
     attrName?: string;
+    reflect?: boolean;
     /**
      * form associated read only property
      * https://web.dev/articles/more-capable-form-controls#:~:text=Form-associated%20custom%20elements%20aim%20to%20bridge%20the%20gap,associated%20with%20the%20form%2C%20like%20a%20browser-provided%20control.

@@ -1,6 +1,7 @@
 import { XForm } from "trans-render/types";
 import { PropInfo, Actions } from 'trans-render/froop/types';
 import {Scope} from 'trans-render/lib/types';
+import { Compacts, WCConfig } from "../trans-render/froop/types";
 
 export interface PropInferenceCriteria{
     cssSelector: string,
@@ -8,7 +9,7 @@ export interface PropInferenceCriteria{
 
 }
 
-export interface EndUserProps<TProps = any, TActions = TProps> {
+export interface EndUserProps<TProps = any, TActions = TProps> extends WCConfig<TProps, TActions>{
     aka?: string,
     inferProps?: boolean,
     xform?: XForm<TProps, TActions>,
@@ -16,7 +17,7 @@ export interface EndUserProps<TProps = any, TActions = TProps> {
     shadowRootMode?:  ShadowRootMode,
     propDefaults?: Partial<TProps>,
     propInfo: Partial<{[key in keyof TProps]: PropInfo}>,
-    compacts: Compacts<TProps, TActions>,
+    compacts?: Compacts<TProps, TActions>,
     targetScope?: Scope,
     assumeCSR?: boolean,
     propInferenceCriteria?: Array<PropInferenceCriteria>,

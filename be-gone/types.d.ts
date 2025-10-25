@@ -1,9 +1,9 @@
 import {IEnhancement, BEAllProps, EMC} from '../trans-render/be/types';
 
 export interface EndUserProps extends IEnhancement{
-    onEmptyContents: boolean
+    whenMissing: string
     onDefined: Array<string>
-    whenStr: string
+    whenDef: string
 }
 
 export interface AllProps extends EndUserProps{
@@ -19,6 +19,6 @@ export type BAP = AP & BEAllProps;
 
 export interface Actions{
     onOnDefined(self: BAP): ProPAP
-    onOnEmptyContents(self: BAP): ProPAP
-    parseWhen(self: BAP): PAP
+    hydrateOnMissing(self: BAP): ProPAP
+    parseWhenDef(self: BAP): PAP
 }

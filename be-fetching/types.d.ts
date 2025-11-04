@@ -69,5 +69,5 @@ export interface Actions{
     setUp(self: BAP): PAP;
     interpolateIfValid(self: BAP): PAP | void;
     setFullUrlIfValid(self: BAP): PAP | void;
-    // fetchWhenSettled(self: this): Promise<PAP | void>;
+    fetchWhenSettled(self: BAP): Promise<PAP | void>;
 }

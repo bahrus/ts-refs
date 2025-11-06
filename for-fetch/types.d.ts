@@ -1,7 +1,7 @@
 import { JSONObject } from '../trans-render/lib/types';
 import { Specifier } from '../trans-render/dss/types';
 import { URLBuilder } from '../../URLBuilder';
-import {SimpleWCInfo} from './ts-refs//wc-info/SimpleWCInfo';
+import {SimpleWCInfo} from '../wc-info/SimpleWCInfo';
 
 declare class WeakRef<TProps = any>{}
 /**

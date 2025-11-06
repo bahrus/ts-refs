@@ -1,7 +1,7 @@
 import { JSONObject } from '../trans-render/lib/types';
 import { Specifier } from '../trans-render/dss/types';
 import { URLBuilder } from '../../URLBuilder';
-//import {SimpleWCInfo} from 'may-it-be/SimpleWCInfo';
+import {SimpleWCInfo} from './ts-refs//wc-info/SimpleWCInfo';
 
 declare class WeakRef<TProps = any>{}
 /**
@@ -138,7 +138,7 @@ export interface Actions{
     parseTarget(self: this): ProPP;
     // listenForInput(self: this): ProPP;
     // doInitialLoad(self: this): ProPP;
-    initializeWhen(self: this): Promise<PP | undefined>;
+    initializeWhen(self: this): Promise<PAP | undefined>;
     // onForm(self: this): ProPP;
     // onFormSpecifier(self: this): ProPP;
     // onFormRef(self: this): Promise<void>,
@@ -159,17 +159,23 @@ export interface EventForFetch {
 
 export type ForData = {[key: string]: HTMLInputElement}
 
-// /**
-//  * fetch-for web component
-//  */
-// export abstract class ForFetchInfo implements SimpleWCInfo {
-//     src: './for-fetch.js';
-//     tagName: 'for-fetch';
-//     props: EndUserProps;
-//     cssParts: {
+/**
+ * fetch-for web component
+ */
+export abstract class ForFetchInfo implements SimpleWCInfo {
+    src: './for-fetch.js';
+    tagName: 'for-fetch';
+    props: EndUserProps;
+    name: 'for-fetch';
+    homepage: 'https://github.com/bahrus/for-fetch'; 
+    license: 'MIT'; 
+    description: 'Base web component for fetch'
+    cssParts: {
         
-//     }
-// }
+    }
+}
 
-// export type Package = [ForFetchInfo];
+export type Package = [ForFetchInfo];
+
+
 

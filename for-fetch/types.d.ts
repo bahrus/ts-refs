@@ -163,7 +163,7 @@ export type ForData = {[key: string]: HTMLInputElement}
  * fetch-for web component
  */
 export abstract class ForFetchInfo implements SimpleWCInfo {
-    src: './for-fetch.js';
+    src: '../../for-fetch.js';
     tagName: 'for-fetch';
     props: EndUserProps;
     name: 'for-fetch';

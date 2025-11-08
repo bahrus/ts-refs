@@ -1,10 +1,11 @@
 import {IEnhancement, BEAllProps, EMC} from '../trans-render/be/types';
 
 export interface EndUserProps extends IEnhancement{
-    logLevel: 
+    level: 
         | 'log'
         | 'warn'
-        | 'error'
+        | 'error',
+    ignore: string[]
 }
 
 export interface AllProps extends EndUserProps{}

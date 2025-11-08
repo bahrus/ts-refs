@@ -21,3 +21,5 @@ export type BAP = AP & BEAllProps;
 export interface Actions {
     hydrate(self: BAP): PAP;
 }
+
+export type dispatch = (event: Event) => boolean ;

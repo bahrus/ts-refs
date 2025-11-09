@@ -1,13 +1,18 @@
 import {IEnhancement, BEAllProps, EMC} from '../trans-render/be/types';
 
+interface FetchReadyEvent extends Event {
+    url: string
+    options: RequestInit
+}
+
 export interface EndUserProps extends IEnhancement{
-    fetchReadyEventName: string
-    fetchReadyCss: string
     target: string
 }
 
 export interface AllProps extends EndUserProps{
-    evtCount: number,
+    //evtCount: number,
+    fetchReadyEvent: FetchReadyEvent
+
 }
 
 export type AP = AllProps;

@@ -1,6 +1,6 @@
 import {IEnhancement, BEAllProps, EMC} from '../trans-render/be/types';
 
-interface FetchReadyEvent extends Event {
+interface FetchReadyEvent {
     url: string
     options: RequestInit
 }

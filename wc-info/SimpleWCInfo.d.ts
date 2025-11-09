@@ -7,4 +7,9 @@ export interface SimpleWCInfo<TProps = any, TPublicMethods = any>{
     cssProps?: {[key: string]: string};
     slots?: {[key: string]: string};
     events?: {[key: string]: string};
+    name: string,
+    description: string,
+    homepage: string,
+    license: string,
+
 }

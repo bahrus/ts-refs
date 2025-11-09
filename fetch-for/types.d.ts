@@ -20,4 +20,5 @@ export type BAP = AP & BEAllProps;
 
 export interface Actions{
     hydrate(self: BAP): PAP;
+    doFetch(self: BAP): void;
 }

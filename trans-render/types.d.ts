@@ -55,7 +55,7 @@ export type DerivationCriteria<TProps, TMethods> = {
     //TODO
     as?: ConvertOptions,
     //TODO - applicable to arrays
-    filter?: keyof TModhods & string | ((val: any) => boolean),
+    filter?: keyof TMethods & string | ((val: any) => boolean),
     //TODO
     //map?: keyof TModhods & string | ((val: any) => any,
 };
@@ -317,7 +317,7 @@ export interface UnitOfWork<TProps, TMethods = TProps, TElement = {}>{
     /**
      * two way bind the listed props to data- attributes
      */
-    data?: Array<keyof TProp & string>
+    data?: Array<keyof TProps & string>
 
     /**
      * negate to
@@ -339,6 +339,8 @@ export interface UnitOfWork<TProps, TMethods = TProps, TElement = {}>{
     $?:  ScopeInstructions<TProps, TMethods>,
 
     $$?:  ScopedLoop<TProps, TMethods>,
+
+    nudge?: boolean,
 }
 
 export interface YieldSettings<TProps>{
@@ -566,7 +568,8 @@ export type StringWithAutocompleteOptions<TOptions> =
     | TOptions;
 
 export interface Clone$Options{
-    ish: HasIshList,
+    //ish: HasIshList,
+    ish: any,
     ishContainer: Element,
     seedEl: Element,
     idxStart: number,

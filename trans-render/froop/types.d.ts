@@ -115,8 +115,11 @@ export interface OConfig<TProps = any, TActions = TProps, ETProps = TProps> exte
 export type Positractions<TProps = any, TActions = TProps> = 
     | Array<Positraction<TProps, TActions>>;
 
-export interface Positraction<TProps = any, TActions = TProps> extends LogicOp<TProps> {
-    do: Function | (keyof TActions & string),
+export interface Positraction<TProps = any, TActions = TProps> extends LogicOp<TProps, TActions> {
+    do: 
+        | Function 
+        | (keyof TActions & string)
+        | PropsToProps<TProps>
     ifKeyIn?: Array<keyof TProps & string>,
     ifAllOf?: Array<keyof TProps & string>,
     //ifNoneOf: Array<keyof TProps & string>,
@@ -149,7 +152,7 @@ export interface ExtHandlerOptions {
 }
 
 export type ExtHandlers<ETProps = any> =
-    | Partial<{[key in `inc_${keyof TProps & string}` & string]: ExtHandlerOptions}>
+    | Partial<{[key in `inc_${keyof ETProps & string}` & string]: ExtHandlerOptions}>
 ;
 
 export type Handlers<ETProps = any, TActions = ETProps> = 
@@ -162,7 +165,9 @@ export type ListOfLogicalExpressions<MCProps = any> = (keyof MCProps | LogicOp<M
 export type LogicOpProp<MCProps = any> = 
     |LogicOp<MCProps> | (keyof MCProps & string)[];
 
-export interface LogicOp<Props = any>{
+type PropsToProps<Props> = (x: Props) => (Promise<Partial<Props>> | Partial<Props>)
+
+export interface LogicOp<Props = any, TActions = Props>{
     /**
      * Supported by trans-render
      */
@@ -182,7 +187,10 @@ export interface LogicOp<Props = any>{
 
     delay?: number,
 
-    do?: (x: Props) => (Promise<Partial<Props>> | Partial<Props>)
+    do?:
+        | Function
+        | (keyof TActions & string)
+        | PropsToProps<Props>
 
 }
 
@@ -242,6 +250,7 @@ export interface PropInfo<TProps=any, TActions=any> extends IshPropInfo<TProps, 
     parse?: boolean;
     def?: any;
     attrName?: string;
+    reflect?: boolean;
     /**
      * form associated read only property
      * https://web.dev/articles/more-capable-form-controls#:~:text=Form-associated%20custom%20elements%20aim%20to%20bridge%20the%20gap,associated%20with%20the%20form%2C%20like%20a%20browser-provided%20control.

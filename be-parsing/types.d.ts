@@ -1,6 +1,7 @@
 import {IEnhancement, BEAllProps, EMC} from '../trans-render/be/types';
 
 export interface EndUserProps extends IEnhancement{
+    eventName: string
 }
 
 export interface AllProps extends EndUserProps{
@@ -16,3 +17,20 @@ export type BAP = AP & BEAllProps;
 
 export interface Actions{
 }
+
+export interface AttrInfo {
+    instanceOf:
+        | String
+        | 'String'
+        | Object
+        | 'Object'
+        | Number
+        | 'Number'
+        | Boolean
+        | 'Boolean'
+    mapsTo: string
+}
+
+export type RHS = string | AttrInfo;
+
+export type ItemPropMap = {[key: string]: RHS}

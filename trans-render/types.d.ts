@@ -55,7 +55,7 @@ export type DerivationCriteria<TProps, TMethods> = {
     //TODO
     as?: ConvertOptions,
     //TODO - applicable to arrays
-    filter?: keyof TModhods & string | ((val: any) => boolean),
+    filter?: keyof TMethods & string | ((val: any) => boolean),
     //TODO
     //map?: keyof TModhods & string | ((val: any) => any,
 };
@@ -65,6 +65,7 @@ export interface TransformOptions{
     propagatorIsReady?: boolean,
     skipInit?: boolean,
     useViewTransition?: boolean,
+    outside?: string,
 }
 
 export type Derivative<TProps, TMethods, TElement = {}> = 
@@ -219,7 +220,7 @@ export interface UnitOfWork<TProps, TMethods = TProps, TElement = {}>{
     /**
      * abbrev. for addEventListener
      */
-    a?:  AddEventListenerType<TProps, TMethods> | Array<AddEventListenerType<TProps, TMethods>>,
+    a?:  0 | AddEventListenerType<TProps, TMethods> | Array<AddEventListenerType<TProps, TMethods>>,
 
     /**
      * Specify how the value we want to apply to the target element should be derived from the observed props.
@@ -314,6 +315,11 @@ export interface UnitOfWork<TProps, TMethods = TProps, TElement = {}>{
     ss?: string,
 
     /**
+     * two way bind the listed props to data- attributes
+     */
+    data?: Array<keyof TProps & string>
+
+    /**
      * negate to
      */
     negTo?: string,
@@ -333,6 +339,8 @@ export interface UnitOfWork<TProps, TMethods = TProps, TElement = {}>{
     $?:  ScopeInstructions<TProps, TMethods>,
 
     $$?:  ScopedLoop<TProps, TMethods>,
+
+    nudge?: boolean,
 }
 
 export interface YieldSettings<TProps>{
@@ -349,6 +357,8 @@ export type ValueFromElement<TProps, TMethods, TElement = {}> =
 
 export interface ModificationUnitOfWork<TProps, TMethods, TElement = {}>{
     on: string,
+    //Double check that the event is the type expected
+    instanceOf?: any,
     /**
      * Increment
      */
@@ -380,6 +390,7 @@ export interface ModificationUnitOfWork<TProps, TMethods, TElement = {}>{
     to?: any,
     toValFrom?: string | ValueFromElement<TProps, TMethods, TElement>;
     toggle?: keyof TProps & string,
+    stopPropagation?: boolean,
 }
 
 export interface QuenitOfWork<TProps, TMethods, TElement = {}> extends UnitOfWork<TProps, TMethods, TElement>{
@@ -395,7 +406,7 @@ export type UnitOfWorkRHS<TProps, TMethods, TElement = {}> =
     | XForm<any, any, any> & Info //unclear if this is necessary
 ;
 
-export type RHS<TProps, TMethods, TElements = Element> = UnitOfWorkRHS<TProps, TMethods, TElements> | Array<UnitOfWork<TProps, TMethods, TElements>>;
+export type RHS<TProps = any, TMethods = TProps, TElements = Element> = UnitOfWorkRHS<TProps, TMethods, TElements> | Array<UnitOfWork<TProps, TMethods, TElements>>;
 
 export interface AttrMap{
     type: PropAttrQueryType, 
@@ -405,7 +416,8 @@ export interface AttrMap{
 export interface QueryInfo{
     isRootQry?: boolean,
     localPropCamelCase?: string,
-    cssQuery?: string,
+    cssQuery?: CSSQuery,
+    outside?: CSSQuery,
     o?: string[],
     s?: string[],
     localName?: string,
@@ -433,7 +445,7 @@ export interface AddEventListener<TProps, TMethods>{
 }
 
 export type XForm<TProps, TMethods, TElement = {}> = Partial<{
-    [key in LHS<TProps, TElement>]: RHS<TProps, TMethods, TElement>;
+    [key in LHS<TProps & TMethods, TElement>]: RHS<TProps, TMethods, TElement>;
 }>;
 
 export interface Info  {
@@ -450,7 +462,7 @@ export interface ITransformer<TProps, TMethods, TElement = {}>{
     model: TProps & TMethods,
     xform: XForm<TProps, TMethods, TElement> & Info,
     options: TransformOptions,
-    initializedMods: Set<ModificationUnitOfWork<TProps, TMethods, TElement>>
+    initializedMods: Set<ModificationUnitOfWork<TProps, TMethods, TElement>>,
     //propagator?: EventTarget,
 }
 
@@ -556,15 +568,16 @@ export type StringWithAutocompleteOptions<TOptions> =
     | TOptions;
 
 export interface Clone$Options{
-    ish: HasIshList,
+    //ish: HasIshList,
+    ish: any,
     ishContainer: Element,
     seedEl: Element,
     idxStart: number,
-    itemProp: string,
+    itemScopes: Array<string>,
     mapIdxTo?: string,
-    itemTemplate: HTMLTemplateElement;
+    itemTemplates: Array<HTMLTemplateElement>;
     baseCrumb: string,
     idleTimeout: number,
     //model?: any,
-    listProp?: string,
+    //listScope: string
 }

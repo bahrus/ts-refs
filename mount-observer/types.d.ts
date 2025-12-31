@@ -1,6 +1,7 @@
 
 export interface JSONSerializableMountInit{
     readonly on?: CSSMatch,
+    readonly outside?: CSSMatch,
     readonly observedAttrsWhenMounted?: (string | ObservedSourceOfTruthAttribute)[],
     readonly whereAttr?: WhereAttr,  
     readonly whereElementIntersectsWith?: IntersectionObserverInit,
@@ -236,6 +237,12 @@ export interface Ishcycle{
 export type IshCtr = ({new() : Ishcycle}) | (() => Promise<{new() : Ishcycle}>);
 
 //#endregion
+
+export type RefType = '#' | '!';
+
+export interface TemplateWithRemoteContent extends HTMLTemplateElement {
+    remoteContent?: DocumentFragment,
+}
 
 
 

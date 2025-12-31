@@ -21,66 +21,7 @@ export interface IEventConfig<MCProps = any, MCActions = MCProps, TAction = Acti
 //Is anything using this anymore?
 export type ActionOnEventConfigs<MCProps = any, MCActions = MCProps, TAction = Action> = Partial<{[key in keyof MCActions]: IEventConfig<MCProps, MCActions, TAction>}>
 
-export interface IPropagator extends EventTarget{
-    get(key: string): any;
-    set(key: string, val: any): void;
-    /**
-     * Delta Keys
-     */
-    dk: Set<string>;
 
-    /**
-     * Mature keys
-     */
-    mk: Set<string>;
-
-    /**
-     * timeout handles - key is name of prop
-     * used for simple debouncing of echo notifications in XtalElement
-     */
-    eth: Map<string, string | number | NodeJS.Timeout> | undefined; 
-
-    /**
-     * timeout handles - key is name of prop
-     * used for simple debouncing of toggle echo notifications in XtalElement
-     */
-    tth:  Map<string, string | number | NodeJS.Timeout> | undefined;
-}
-
-export interface IResolvableService extends EventTarget{
-    resolved: boolean;
-    resolve(): Promise<void>;
-    
-}
-
-export interface IInstanceResolvableService<T extends object = object> extends IResolvableService{
-    instanceResolve(instance: T): Promise<void>;
-}
-
-export interface IMix extends IResolvableService{
-    ext: {new(): HTMLElement}
-}
-
-export interface IPropRegistrar extends IResolvableService{
-    propInfos: {[key: string]: PropInfo},
-    allPropNames: string[],
-    getAttrNames(ext: any): Promise<string[]>,
-    getPropsFromAction(action: string | Action): Set<string>,
-    nonDryProps: Set<string>,
-}
-
-// export interface IDefine extends IResolvableService{
-//     custElClass: {new(): HTMLElement};
-//     resolveInstanceSvcs(args: CEArgs, instance: any): Promise<void>;
-// }
-
-export interface IPropSvc extends IResolvableService{
-    createPropBag(instance: Element): void;
-}
-
-export interface IHookup extends IInstanceResolvableService{
-
-}
 
 export interface IAttrChgCB{
     instance: HTMLElement,
@@ -91,9 +32,7 @@ export interface IAttrChgCB{
     filteredAttrs: {[key: string]: string}
 }
 
-export interface IConnectedCB{
-    instance: HTMLElement,
-}
+
 
 export interface IPropChg{
     key: string,
@@ -102,37 +41,9 @@ export interface IPropChg{
     
 }
 
-export interface IDisconnectedCB {
-    instance: HTMLElement
-}
-
-export interface INewPropagator {
-    instance: HTMLElement,
-    propagator: IPropagator,
-}
-
-
-
-
-
-// export interface CEArgs<TProps = any, TActions = TProps, TPropInfo = PropInfo, TAction extends Action<TProps> = Action<TProps>> extends DefineArgs<TProps, TActions, TPropInfo, TAction>{
-//     definer?: IDefine,
-//     servers?: CEServiceClasses
-//     services?: CEServices,
-//     asides?: any
-// }
-
 export interface DynamicTransform {
     scope?: Scope,
     noCache?: boolean,
-}
-
-export interface IPE {
-    do(instance: EventTarget, originMethodName: string, vals: [any, ActionOnEventConfigs] ): Promise<void>,
-}
-
-export interface IPET extends IPE{
-    re(instance: EventTarget, originMethodName: string, vals: [any, ActionOnEventConfigs, DynamicTransform] ): Promise<void>,
 }
 
 export interface DefineArgs<MixinCompositeProps = any, MixinCompositeActions = MixinCompositeProps, TPropInfo = PropInfo, TAction extends Action = Action<MixinCompositeProps>>{
@@ -185,6 +96,7 @@ export interface IshConfig<TProps = any, TActions = TProps, ETProps = TProps>{
     compacts?: Compacts<TProps, TActions>;
     hitch?: Hitches<TProps, TActions>;
     handlers?: Handlers<ETProps, TActions>;
+    extHandlers?: ExtHandlers<TProps>;
     positractions?: Positractions<TProps, TActions>;
     
     isSleepless?: boolean;
@@ -192,6 +104,9 @@ export interface IshConfig<TProps = any, TActions = TProps, ETProps = TProps>{
     inScopeXForms?: {[key: CSSQuery]: XForm<TProps, TActions>};
     ishListCountProp?: keyof TProps & string;
     defaultIshList?: any[];
+    mapParentScopeRefTo?: keyof TProps & string;
+    mapElTo?: keyof TProps & string; 
+    ignoreItemProp?: boolean;
 }
 export interface OConfig<TProps = any, TActions = TProps, ETProps = TProps> extends IshConfig<TProps, TActions, ETProps>{
     mainTemplate?: string | HTMLTemplateElement;
@@ -200,8 +115,11 @@ export interface OConfig<TProps = any, TActions = TProps, ETProps = TProps> exte
 export type Positractions<TProps = any, TActions = TProps> = 
     | Array<Positraction<TProps, TActions>>;
 
-export interface Positraction<TProps = any, TActions = TProps> extends LogicOp<TProps> {
-    do: Function | (keyof TActions & string),
+export interface Positraction<TProps = any, TActions = TProps> extends LogicOp<TProps, TActions> {
+    do: 
+        | Function 
+        | (keyof TActions & string)
+        | PropsToProps<TProps>
     ifKeyIn?: Array<keyof TProps & string>,
     ifAllOf?: Array<keyof TProps & string>,
     //ifNoneOf: Array<keyof TProps & string>,
@@ -225,8 +143,16 @@ export type Compacts<TProps = any, TActions = TProps> =
 ;
 
 export type Hitches<TProps = any, TActions = TProps> = 
-    | Partial<{[key in `when_${keyof TProps & string}_emits_${keyof TProps & string}_inc_${keyof TProps & string}_by`]: number}>
-    
+    | Partial<{[key in `when_${keyof TProps & string}_emits_${keyof TProps & string}_inc_${keyof TProps & string}_by`]: number}>   
+;
+
+export interface ExtHandlerOptions {
+    on: string,
+    stopPropagation?: boolean,
+}
+
+export type ExtHandlers<ETProps = any> =
+    | Partial<{[key in `inc_${keyof ETProps & string}` & string]: ExtHandlerOptions}>
 ;
 
 export type Handlers<ETProps = any, TActions = ETProps> = 
@@ -239,7 +165,9 @@ export type ListOfLogicalExpressions<MCProps = any> = (keyof MCProps | LogicOp<M
 export type LogicOpProp<MCProps = any> = 
     |LogicOp<MCProps> | (keyof MCProps & string)[];
 
-export interface LogicOp<Props = any>{
+type PropsToProps<Props> = (x: Props) => (Promise<Partial<Props>> | Partial<Props>)
+
+export interface LogicOp<Props = any, TActions = Props>{
     /**
      * Supported by trans-render
      */
@@ -259,7 +187,10 @@ export interface LogicOp<Props = any>{
 
     delay?: number,
 
-    do?: (x: Props) => (Promise<Partial<Props>> | Partial<Props>)
+    do?:
+        | Function
+        | (keyof TActions & string)
+        | PropsToProps<Props>
 
 }
 
@@ -319,6 +250,7 @@ export interface PropInfo<TProps=any, TActions=any> extends IshPropInfo<TProps, 
     parse?: boolean;
     def?: any;
     attrName?: string;
+    reflect?: boolean;
     /**
      * form associated read only property
      * https://web.dev/articles/more-capable-form-controls#:~:text=Form-associated%20custom%20elements%20aim%20to%20bridge%20the%20gap,associated%20with%20the%20form%2C%20like%20a%20browser-provided%20control.
@@ -439,7 +371,7 @@ export interface RoundaboutReady{
      * If truthy, can call await awake() before processing should resume
      * [TODO]
      */  
-    readonly sleep?: number,
+    readonly sleep?: number | undefined;
 
     awake(): Promise<void>;
 

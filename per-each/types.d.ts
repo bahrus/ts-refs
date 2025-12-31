@@ -3,20 +3,25 @@ import { HasIshList } from '../trans-render/dss/types';
 
 export interface EndUserProps extends IEnhancement{
     each: string;
+    
+
     mapIdxTo: string;
     idxStart: number;
     idleTimeout: number;
     options: Partial<EndUserProps>;
+    // parsedStatements: Array<LoopingStatement>,
+    // rawStatements?: Array<string>,
 }
 
 export interface AllProps extends EndUserProps{
-    listProp: string;
-    itemProp: string;
-    ish: HasIshList;
-    ishContainer: Element;
-    itemTemplate: HTMLTemplateElement;
+    listScope: string;
+    //itemProp: string;
+    itemScopes: Array<string>;
+    itemTemplates: Array<HTMLTemplateElement>;
     emc: any;
-    //updateCnt: number;
+    //loopingParameters: Array<LoopingParameters>,
+    ish: any;
+    ishContainer: Element;
 }
 
 export type AP = AllProps;
@@ -32,4 +37,15 @@ export interface Actions{
     init(self: BAP): ProPAP;
     hydrate(self: BAP)
 }
+
+// export interface LoopingStatement {
+//     listProp?: string;
+//     itemProp: string;
+// }
+
+// export interface LoopingParameters extends LoopingStatement {
+//     listProp: string;
+//     ish: any;
+//     ishContainer: Element;
+// }
 

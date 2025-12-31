@@ -1,12 +1,14 @@
 import {IEnhancement, BEAllProps, EMC} from '../trans-render/be/types';
 
 export interface EndUserProps extends IEnhancement{
-    eventName: string, //TODO
+    level: 
+        | 'log'
+        | 'warn'
+        | 'error',
+    ignore: string[]
 }
 
-export interface AllProps extends EndUserProps{
-    emc: EMC<any, AllProps>,
-}
+export interface AllProps extends EndUserProps{}
 
 export type AP = AllProps;
 
@@ -16,7 +18,8 @@ export type ProPAP = Promise<PAP>;
 
 export type BAP = AP & BEAllProps;
 
-export interface Actions{
+export interface Actions {
     hydrate(self: BAP): PAP;
-    retire(self: BAP): void;
 }
+
+export type dispatch = (event: Event) => boolean ;

@@ -25,6 +25,5 @@ export interface Actions{
 }
 
 export interface IncludeRule {
-    remoteSpecifierString?: string,
-    remoteSpecifier: Specifier,
+    idref: string,
 }

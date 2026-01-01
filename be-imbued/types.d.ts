@@ -24,7 +24,6 @@ export interface Actions{
 }
 
 export interface ImbueRule {
-    remoteSpecifierString?: string,
-    remoteSpecifier: Specifier,
+    idref: string
 }
 

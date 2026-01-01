@@ -20,10 +20,10 @@ export type BAP = AP & BEAllProps;
 
 
 export interface Actions{
-    hydrate(self: BAP): Promise<PAP>;
-    include(self: BAP): void;
+    hydrate(self: BAP): Promise<PAP>
+    include(self: BAP): void
 }
 
 export interface IncludeRule {
-    idref: string,
+    idref: string
 }

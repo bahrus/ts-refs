@@ -78,7 +78,7 @@ export interface WCConfig<TProps = any, TActions = TProps, TPropInfo = PropInfo,
      */
     keyQueries?: string[];
     formAss?: boolean;
-    compacts?: Compacts<TProps>;
+    compacts?: Compacts<TProps, TActions>;
     
 }
 
